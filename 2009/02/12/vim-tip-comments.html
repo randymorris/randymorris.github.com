@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vim Tip: Comments -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Vim Tip: Comments</a></h1>
+    </header>
+    <p class='update'> I've posted a follow up to this tip that details a
+quicker way to comment in vim by using a simple function.  Check it
+out <a href='/2009/09/22/comments-revisited.html'>here</a>.
+</p>
+<p>From the &#8220;holy crap why didn&#8217;t I find this before&#8221; category&#8230;</p>
+
+<p>When editing in vim, if you find you need to comment out a block of code, try the following:</p>
+
+<ol>
+<li>Jump to the start of the line at the top or bottom of the block</li>
+
+<li>Press <code>Ctrl+v</code> to enter Visual Block mode</li>
+
+<li>Navigate to the end of the block. You&#8217;ll notice only the first column is highlighted (for the most part)</li>
+
+<li>Press <code>I</code> to enter Insert mode before the first non-blank character on the line</li>
+
+<li>Type whatever the comment syntax is for your language, eg. &#8220;//&#8221;</li>
+
+<li>Press <code>Esc</code> to get back to Normal mode.</li>
+</ol>
+
+<p>You can follow similar steps to uncomment the same block,<code>Ctrl+v</code> to highlight the comment characters followed by <code>x</code> or any deletion command to remove the comment.</p>
+    <footer>
+      <p>
+        Posted on <time date="2009-02-12 00:00:00 -0500">February 12, 2009</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

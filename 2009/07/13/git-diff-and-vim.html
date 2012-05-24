@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Git Diff and Vim -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Git Diff and Vim</a></h1>
+    </header>
+    <p>Now that I&#8217;ve seen the light and begun using git instead of subversion, I thought I&#8217;d post a follow up to my <a href='/2008/12/22/3/svn-diff-and-vim.html'>previous post</a> about using vimdiff with subversion. That has by far been the most popular post on this site, so hopefully this will reach and help some of my fellow git users out there.</p>
+
+<p>Setting up git to use vimdiff is virtually the same as with subversion. You need a vimdiff wrapper, and you need to tell git to use that wrapper as the diff program. First, the wrapper, <em>gitvimdiff</em> (anywhere in your path):</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>2</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>5</span><span class='k'>}</span>
+</code></pre>
+</div>
+<p>After that, just need to edit your <em>~/.gitconfig</em> file:</p>
+<div class='highlight'><pre><code class='ini'><span class='k'>[diff]</span>
+  <span class='na'>external</span> <span class='o'>=</span> <span class='s'>gitvimdiff</span>
+<span class='k'>[pager]</span>
+  <span class='na'>diff</span> <span class='o'>=</span>
+</code></pre>
+</div>
+<p>Big thanks to <a href='http://technotales.wordpress.com/2009/05/17/git-diff-with-vimdiff/'>Jonathan Palardy</a> for the info, I&#8217;ve just reproduced it here to help spread the word.</p>
+    <footer>
+      <p>
+        Posted on <time date="2009-07-13 00:00:00 -0400">July 13, 2009</time>
+        
+        <span>Tagged <a href="/tags/git.html">git</a>, <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

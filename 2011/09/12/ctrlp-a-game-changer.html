@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CtrlP - A Game Changer -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">CtrlP - A Game Changer</a></h1>
+    </header>
+    <p>Recently I was searching for a fuzzy-finding plugin to make working with projects a little easier. I <a href='/2011/08/01/poor-mans-fuzzy-finder.html'>posted a quick hack</a> that I still use every now and then, however I&#8217;ve recently discovered a rather new plugin called <a href='https://github.com/kien/ctrlp.vim'>CtrlP</a>.</p>
+
+<p>For the uninitiated, fuzzy-finding plugins allow you to open a file by only typing enough pieces of the path to uniquely identify a file. Sometimes this is as little as one or two characters. I wasn&#8217;t really sold on this behavior until I tried using them at work where we have many files with similar names. A plugin like this makes dealing with such situations much easier to deal with than tab-completion alone.</p>
+
+<p>CtrlP is written entirely in vimscript. This is a big plus for me because many of the machines at work aren&#8217;t built with +python or +ruby which <a href='https://github.com/jamis/fuzzyfinder_textmate/'>some</a> <a href='https://github.com/sjbach/lusty/'>of</a> <a href='http://wincent.com/products/command-t/'>the</a> other fuzzy-finding plugins require. Although it&#8217;s written in vimscript it caches directory and filenames for larger directories and can be configured to always use a cache. This means it&#8217;s quite slow on first launch in larger directories but is very fast on subsequent calls.</p>
+
+<p>Another big plus is the configurability CtrlP offers. There are (currently) 22 options provided to configure everything from mappings to how caching should work. You can even delegate the file indexing out to a faster external mechanism if you so choose.</p>
+
+<p>Couple all of this with an active and responsive developer that provides excellent documentation and you&#8217;ve got my current favorite script.</p>
+    <footer>
+      <p>
+        Posted on <time date="2011-09-12 00:00:00 -0400">September 12, 2011</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

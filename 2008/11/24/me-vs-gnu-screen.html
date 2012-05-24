@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Me vs. GNU Screen -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Me vs. GNU Screen</a></h1>
+    </header>
+    <p>I have beaten <a href='http://www.gnu.org/software/screen/'>gnu screen</a> into submission. For ages it has refused to let me start with screen number 1 instead of 0. Binding <code>c</code> to <code>screen 1</code> was supposed to fix this. The cause? My fingers were too fast. Turns out that I need to also bind <code>Ctrl+c</code>. For your convenience, copy and paste the below into your <em>~/.screenrc</em> if you have a similar problem.</p>
+<div class='highlight'><pre><code class='text'>bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+</code></pre>
+</div>
+    <footer>
+      <p>
+        Posted on <time date="2008-11-24 00:00:00 -0500">November 24, 2008</time>
+        
+        <span>Tagged <a href="/tags/gnu-screen.html">gnu-screen</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

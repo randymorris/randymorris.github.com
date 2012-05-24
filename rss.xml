@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>rsontech.net</title>
+    <link>http://rsontech.net/feeds/rss/</link>
+    <description>All articles on rsontech.net</description>
+    <atom:link href="http://rsontech.net/feeds/rss/" rel="self"/>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 May 2012 00:00:00 -0400</lastBuildDate>
+    
+    <item>
+      <title>Migrated to Jekyll</title>
+      <link>http://rsontech.net//2012/05/22/migrated-to-jekyll.html</link>
+      <description>
+        &lt;p&gt;If you&amp;#8217;re reading this that means the site&amp;#8217;s transition to Jekyll is complete. Over the past couple of days I&amp;#8217;ve been working on migrating my old &lt;a href='http://flask.pocoo.org/'&gt;flask&lt;/a&gt;+&lt;a href='http://packages.python.org/Flask-FlatPages/'&gt;flatpages&lt;/a&gt; implementation over to &lt;a href='http://jekyllrb.com'&gt;Jekyll&lt;/a&gt; and I will now be hosting everything on GitHub. Everything is pretty much the same with a few minor visual changes.&lt;/p&gt;
+
+&lt;p&gt;Comment threads will be broken until I get the time to remap them with Disqus but eventually I&amp;#8217;ll have all four comments back to their respective articles.&lt;/p&gt;
+
+&lt;p&gt;As always, please let me know if you notice any residual issues.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Tue, 22 May 2012 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2012/05/22/migrated-to-jekyll.html</guid>
+    </item>
+    
+    <item>
+      <title>Ctrl-C is not Escape</title>
+      <link>http://rsontech.net//2012/05/13/ctrl-c-is-not-escape.html</link>
+      <description>
+        &lt;p&gt;I&amp;#8217;d like to think I&amp;#8217;m not one to be pedantic about things, but there&amp;#8217;s one common misconception that has been making the rounds that annoys me to no end. &lt;em&gt;Ctrl-c&lt;/em&gt; is not equivalent to &lt;em&gt;Escape&lt;/em&gt;. There are two key differences that can be demonstrated by the following two snippets.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ctrl-c skips any pending insert mode abbreviations.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In a vim session type the following:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='p'&gt;:&lt;/span&gt;iabbrev teh the
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This is a common misspelling and an oft used abbreviation. Now enter insert mode and type &lt;code&gt;teh&amp;lt;Space&amp;gt;&lt;/code&gt;. Notice that the space completed the abbreviation and it now says &lt;code&gt;the&lt;/code&gt; instead of &lt;code&gt;teh&lt;/code&gt;. Now do the same but instead insert &lt;code&gt;teh&amp;lt;Esc&amp;gt;&lt;/code&gt;. The abbreviation still happens. Do the same with &lt;code&gt;teh&amp;lt;Ctrl-c&amp;gt;&lt;/code&gt;. The abbreviation is not completed.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ctrl-c does not fire the InsertLeave autocmd event.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Dump the following snipped into &amp;#8220;cursorline.vim&amp;#8221; and launch vim with &amp;#8220;vim -u cursorline.vim&amp;#8221;.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;augroup CursorLine     
+    autocmd&lt;span class='p'&gt;!&lt;/span&gt;
+    autocmd &lt;span class='nb'&gt;InsertEnter&lt;/span&gt; * &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;nocursorline&lt;/span&gt;
+    autocmd &lt;span class='nb'&gt;InsertLeave&lt;/span&gt; * &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;cursorline&lt;/span&gt;
+augroup END
+&lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;cursorline&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This snippet enables &amp;#8216;cursorline&amp;#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with &lt;em&gt;Esc&lt;/em&gt; you&amp;#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with &lt;em&gt;Ctrl-c&lt;/em&gt; you&amp;#8217;ll see that it is never re-enabled.&lt;/p&gt;
+
+&lt;p&gt;These two things probably don&amp;#8217;t seem that important to you, but what about the developers of the plugins you use? If you&amp;#8217;re using a plugin that relies on either of these two features you&amp;#8217;re risking some functionality breaking by using &lt;em&gt;Ctrl-c&lt;/em&gt;. If you must use something other than &lt;em&gt;Escape&lt;/em&gt;, use &lt;em&gt;Ctrl-[&lt;/em&gt; instead as these &lt;i&gt;are&lt;/i&gt; equivalent.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2012/05/13/ctrl-c-is-not-escape.html</guid>
+    </item>
+    
+    <item>
+      <title>Emacs Update</title>
+      <link>http://rsontech.net//2012/05/09/emacs-update.html</link>
+      <description>
+        &lt;p&gt;I figured it&amp;#8217;s about time I post an update regarding my emacs journey now that I&amp;#8217;ve had some time to acclimate myself to a new way of thinking. This is not so much a blog post as it is just a couple of lists showing where I am in my comfort level with emacs thus far.&lt;/p&gt;
+
+&lt;h2 id='things_i_like'&gt;Things I like:&lt;/h2&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;Modes&lt;/dt&gt;
+
+&lt;dd&gt;I never thought I would say it but emacs&amp;#8217; modes have finally grown on me. It took a while to get used to but I get it now.&lt;/dd&gt;
+
+&lt;dt&gt;package.el&lt;/dt&gt;
+
+&lt;dd&gt;Emacs 24 comes with a built-in package manager for adding additional features from multiple sources. This is similar to &lt;a href='https://github.com/gmarik/vundle'&gt;Vundle&lt;/a&gt; or &lt;a href='https://github.com/MarcWeber/vim-addon-manager'&gt;vim-addon-manager&lt;/a&gt; except it comes bundled with emacs.&lt;/dd&gt;
+
+&lt;dt&gt;elisp&lt;/dt&gt;
+
+&lt;dd&gt;As much as I may suck at it, I really love elisp. As I learn more and more about lisp I&amp;#8217;m starting to believe that elisp is the only exposure I&amp;#8217;m going to get to lisp programming in the real world. It helps too that vimscript is just &lt;i&gt;awful&lt;/i&gt;.&lt;/dd&gt;
+
+&lt;dt&gt;The yank ring&lt;/dt&gt;
+
+&lt;dd&gt;There is a &lt;a href='http://www.vim.org/scripts/script.php?script_id=1234'&gt;plugin&lt;/a&gt; to emulate this in vim but I never really gave it a chance. My only gripe is that it stomps all over my beloved tmux escape key.&lt;/dd&gt;
+
+&lt;dt&gt;Narrowing&lt;/dt&gt;
+
+&lt;dd&gt;Again, this is available in vim with a &lt;a href='https://github.com/chrisbra/NrrwRgn'&gt;plugin&lt;/a&gt;. This is something I never tried at all because I thought it was useless. Now that I&amp;#8217;m fumbling around in emacs it&amp;#8217;s nice to be able to focus only on a small portion of code at a time if I&amp;#8217;m making sweeping changes. I don&amp;#8217;t have to worry about accidentally changing code I didn&amp;#8217;t mean to. I&amp;#8217;m sure there are better uses for this but right now that&amp;#8217;s where it&amp;#8217;s helped me out.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h2 id='things_i_dont_like'&gt;Things I don&amp;#8217;t like:&lt;/h2&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;Ctrl-U&lt;/dt&gt;
+
+&lt;dd&gt;This may just be me being stubborn. I can&amp;#8217;t stand that for many interactive commands I can/have to change their behavior by passing a prefix argument. I&amp;#8217;d much rather just have a different binding for the different behavior.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h2 id='what_you_can_help_me_with'&gt;What you can help me with:&lt;/h2&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;Semantic blocks of text&lt;/dt&gt;
+
+&lt;dd&gt;I touched on this in my previous post but it&amp;#8217;s still a sore point for me. In vim these were called text-objects and they were the number one feature for speeding me up. The &lt;a href='https://github.com/magnars/expand-region.el'&gt;expand-region&lt;/a&gt; script has made this a little less of a problem but I&amp;#8217;m still up for hearing better ways of doing things.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;I&amp;#8217;ve left lots of things off but I think these sum up my current status pretty well. I&amp;#8217;m always looking for tips on things I should try, especially on things that aid in navigating around code more quickly. If you have any suggestions please let me know. As always, my current configs can be found on &lt;a href='https://github.com/rson/emacs.d'&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Wed, 09 May 2012 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2012/05/09/emacs-update.html</guid>
+    </item>
+    
+    <item>
+      <title>Changing My Work Flow: Adding Emacs</title>
+      <link>http://rsontech.net//2012/03/07/changing-my-work-flow-adding-emacs.html</link>
+      <description>
+        &lt;p class='update'&gt;
+&lt;strong&gt;Disclaimer:&lt;/strong&gt;
+
+I'm new to the Emacs community so some of the following terminology
+may be incorrect.  Please correct me if there is a more proper way to
+describe anything I've mentioned here.
+
+&lt;/p&gt;
+&lt;p&gt;Over the past few months I&amp;#8217;ve realized that I am far too easily distracted from my tasks at work. After a little thinking I came to the conclusion that part of my problem was my work flow. I generally had two or three terminals up bouncing around virtual machines and servers so I could test as I worked and inevitably I would end up on my home server chatting away on IRC for large chunks of time. While most people may be able to correct this with a little discipline, I&amp;#8217;ve decided to try something different. One of my coworkers recently made the switch to Emacs and since I&amp;#8217;ve always been curious about the features touted by Emacs users I thought I&amp;#8217;d give it a try too. I instantly saw a huge difference in my focus and concentration.&lt;/p&gt;
+
+&lt;p&gt;Because the driving force behind this change was focus, I have tried to stay away from the typical &amp;#8220;Emacs can and should do everything&amp;#8221; point of view. There are really only two main features that I&amp;#8217;ve been using that go above and beyond a text editor: &lt;em&gt;ansi-term&lt;/em&gt; and &lt;em&gt;TRAMP&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id='ansiterm'&gt;ansi-term&lt;/h2&gt;
+
+&lt;p&gt;As the name suggests, ansi-term is a terminal emulator that can be run inside Emacs. It works almost like any other buffer so moving between normal buffers and the terminal is virtually seamless. This is something I wanted in vim for ages, I even &lt;a href='/2010/05/07/help-shell-window.html'&gt;ranted about it&lt;/a&gt; here once before.&lt;/p&gt;
+
+&lt;p&gt;While it&amp;#8217;s possible to open multiple instances of ansi-term, I have limited myself to only having one running at a time. This has helped me concentrate on one task because I am no longer hopping between different terminals with different ssh sessions running. One terminal, one task. Having a terminal in the editor also allows me to do all my scm tasks without leaving Emacs as well, without having to use some fancy git/svn/whatever mode. I just use the normal command line interface I&amp;#8217;m used to.&lt;/p&gt;
+
+&lt;h2 id='tramp'&gt;TRAMP&lt;/h2&gt;
+
+&lt;p&gt;TRAMP is a really poorly constructed acronym for &amp;#8220;Transparent Remote (file) Access, Multiple Protocol&amp;#8221;. Where the acronym lacks, the execution excels. For you vim users, TRAMP is what netrw really should be. I am able to &amp;#8220;transparently&amp;#8221; edit files on servers without being nagged about passwords or temp files every time I make a change. This is very convenient for me as I do my development almost exclusively on one of our dev servers. I no longer have to choose between opening an ssh session and editing with the remote editor or using sshfs to mount the remote filesystem locally to get a decent editing experience.&lt;/p&gt;
+
+&lt;p&gt;The most important part about TRAMP and ansi-term is that it&amp;#8217;s rather easy to make them work together. Using a tip from the &lt;a href='http://www.emacswiki.org/emacs/AnsiTermHints#toc4'&gt;EmacsWiki&lt;/a&gt; I added a few lines to my bashrc to allow &lt;code&gt;C-x C-f&lt;/code&gt; to automatically open up in TRAMP format in the &lt;code&gt;$PWD&lt;/code&gt; of the remote machine I&amp;#8217;m connected to in ansi-term. This speeds up the process of opening files considerably and is pretty much on par with how I worked with vim previously. The stripped version I use is below.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='k'&gt;function &lt;/span&gt;&lt;span class='nb'&gt;set&lt;/span&gt;-eterm-dir &lt;span class='o'&gt;{&lt;/span&gt;
+    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTu&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$LOGNAME&amp;quot;&lt;/span&gt;
+    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTc&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$(pwd)&amp;quot;&lt;/span&gt;
+    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTh&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$(hostname -f)&amp;quot;&lt;/span&gt;
+    &lt;span class='nb'&gt;history&lt;/span&gt; -a
+&lt;span class='o'&gt;}&lt;/span&gt;
+
+&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;[&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$TERM&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;eterm-color&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;]&lt;/span&gt;; &lt;span class='k'&gt;then&lt;/span&gt;
+&lt;span class='k'&gt;    &lt;/span&gt;&lt;span class='nv'&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nb'&gt;set&lt;/span&gt;-eterm-dir
+&lt;span class='k'&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Adding this to the remote machine&amp;#8217;s bashrc will enable TRAMP to follow the working directory in ansi-term.&lt;/p&gt;
+
+&lt;h2 id='other_benefits'&gt;Other benefits&lt;/h2&gt;
+
+&lt;p&gt;There are a couple of features that I would like to dive in to eventually but haven&amp;#8217;t looked too much at yet. Having a true programming language at my disposal (&lt;a href='http://en.wikipedia.org/wiki/Emacs_Lisp'&gt;elisp&lt;/a&gt;) when customizing my editor is &lt;strong&gt;very&lt;/strong&gt; appealing after spending years of dealing with vimscript. I also would like to look in to Org-mode as it may be another tool to help keep me on track at work.&lt;/p&gt;
+
+&lt;h2 id='moving_forward'&gt;Moving forward&lt;/h2&gt;
+
+&lt;p&gt;Adding Emacs to my work flow has been great for my development tasks but I&amp;#8217;m not ready to move on completely. I fully intend to continue using vim when I&amp;#8217;m logged on to a test or production machine, and really any time I&amp;#8217;m not doing development. I have been using this work flow for the past couple of weeks and it seems pretty natural to me now other than the occasional &lt;code&gt;C-x s&lt;/code&gt; or &lt;code&gt;C-x f&lt;/code&gt; while in vim.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or suggestions feel free to ping me in the comments or in the usual places. Feel free to watch my &lt;a href='https://github.com/rson/emacs.d'&gt;.emacs.d&lt;/a&gt; grow as I continue to go through this process.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 -0500</pubDate>
+      <guid>http://rsontech.net//2012/03/07/changing-my-work-flow-adding-emacs.html</guid>
+    </item>
+    
+    <item>
+      <title>Idiomatic vimscript</title>
+      <link>http://rsontech.net//2011/11/07/idiomatic-vimscript.html</link>
+      <description>
+        &lt;p&gt;For those who may be interested, I&amp;#8217;ve created a repo on GitHub where I plan to dump small functions and scripts I write while helping people on irc or on Stack Overflow. In these scripts I will try my hardest to use &amp;#8220;best practices&amp;#8221; so they can be used as examples when writing your own scripts.&lt;/p&gt;
+
+&lt;p&gt;Please let me know if you notice anything you would do differently. The point of this is to serve as digestable examples of proper vimscript.&lt;/p&gt;
+
+&lt;p&gt;Check it out at &lt;a href='http://github.com/rson/vimscript-snippets'&gt;vimscript-snippets&lt;/a&gt;.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Mon, 07 Nov 2011 00:00:00 -0500</pubDate>
+      <guid>http://rsontech.net//2011/11/07/idiomatic-vimscript.html</guid>
+    </item>
+    
+    <item>
+      <title>CtrlP - A Game Changer</title>
+      <link>http://rsontech.net//2011/09/12/ctrlp-a-game-changer.html</link>
+      <description>
+        &lt;p&gt;Recently I was searching for a fuzzy-finding plugin to make working with projects a little easier. I &lt;a href='/2011/08/01/poor-mans-fuzzy-finder.html'&gt;posted a quick hack&lt;/a&gt; that I still use every now and then, however I&amp;#8217;ve recently discovered a rather new plugin called &lt;a href='https://github.com/kien/ctrlp.vim'&gt;CtrlP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For the uninitiated, fuzzy-finding plugins allow you to open a file by only typing enough pieces of the path to uniquely identify a file. Sometimes this is as little as one or two characters. I wasn&amp;#8217;t really sold on this behavior until I tried using them at work where we have many files with similar names. A plugin like this makes dealing with such situations much easier to deal with than tab-completion alone.&lt;/p&gt;
+
+&lt;p&gt;CtrlP is written entirely in vimscript. This is a big plus for me because many of the machines at work aren&amp;#8217;t built with +python or +ruby which &lt;a href='https://github.com/jamis/fuzzyfinder_textmate/'&gt;some&lt;/a&gt; &lt;a href='https://github.com/sjbach/lusty/'&gt;of&lt;/a&gt; &lt;a href='http://wincent.com/products/command-t/'&gt;the&lt;/a&gt; other fuzzy-finding plugins require. Although it&amp;#8217;s written in vimscript it caches directory and filenames for larger directories and can be configured to always use a cache. This means it&amp;#8217;s quite slow on first launch in larger directories but is very fast on subsequent calls.&lt;/p&gt;
+
+&lt;p&gt;Another big plus is the configurability CtrlP offers. There are (currently) 22 options provided to configure everything from mappings to how caching should work. You can even delegate the file indexing out to a faster external mechanism if you so choose.&lt;/p&gt;
+
+&lt;p&gt;Couple all of this with an active and responsive developer that provides excellent documentation and you&amp;#8217;ve got my current favorite script.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Mon, 12 Sep 2011 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2011/09/12/ctrlp-a-game-changer.html</guid>
+    </item>
+    
+    <item>
+      <title>Lowercase User Defined Commands</title>
+      <link>http://rsontech.net//2011/08/03/lowercase-user-defined-commands.html</link>
+      <description>
+        &lt;p&gt;I&amp;#8217;ve never liked the fact that vim doesn&amp;#8217;t allow users to define commands that start with a lowercase letter. Every time I create one I end up having to also make a &lt;code&gt;cnoreabbrev&lt;/code&gt; that lets me use my lowercase version. This has the ugly side effect of having text transform as you type. It also will make the cursor jump around if you&amp;#8217;re doing more than changing the case of things. For example:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;cnoreabbrev ack ack&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;\&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;esubstitute&lt;span class='p'&gt;(&lt;/span&gt;getcmdline&lt;span class='p'&gt;(),&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;^ack\&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Ack!&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This allows me to type &amp;#8220;:ack &amp;#8221; and have it automatically change to &amp;#8220;:Ack! &amp;#8221; as soon as I press &lt;code&gt;&amp;lt;space&amp;gt;&lt;/code&gt;. The text changes automatically and my cursor jumps to the right two spaces instead of just one. Obviously this is a small inconvenience but it is an annoying one for me.&lt;/p&gt;
+
+&lt;p&gt;I have come up with a bit of a hacky workaround for this that allows more transparency and I thought I&amp;#8217;d share in case someone out there is as stubborn as me. The following function will run a substitution on the current command line:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='k'&gt;function&lt;/span&gt;&lt;span class='p'&gt;!&lt;/span&gt; CommandLineSubstitute&lt;span class='p'&gt;()&lt;/span&gt;
+    &lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt; &lt;span class='p'&gt;=&lt;/span&gt; getcmdline&lt;span class='p'&gt;()&lt;/span&gt;
+    &lt;span class='k'&gt;if&lt;/span&gt; exists&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;g:command_line_substitutes&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; [&lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;v&lt;/span&gt;] &lt;span class='k'&gt;in&lt;/span&gt; &lt;span class='k'&gt;g&lt;/span&gt;:command_line_substitutes
+            &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='k'&gt;match&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;cl&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;==&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt;
+                &lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt; &lt;span class='p'&gt;=&lt;/span&gt; substitute&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;cl&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;v&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+                &lt;span class='k'&gt;break&lt;/span&gt;
+            &lt;span class='k'&gt;endif&lt;/span&gt;
+        &lt;span class='k'&gt;endfor&lt;/span&gt;
+    &lt;span class='k'&gt;endif&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt;
+&lt;span class='k'&gt;endfunction&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This function reads search/replace pairs from a global variable you set in your &lt;code&gt;.vimrc&lt;/code&gt;. That global variable looks something like this:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='c'&gt;&amp;quot; note that line continuation is only possible without &amp;#39;C&amp;#39; in &amp;#39;cpoptions&amp;#39;&lt;/span&gt;
+&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;g&lt;/span&gt;:command_line_substitutes &lt;span class='p'&gt;=&lt;/span&gt; [
+    \ [&lt;span class='s1'&gt;&amp;#39;^ack &amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Ack! &amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
+    \ [&lt;span class='s1'&gt;&amp;#39;^ee \(.\+\)&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;e **/\1*&amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
+    \ [&lt;span class='s1'&gt;&amp;#39;^h &amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;vertical help &amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
+\]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The last thing we need to do is a single map to call this function whenever we press &lt;code&gt;&amp;lt;enter&amp;gt;&lt;/code&gt; on the command line:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;cnoremap &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;\&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;eCommandLineSubstitute&lt;span class='p'&gt;()&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;While this configuration is a bit ugly, it saves me the inconvenience of having a bunch of abbreviations lying around and makes the substitution transparent to me.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve only been using this for a few hours but I haven&amp;#8217;t hit any issues thus far. If you try this out and have problems or if you know of a way to simplify it please let me know in the comments.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Wed, 03 Aug 2011 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2011/08/03/lowercase-user-defined-commands.html</guid>
+    </item>
+    
+    <item>
+      <title>Poor Man's Fuzzy Finder</title>
+      <link>http://rsontech.net//2011/08/01/poor-mans-fuzzy-finder.html</link>
+      <description>
+        &lt;p&gt;I recently realized I have been using a very simple replacement for the &lt;a href='https://wincent.com/products/command-t'&gt;Command-T&lt;/a&gt;/&lt;a href='https://bitbucket.org/ns9tks/vim-fuzzyfinder/'&gt;Fuzzy Finder&lt;/a&gt; type plugins for quite some time, however I had never made it convenient for myself to do so. Today I pushed a small change to my &lt;code&gt;.vimrc&lt;/code&gt; that I think will make things a little easier for me.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;ff&lt;/span&gt; :&lt;span class='k'&gt;e&lt;/span&gt; **/*&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
+&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;fp&lt;/span&gt; :&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;&lt;span class='k'&gt;p&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using &lt;code&gt;&amp;lt;leader&amp;gt;ff&lt;/code&gt;. If there are multiple files found that match the glob, vim will throw &lt;code&gt;E77&lt;/code&gt;. If that happens I can use &lt;code&gt;&amp;lt;leader&amp;gt;fp&lt;/code&gt; to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.&lt;/p&gt;
+
+&lt;p&gt;Obviously this solution is nowhere near as complete as a plugin dedicated to this task, however it&amp;#8217;s as complete as I need it to be.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Mon, 01 Aug 2011 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2011/08/01/poor-mans-fuzzy-finder.html</guid>
+    </item>
+    
+    <item>
+      <title>My "New" Keyboard</title>
+      <link>http://rsontech.net//2011/07/28/new-keyboard.html</link>
+      <description>
+        &lt;p&gt;Lately I&amp;#8217;ve been doing more programming at home on the iMac and I&amp;#8217;ve been having some very noticeable wrist pains as a result of using that tiny keyboard. Since I use a &lt;a href='http://www.kinesis-ergo.com/freestyle.htm'&gt;fully split keyboard&lt;/a&gt; at work I figured I&amp;#8217;d go ahead and find another one I could use at home. After a bit of research I ended up grabbing another Kinesis off eBay. I would say it&amp;#8217;s a Kinesis classic, however there is no branding on it whatsoever. My guess is that it was their original model.&lt;/p&gt;
+
+&lt;p&gt;Almost everyone who has seen it thus far thinks I&amp;#8217;m crazy, here are some pictures so you can see why:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='/static/img/pictures/IMG_20110727_192932.jpg'&gt;&lt;img alt='keyboard full' src='/static/img/pictures/IMG_20110727_192932.thumb.jpg' /&gt;&lt;/a&gt; &lt;a href='/static/img/pictures/IMG_20110727_193034-1.jpg'&gt;&lt;img alt='keyboard side' src='/static/img/pictures/IMG_20110727_193034-1.thumb.jpg' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I must say I&amp;#8217;m quite happy with it so far. I&amp;#8217;m having a lot of trouble with the curly-braces/square-brackets and the backspace keys. I&amp;#8217;ve always hit the spacebar with my left thumb so now I&amp;#8217;m gettinloosentencethaloolikthis. Once that muscle memory is gone I think I&amp;#8217;ll be fine. I already feel almost up to speed when typing normal text but programming is significantly more difficult at this point.&lt;/p&gt;
+
+&lt;p&gt;Overall I think this was a good purchase. Maybe later this year I&amp;#8217;ll buy one of the more modern (and much more expensive) models.&lt;/p&gt;
+
+&lt;p&gt;Oh, and for those who may be interested, here&amp;#8217;s the label:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='/static/img/pictures/IMG_20110727_193408.jpg'&gt;&lt;img alt='keyboard label' src='/static/img/pictures/IMG_20110727_193408.thumb.jpg' /&gt;&lt;/a&gt;&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2011/07/28/new-keyboard.html</guid>
+    </item>
+    
+    <item>
+      <title>Shell Tip: Last Argument</title>
+      <link>http://rsontech.net//2011/07/10/shell-tip-last-argument.html</link>
+      <description>
+        &lt;p&gt;I&amp;#8217;m posting this because I&amp;#8217;m tired of forgetting and having to ask this over and over again in IRC. Hopefully it will also help someone else speed up their work flow.&lt;/p&gt;
+
+&lt;p&gt;Many people are familiar with the special &lt;code&gt;$_&lt;/code&gt; parameter that is set to the last argument of the previous command. It makes things like the following a little quicker:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; foo
+$ mv foo bar
+$ cat $_
+foo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;I have always stumbled, however, in this case:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; bar
+$ cat $_
+cat: foo: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The solution is to use the &lt;code&gt;!$&lt;/code&gt; history expansion rather than the &lt;code&gt;$_&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; bar
+$ cat !$
+cat bar
+bar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Sun, 10 Jul 2011 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2011/07/10/shell-tip-last-argument.html</guid>
+    </item>
+    
+  </channel>
+</rss>

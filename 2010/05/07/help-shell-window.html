@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>:help shell-window -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">:help shell-window</a></h1>
+    </header>
+    <p>Run this in vim. The help docs clearly state that vim will never have this feature. That sucks.</p>
+
+<p>But, you say, &#8220;vim is an editor! Why should vim include a terminal emulator too? After all, vim is not emacs.&#8221; Here&#8217;s why: Because developing over ssh with vim is currently a pain in the ass. Sure, there are plenty of workarounds. Using gnu-screen to split the ssh session into multiple shells and/or multiple windows seems to be the most logical since I already use screen. Sounds good but it is horrible in practice&#8230;</p>
+
+<p>Consider this situation: I have an ssh session to a server and am running screen in that session.</p>
+
+<ul>
+<li>
+<p>I have five screens running: irssi, mutt, ipython, zsh, and vim.</p>
+</li>
+
+<li>
+<p>I select vim&#8217;s screen.</p>
+</li>
+
+<li>
+<p>I split the screen and select ipython&#8217;s screen.</p>
+</li>
+
+<li>
+<p>I want to read my email so I select mutt&#8217;s screen.. but mutt can only take up half the window because I&#8217;ve split the window using screen.</p>
+</li>
+
+<li>
+<p>I close the split screen and read my mail.</p>
+</li>
+
+<li>
+<p>I want to continue coding so I select vim&#8217;s screen.</p>
+</li>
+
+<li>
+<p>I also have to split the screen and select ipython&#8217;s screen.</p>
+</li>
+</ul>
+
+<p>That&#8217;s too many keystrokes for such a small convenience. I could remedy the split problem by nesting screen sessions, but that only makes the keystroke problem worse, and that&#8217;s only counting what I&#8217;d have to do to view the things I want. I&#8217;m not sure I even know how to resize or move splits with screen without looking it up.</p>
+
+<p>Now consider the same situation if vim had a shell-window.</p>
+
+<ul>
+<li>
+<p>I have four screens running at full size: irssi, mutt, zsh, and vim.</p>
+</li>
+
+<li>
+<p>Inside vim&#8217;s screen, I create a vim split with my code in one window and the shell running ipython in the other.</p>
+</li>
+
+<li>
+<p>I want to read my mail so I select mutt&#8217;s screen and get a full screen mutt.</p>
+</li>
+
+<li>
+<p>I want to continue coding, so I select vim&#8217;s screen and get vim+ipython.</p>
+</li>
+</ul>
+
+<p>Not only does this simplify the number of keystrokes I have to issue to jump between a full screen mail client and split vim+ipython, it also reduces the number of keybinds I have to remember. I&#8217;m already fluent in selecting, moving, and resizing vim splits.. I shouldn&#8217;t need to fumble with two sets of keybinds to accomplish the same task in screen.</p>
+
+<p>The good news is I&#8217;m not the only one who wants this functionality. In fact, this is one of the <a href='http://www.vim.org/sponsor/vote_results.php'>most popular features that vim sponsors vote for</a> (along with other IDE like features). There was even <a href='http://www.wana.at/vimshell/'>an unofficial patch</a> for vim 7.0 that implemented this. Unfortunately I like to keep my software up to date and am not willing to run an old vim and lose features I use to get a feature I want.</p>
+
+<p>So what can I do? There are multiple scripts out there that emulate a shell inside a vim buffer, <a href='http://code.google.com/p/conque/'>conque</a> and <a href='http://github.com/Shougo/vimshell'>vimshell</a> to name a few. These are OK, but not great. I applaud the effort put forth by the authors and hope they can continue to move forward with their projects, however I don&#8217;t think these solutions are the answer.</p>
+
+<p>Looks like I need to man up and get my hands dirty &#8211; someone does anyway. A native vim solution is the only acceptable solution in my opinion. Until I can muster up the guts to dig into the vim source, I guess I&#8217;ll just complain to myself.</p>
+
+<p>UPDATE: The author of conque sent an excellent comparison of the available shell options to the vim_use mailing list. You can find it <a href='http://groups.google.com/group/vim_use/msg/22c97ebfd6a978eb'>here</a>. I highly suggest subscribing to both vim_use and vim_dev to find out tips and tricks you wouldn&#8217;t otherwise know (if you can handle that volume of email).</p>
+    <footer>
+      <p>
+        Posted on <time date="2010-05-07 00:00:00 -0400">May 07, 2010</time>
+        
+        <span>Tagged <a href="/tags/shell.html">shell</a>, <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

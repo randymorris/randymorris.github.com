@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vim Tip: Navigation -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Vim Tip: Navigation</a></h1>
+    </header>
+    <p>Have you ever used vim to edit a large file and found yourself setting marks in a few areas to quickly jump between them? I have, and I find it highly annoying to have to remember those marks. Luckily, vim has a few tricks up it&#8217;s sleeve that make jumping around a little faster.</p>
+
+<p>Firstly, see <code>:help changelist</code> and <code>:help jumplist</code>.</p>
+
+<p>The changelist (obviously?) stores a list of recent changes to the file. You can even browse the list with <code>:changes</code>. You can jump back and forth through the changelist with <code>g;</code> and <code>g,</code>.</p>
+
+<p>Similarly, the jumplist stores a list of jumps (<code>:jumps</code>) that you can navigate around using <code>Ctrl+o</code> and <code>Ctrl+i</code>.</p>
+
+<p>The biggest difference I&#8217;ve noticed here is that the jumplist stores jumps across files whereas the changelist does not. Both of these features may be influenced by viminfo settings, but the default behavior is quite comfortable.</p>
+
+<p>Have any other tips about jumping between sections of a file? If so, <a href='/about'>let me know</a>.</p>
+    <footer>
+      <p>
+        Posted on <time date="2009-11-16 00:00:00 -0500">November 16, 2009</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TIL: pedit -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">TIL: pedit</a></h1>
+    </header>
+    <p>Often times I find myself editing a file and I suddenly realize I need to look up some data from some other file. Until today, I would normally do something along the lines of the following:</p>
+
+<ul>
+<li><code>:sp path/to/file</code></li>
+
+<li><code>&lt;C-w&gt;&lt;C-w&gt;</code></li>
+</ul>
+
+<p>I continue editing my original file. When I find I no longer need the reference file, I need to switch to it and kill its window:</p>
+
+<ul>
+<li><code>&lt;C-w&gt;&lt;C-w&gt;</code></li>
+
+<li><code>:q</code></li>
+</ul>
+
+<p>There is a better way. <code>pedit path/to/file</code> (or <code>:ped</code> if you&#8217;re lazy like me) will open a split window just as before, but cuts out the middle commands. Focus stays on the file I was working on with my cursor unmoved. The same scenario with <code>:pedit</code> is:</p>
+
+<ul>
+<li><code>:ped /path/to/file</code></li>
+
+<li>(continue editing my buffer)</li>
+
+<li><code>:pc</code></li>
+</ul>
+
+<p>Four steps cut to two. This is why I use vim.</p>
+    <footer>
+      <p>
+        Posted on <time date="2010-10-10 00:00:00 -0400">October 10, 2010</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Changing My Work Flow: Adding Emacs -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Changing My Work Flow: Adding Emacs</a></h1>
+    </header>
+    <p class='update'>
+<strong>Disclaimer:</strong>
+
+I'm new to the Emacs community so some of the following terminology
+may be incorrect.  Please correct me if there is a more proper way to
+describe anything I've mentioned here.
+
+</p>
+<p>Over the past few months I&#8217;ve realized that I am far too easily distracted from my tasks at work. After a little thinking I came to the conclusion that part of my problem was my work flow. I generally had two or three terminals up bouncing around virtual machines and servers so I could test as I worked and inevitably I would end up on my home server chatting away on IRC for large chunks of time. While most people may be able to correct this with a little discipline, I&#8217;ve decided to try something different. One of my coworkers recently made the switch to Emacs and since I&#8217;ve always been curious about the features touted by Emacs users I thought I&#8217;d give it a try too. I instantly saw a huge difference in my focus and concentration.</p>
+
+<p>Because the driving force behind this change was focus, I have tried to stay away from the typical &#8220;Emacs can and should do everything&#8221; point of view. There are really only two main features that I&#8217;ve been using that go above and beyond a text editor: <em>ansi-term</em> and <em>TRAMP</em>.</p>
+
+<h2 id='ansiterm'>ansi-term</h2>
+
+<p>As the name suggests, ansi-term is a terminal emulator that can be run inside Emacs. It works almost like any other buffer so moving between normal buffers and the terminal is virtually seamless. This is something I wanted in vim for ages, I even <a href='/2010/05/07/help-shell-window.html'>ranted about it</a> here once before.</p>
+
+<p>While it&#8217;s possible to open multiple instances of ansi-term, I have limited myself to only having one running at a time. This has helped me concentrate on one task because I am no longer hopping between different terminals with different ssh sessions running. One terminal, one task. Having a terminal in the editor also allows me to do all my scm tasks without leaving Emacs as well, without having to use some fancy git/svn/whatever mode. I just use the normal command line interface I&#8217;m used to.</p>
+
+<h2 id='tramp'>TRAMP</h2>
+
+<p>TRAMP is a really poorly constructed acronym for &#8220;Transparent Remote (file) Access, Multiple Protocol&#8221;. Where the acronym lacks, the execution excels. For you vim users, TRAMP is what netrw really should be. I am able to &#8220;transparently&#8221; edit files on servers without being nagged about passwords or temp files every time I make a change. This is very convenient for me as I do my development almost exclusively on one of our dev servers. I no longer have to choose between opening an ssh session and editing with the remote editor or using sshfs to mount the remote filesystem locally to get a decent editing experience.</p>
+
+<p>The most important part about TRAMP and ansi-term is that it&#8217;s rather easy to make them work together. Using a tip from the <a href='http://www.emacswiki.org/emacs/AnsiTermHints#toc4'>EmacsWiki</a> I added a few lines to my bashrc to allow <code>C-x C-f</code> to automatically open up in TRAMP format in the <code>$PWD</code> of the remote machine I&#8217;m connected to in ansi-term. This speeds up the process of opening files considerably and is pretty much on par with how I worked with vim previously. The stripped version I use is below.</p>
+<div class='highlight'><pre><code class='bash'><span class='k'>function </span><span class='nb'>set</span>-eterm-dir <span class='o'>{</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTu&quot;</span> <span class='s2'>&quot;$LOGNAME&quot;</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTc&quot;</span> <span class='s2'>&quot;$(pwd)&quot;</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTh&quot;</span> <span class='s2'>&quot;$(hostname -f)&quot;</span>
+    <span class='nb'>history</span> -a
+<span class='o'>}</span>
+
+<span class='k'>if</span> <span class='o'>[</span> <span class='s2'>&quot;$TERM&quot;</span> <span class='o'>=</span> <span class='s2'>&quot;eterm-color&quot;</span> <span class='o'>]</span>; <span class='k'>then</span>
+<span class='k'>    </span><span class='nv'>PROMPT_COMMAND</span><span class='o'>=</span><span class='nb'>set</span>-eterm-dir
+<span class='k'>fi</span>
+</code></pre>
+</div>
+<p>Adding this to the remote machine&#8217;s bashrc will enable TRAMP to follow the working directory in ansi-term.</p>
+
+<h2 id='other_benefits'>Other benefits</h2>
+
+<p>There are a couple of features that I would like to dive in to eventually but haven&#8217;t looked too much at yet. Having a true programming language at my disposal (<a href='http://en.wikipedia.org/wiki/Emacs_Lisp'>elisp</a>) when customizing my editor is <strong>very</strong> appealing after spending years of dealing with vimscript. I also would like to look in to Org-mode as it may be another tool to help keep me on track at work.</p>
+
+<h2 id='moving_forward'>Moving forward</h2>
+
+<p>Adding Emacs to my work flow has been great for my development tasks but I&#8217;m not ready to move on completely. I fully intend to continue using vim when I&#8217;m logged on to a test or production machine, and really any time I&#8217;m not doing development. I have been using this work flow for the past couple of weeks and it seems pretty natural to me now other than the occasional <code>C-x s</code> or <code>C-x f</code> while in vim.</p>
+
+<p>If you have any questions or suggestions feel free to ping me in the comments or in the usual places. Feel free to watch my <a href='https://github.com/rson/emacs.d'>.emacs.d</a> grow as I continue to go through this process.</p>
+    <footer>
+      <p>
+        Posted on <time date="2012-03-07 00:00:00 -0500">March 07, 2012</time>
+        
+        <span>Tagged <a href="/tags/emacs.html">emacs</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>
