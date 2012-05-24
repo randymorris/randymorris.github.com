@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Emacs Update -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Emacs Update</a></h1>
+    </header>
+    <p>I figured it&#8217;s about time I post an update regarding my emacs journey now that I&#8217;ve had some time to acclimate myself to a new way of thinking. This is not so much a blog post as it is just a couple of lists showing where I am in my comfort level with emacs thus far.</p>
+
+<h2 id='things_i_like'>Things I like:</h2>
+
+<dl>
+<dt>Modes</dt>
+
+<dd>I never thought I would say it but emacs&#8217; modes have finally grown on me. It took a while to get used to but I get it now.</dd>
+
+<dt>package.el</dt>
+
+<dd>Emacs 24 comes with a built-in package manager for adding additional features from multiple sources. This is similar to <a href='https://github.com/gmarik/vundle'>Vundle</a> or <a href='https://github.com/MarcWeber/vim-addon-manager'>vim-addon-manager</a> except it comes bundled with emacs.</dd>
+
+<dt>elisp</dt>
+
+<dd>As much as I may suck at it, I really love elisp. As I learn more and more about lisp I&#8217;m starting to believe that elisp is the only exposure I&#8217;m going to get to lisp programming in the real world. It helps too that vimscript is just <i>awful</i>.</dd>
+
+<dt>The yank ring</dt>
+
+<dd>There is a <a href='http://www.vim.org/scripts/script.php?script_id=1234'>plugin</a> to emulate this in vim but I never really gave it a chance. My only gripe is that it stomps all over my beloved tmux escape key.</dd>
+
+<dt>Narrowing</dt>
+
+<dd>Again, this is available in vim with a <a href='https://github.com/chrisbra/NrrwRgn'>plugin</a>. This is something I never tried at all because I thought it was useless. Now that I&#8217;m fumbling around in emacs it&#8217;s nice to be able to focus only on a small portion of code at a time if I&#8217;m making sweeping changes. I don&#8217;t have to worry about accidentally changing code I didn&#8217;t mean to. I&#8217;m sure there are better uses for this but right now that&#8217;s where it&#8217;s helped me out.</dd>
+</dl>
+
+<h2 id='things_i_dont_like'>Things I don&#8217;t like:</h2>
+
+<dl>
+<dt>Ctrl-U</dt>
+
+<dd>This may just be me being stubborn. I can&#8217;t stand that for many interactive commands I can/have to change their behavior by passing a prefix argument. I&#8217;d much rather just have a different binding for the different behavior.</dd>
+</dl>
+
+<h2 id='what_you_can_help_me_with'>What you can help me with:</h2>
+
+<dl>
+<dt>Semantic blocks of text</dt>
+
+<dd>I touched on this in my previous post but it&#8217;s still a sore point for me. In vim these were called text-objects and they were the number one feature for speeding me up. The <a href='https://github.com/magnars/expand-region.el'>expand-region</a> script has made this a little less of a problem but I&#8217;m still up for hearing better ways of doing things.</dd>
+</dl>
+
+<p>I&#8217;ve left lots of things off but I think these sum up my current status pretty well. I&#8217;m always looking for tips on things I should try, especially on things that aid in navigating around code more quickly. If you have any suggestions please let me know. As always, my current configs can be found on <a href='https://github.com/rson/emacs.d'>GitHub</a>.</p>
+    <footer>
+      <p>
+        Posted on <time date="2012-05-09 00:00:00 -0400">May 09, 2012</time>
+        
+        <span>Tagged <a href="/tags/emacs.html">emacs</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

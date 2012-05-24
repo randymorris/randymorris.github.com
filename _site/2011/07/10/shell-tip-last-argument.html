@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Shell Tip: Last Argument -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Shell Tip: Last Argument</a></h1>
+    </header>
+    <p>I&#8217;m posting this because I&#8217;m tired of forgetting and having to ask this over and over again in IRC. Hopefully it will also help someone else speed up their work flow.</p>
+
+<p>Many people are familiar with the special <code>$_</code> parameter that is set to the last argument of the previous command. It makes things like the following a little quicker:</p>
+<div class='highlight'><pre><code class='text'>$ echo &quot;foo&quot; &gt; foo
+$ mv foo bar
+$ cat $_
+foo
+</code></pre>
+</div>
+<p>I have always stumbled, however, in this case:</p>
+<div class='highlight'><pre><code class='text'>$ echo &quot;foo&quot; &gt; bar
+$ cat $_
+cat: foo: No such file or directory
+</code></pre>
+</div>
+<p>The solution is to use the <code>!$</code> history expansion rather than the <code>$_</code> parameter.</p>
+<div class='highlight'><pre><code class='text'>$ echo &quot;foo&quot; &gt; bar
+$ cat !$
+cat bar
+bar
+</code></pre>
+</div>
+    <footer>
+      <p>
+        Posted on <time date="2011-07-10 00:00:00 -0400">July 10, 2011</time>
+        
+        <span>Tagged <a href="/tags/shell.html">shell</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

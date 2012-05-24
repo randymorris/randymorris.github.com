@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vim Plugin Management -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Vim Plugin Management</a></h1>
+    </header>
+    <p>Anyone who as looked at my <a href='http://github.com/rson/dotfiles/blob/master/vim/'>vim config</a> knows I rely on quite a list of plugins. While vim has an excellent plugin system, it fails to have an excellent plugin management system. There are a few scripts out there that attempt to fill this void. I have not used them all, but these are the ones I&#8217;ve heard of:</p>
+
+<ul>
+<li>
+<p><a href='http://www.vim.org/scripts/script.php?script_id=2905'>vim-addon-manager</a> (<a href='http://github.com/MarcWeber/vim-addon-manager'>github</a>)</p>
+</li>
+
+<li>
+<p><a href='http://search.cpan.org/dist/Vimana/'>vimana</a> (<a href='http://github.com/c9s/Vimana'>github</a>)</p>
+</li>
+
+<li>
+<p><a href='http://www.vim.org/scripts/script.php?script_id=2332'>pathogen</a> (<a href='http://github.com/tpope/vim-pathogen'>github</a>)</p>
+</li>
+</ul>
+
+<p>Being the stubborn ass that I am, I refused to use these types of scripts for a long time. I had my own home-baked solution of putting every plugin in it&#8217;s own subfolder and manipulating the <code>runtimepath</code> to include these folders. This kept my vimdir rather clean and allowed me to do a few fancy things such as keeping git-hosted plugins as submodules of my dotfiles repo. Doing so allowed me to update all git plugins from their origin with one easy command.</p>
+
+<p>As it turns out, this is essentially how pathogen works. An added bonus with pathogen is that it provides a few functions to generate helptags for all plugins that include a <code>doc</code> directory. This is something my manual method never did and was always a pain in the ass to do. As a result, I have now switched to pathogen, and I recommend anyone looking for a clean solution to vim plugins to do the same.</p>
+
+<p>However, I have found a downside to pathogen for those of us stuck in the stone ages. In order to use it, you must be running vim7. This means that when running vim6 pathogen will fail, and any plugins you have that should be loaded for vim6 will not be loaded, unless you manually load them. This wasn&#8217;t a problem previously as I was already appending to <code>rtp</code> for every plugin and had version tests around each plugin&#8217;s settings. Below are a couple of snippets from my <a href='http://github.com/rson/dotfiles/blob/master/vim/vimrc'>vimrc</a> that show how I have configured pathogen and <a href='http://www.vim.org/scripts/script.php?script_id=273'>TagList</a> to play well together in both vim6 and vim7.</p>
+
+<p>Set up pathogen (update)</p>
+<div class='highlight'><pre><code class='vim'><span class='k'>silent</span><span class='p'>!</span> <span class='k'>call</span> pathogen#runtime_append_all_bundles<span class='p'>()</span>
+<span class='k'>filetype</span> off
+</code></pre>
+</div>
+<p>Configure TagList</p>
+<div class='highlight'><pre><code class='vim'><span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&gt;=</span> <span class='m'>600</span>
+<span class='c'>    &quot; Taglist</span>
+    <span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&lt;</span> <span class='m'>700</span>
+<span class='c'>        &quot; Pathogen doesn&#39;t work with</span>
+<span class='c'>        &quot; vim 6 but Taglist does</span>
+        <span class='k'>set</span> <span class='nb'>rtp</span><span class='p'>+=~</span><span class='sr'>/.vim/</span>plugin<span class='p'>-</span>git/taglist
+    <span class='k'>endif</span>
+
+<span class='c'>    &quot; TagList options</span>
+<span class='k'>endif</span>
+</code></pre>
+</div>
+<p>If anyone knows of a cleaner way to deal with this sort of setup on both vim6 and vim7 I&#8217;d love to hear it. I personally find this two part solution atrocious.</p>
+    <footer>
+      <p>
+        Posted on <time date="2010-10-12 00:00:00 -0400">October 12, 2010</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

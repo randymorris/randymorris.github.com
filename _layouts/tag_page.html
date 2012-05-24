@@ -1,0 +1,10 @@
+---
+layout: default
+title: "Tagged Posts"
+---
+
+<section class="article-list">
+  <h1>All posts tagged "{{ page.tag }}"</h1>
+  {% assign posts = page.posts %}
+  {% include articles_by_year.html %}
+</section>

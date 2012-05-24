@@ -1,0 +1,26 @@
+---
+post_limit: 10
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>rsontech.net</title>
+    <link>http://rsontech.net/feeds/rss/</link>
+    <description>All articles on rsontech.net</description>
+    <atom:link href="http://rsontech.net/feeds/rss/" rel="self"/>
+    <language>en-us</language>
+    <lastBuildDate>{{ site.posts[0].date | date:"%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+    {% for post in site.posts limit:page.post_limit %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>http://rsontech.net/{{ post.url }}</link>
+      <description>
+        {{ post.content | xml_escape }}
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>{{ post.date | date:"%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <guid>http://rsontech.net/{{ post.url }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

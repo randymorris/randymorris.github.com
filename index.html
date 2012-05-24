@@ -1,0 +1,39 @@
+---
+layout: default
+active_tab: "blog"
+post_limit: 3
+---
+<section>
+  {% for post in site.posts limit:page.post_limit %}
+  <article>
+    <header>
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    </header>
+    {{ post.content }}
+    <footer>
+      <p>
+        Published on <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        <span><a href="{{ post.url}}#disqus_thread">Comments</a></span>
+      </p>
+    </footer>
+  </article>
+
+  <div class="separator">&middot; &middot; &middot;</div>
+  {% endfor %}
+
+  <footer>
+    {% if site.posts.size > page.post_limit %}
+    <a href="/archive">More posts</a>
+    {% endif %}
+  </footer>
+
+</section>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>

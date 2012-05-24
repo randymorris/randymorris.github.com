@@ -1,0 +1,42 @@
+---
+layout: default
+title: "All Tags"
+active_tab: tags
+---
+
+{% comment %}
+
+This is a kludge to get a list of tags sorted by name.  The method was
+adapted from http://stackoverflow.com/a/8263682/155299.  It is very
+inefficient (number of tags ^2) but since it's only run once at build
+time and I have a relatively small number of tags, what the hell.
+
+{% endcomment %}
+
+
+{% capture get_tags_string %}
+  {% for tag in site.tags %}
+   {{ tag[0] }}
+  {% endfor %}
+{% endcapture %}
+
+{% capture num_tags %}
+  {{ get_tags_string | number_of_words }}
+{% endcapture %}
+
+<section class="tag-list">
+  <h1>{{ page.title }}</h1>
+  {% for item in (1..num_tags) %}
+    {% capture next_tag %}{{ get_tags_string | split:' ' | sort | join:' ' | truncatewords:item | remove:"..." | split:' ' | last }}{% endcapture %}
+    {% for tag in site.tags %}
+      {% assign tag_name = tag[0] %}
+      {% capture posts %}{{ tag[1] | size }}{% endcapture %}
+      {% if tag_name == next_tag %}
+        <div>
+          <h2><a href="/tags/{{ tag_name }}.html">{{ tag_name }}</a></h2>
+          <span>{{ posts }} post{% if posts != "1" %}s{% endif %}</span>
+        </div>
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+</section>

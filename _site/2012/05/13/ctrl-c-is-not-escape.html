@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ctrl-C is not Escape -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Ctrl-C is not Escape</a></h1>
+    </header>
+    <p>I&#8217;d like to think I&#8217;m not one to be pedantic about things, but there&#8217;s one common misconception that has been making the rounds that annoys me to no end. <em>Ctrl-c</em> is not equivalent to <em>Escape</em>. There are two key differences that can be demonstrated by the following two snippets.</p>
+
+<p><em>Ctrl-c skips any pending insert mode abbreviations.</em></p>
+
+<p>In a vim session type the following:</p>
+<div class='highlight'><pre><code class='vim'><span class='p'>:</span>iabbrev teh the
+</code></pre>
+</div>
+<p>This is a common misspelling and an oft used abbreviation. Now enter insert mode and type <code>teh&lt;Space&gt;</code>. Notice that the space completed the abbreviation and it now says <code>the</code> instead of <code>teh</code>. Now do the same but instead insert <code>teh&lt;Esc&gt;</code>. The abbreviation still happens. Do the same with <code>teh&lt;Ctrl-c&gt;</code>. The abbreviation is not completed.</p>
+
+<p><em>Ctrl-c does not fire the InsertLeave autocmd event.</em></p>
+
+<p>Dump the following snipped into &#8220;cursorline.vim&#8221; and launch vim with &#8220;vim -u cursorline.vim&#8221;.</p>
+<div class='highlight'><pre><code class='vim'>augroup CursorLine     
+    autocmd<span class='p'>!</span>
+    autocmd <span class='nb'>InsertEnter</span> * <span class='k'>set</span> <span class='nb'>nocursorline</span>
+    autocmd <span class='nb'>InsertLeave</span> * <span class='k'>set</span> <span class='nb'>cursorline</span>
+augroup END
+<span class='k'>set</span> <span class='nb'>cursorline</span>
+</code></pre>
+</div>
+<p>This snippet enables &#8216;cursorline&#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with <em>Esc</em> you&#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with <em>Ctrl-c</em> you&#8217;ll see that it is never re-enabled.</p>
+
+<p>These two things probably don&#8217;t seem that important to you, but what about the developers of the plugins you use? If you&#8217;re using a plugin that relies on either of these two features you&#8217;re risking some functionality breaking by using <em>Ctrl-c</em>. If you must use something other than <em>Escape</em>, use <em>Ctrl-[</em> instead as these <i>are</i> equivalent.</p>
+    <footer>
+      <p>
+        Posted on <time date="2012-05-13 00:00:00 -0400">May 13, 2012</time>
+        
+        <span>Tagged <a href="/tags/rant.html">rant</a>, <a href="/tags/vim.html">vim</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<section>
+  <article>
+    <header>
+      <h1><a href="{{ post.url }}">{{ page.title }}</a></h1>
+    </header>
+    {{ content }}
+    <footer>
+      <p>
+        Posted on <time date="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        {% if page.tags %}
+        <span>Tagged {{ page | tags }}</span>
+        {% endif %}
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

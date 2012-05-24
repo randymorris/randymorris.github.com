@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% if page.title %}{{ page.title }} - {% endif %} rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li{% if page.active_tab == "blog" %} class="active"{% endif %}><a href="/">blog</a></li>
+          <li{% if page.active_tab == "archive" %} class="active"{% endif %}><a href="/archive">archive</a></li>
+          <li{% if page.active_tab == "tags" %} class="active" {% endif %}><a href="/tags">tags</a></li>
+          <li{% if page.active_tab == "about" %} class="active" {% endif %}><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    {{ content }}
+    <footer>
+      <p>
+        &copy;2006-{{ site.time | date:"%Y" }} rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>
