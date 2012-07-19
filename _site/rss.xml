@@ -6,7 +6,30 @@
     <description>All articles on rsontech.net</description>
     <atom:link href="http://rsontech.net/feeds/rss/" rel="self"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 May 2012 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jul 2012 00:00:00 -0400</lastBuildDate>
+    
+    <item>
+      <title>Why Emacs?</title>
+      <link>http://rsontech.net//2012/07/18/why-emacs.html</link>
+      <description>
+        &lt;p&gt;After a couple of months of using emacs as my primary editor I&amp;#8217;ve finally settled down. I am as comfortable now with emacs as I was with vim when I made the switch. With that in mind, I feel like I need to explain why I&amp;#8217;m sticking with it. Hopefully I&amp;#8217;ll be able to convey this in a way that a vim power user might appreciate.&lt;/p&gt;
+
+&lt;p&gt;I understand now that comparing vim and emacs is ridiculous. Vim is an editor. Emacs is a host for running elisp applications.&lt;/p&gt;
+
+&lt;p&gt;When I was a vim user I thought it was nonsense that so many emacs users claimed that they hardly ever left emacs. Now it&amp;#8217;s perfectly clear to me why they&amp;#8217;d make such a claim. When you start using applications within emacs (such as an irc client, news reader, or calendar) you suddenly have a single, unified set of keybinds across all of your tools. Switching between chat windows and switching between text files use the exact same mechanism. Even switching between applications works the same way. Chances are you will probably be editing some text in those applications. Since you&amp;#8217;re already inside emacs you get a familiar set of editing bindings &amp;#8211;including your personal configuration&amp;#8211; for free, in every application. This is something I&amp;#8217;ve fought for years to achieve.&lt;/p&gt;
+
+&lt;p&gt;Another reason I consider emacs to be more of an environment is that it was designed from the ground up to be extended. Emacs provides hooks (similar to autocmd events in vimscript) for almost anything you can think of. These allow you to run arbitrary elisp when specific events happen. On top of that, elisp allows you to modify literally any function to add functionality without having to rewrite the entire function. This is called &amp;#8220;advising&amp;#8221; the function. The power that this gives you is really hard to convey because there isn&amp;#8217;t any concept of this in vim.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not an advocate of pushing people into making the switch to emacs. That being said, &lt;a href='https://twitter.com/magnars'&gt;Magnar Sveen&lt;/a&gt; summed up my thoughts pretty well in one of his talks on &lt;a href='http://emacsrocks.com'&gt;Emacs Rocks&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;God damn it, you&amp;#8217;re a programmer. Start using an editor you can damn well program.&lt;/p&gt;
+&lt;/blockquote&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Wed, 18 Jul 2012 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2012/07/18/why-emacs.html</guid>
+    </item>
     
     <item>
       <title>Migrated to Jekyll</title>
@@ -32,22 +55,13 @@
 &lt;p&gt;&lt;em&gt;Ctrl-c skips any pending insert mode abbreviations.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;In a vim session type the following:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='p'&gt;:&lt;/span&gt;iabbrev teh the
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;This is a common misspelling and an oft used abbreviation. Now enter insert mode and type &lt;code&gt;teh&amp;lt;Space&amp;gt;&lt;/code&gt;. Notice that the space completed the abbreviation and it now says &lt;code&gt;the&lt;/code&gt; instead of &lt;code&gt;teh&lt;/code&gt;. Now do the same but instead insert &lt;code&gt;teh&amp;lt;Esc&amp;gt;&lt;/code&gt;. The abbreviation still happens. Do the same with &lt;code&gt;teh&amp;lt;Ctrl-c&amp;gt;&lt;/code&gt;. The abbreviation is not completed.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Ctrl-c does not fire the InsertLeave autocmd event.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Dump the following snipped into &amp;#8220;cursorline.vim&amp;#8221; and launch vim with &amp;#8220;vim -u cursorline.vim&amp;#8221;.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;augroup CursorLine     
-    autocmd&lt;span class='p'&gt;!&lt;/span&gt;
-    autocmd &lt;span class='nb'&gt;InsertEnter&lt;/span&gt; * &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;nocursorline&lt;/span&gt;
-    autocmd &lt;span class='nb'&gt;InsertLeave&lt;/span&gt; * &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;cursorline&lt;/span&gt;
-augroup END
-&lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;cursorline&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;This snippet enables &amp;#8216;cursorline&amp;#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with &lt;em&gt;Esc&lt;/em&gt; you&amp;#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with &lt;em&gt;Ctrl-c&lt;/em&gt; you&amp;#8217;ll see that it is never re-enabled.&lt;/p&gt;
 
 &lt;p&gt;These two things probably don&amp;#8217;t seem that important to you, but what about the developers of the plugins you use? If you&amp;#8217;re using a plugin that relies on either of these two features you&amp;#8217;re risking some functionality breaking by using &lt;em&gt;Ctrl-c&lt;/em&gt;. If you must use something other than &lt;em&gt;Escape&lt;/em&gt;, use &lt;em&gt;Ctrl-[&lt;/em&gt; instead as these &lt;i&gt;are&lt;/i&gt; equivalent.&lt;/p&gt;
@@ -137,18 +151,7 @@ describe anything I've mentioned here.
 &lt;p&gt;TRAMP is a really poorly constructed acronym for &amp;#8220;Transparent Remote (file) Access, Multiple Protocol&amp;#8221;. Where the acronym lacks, the execution excels. For you vim users, TRAMP is what netrw really should be. I am able to &amp;#8220;transparently&amp;#8221; edit files on servers without being nagged about passwords or temp files every time I make a change. This is very convenient for me as I do my development almost exclusively on one of our dev servers. I no longer have to choose between opening an ssh session and editing with the remote editor or using sshfs to mount the remote filesystem locally to get a decent editing experience.&lt;/p&gt;
 
 &lt;p&gt;The most important part about TRAMP and ansi-term is that it&amp;#8217;s rather easy to make them work together. Using a tip from the &lt;a href='http://www.emacswiki.org/emacs/AnsiTermHints#toc4'&gt;EmacsWiki&lt;/a&gt; I added a few lines to my bashrc to allow &lt;code&gt;C-x C-f&lt;/code&gt; to automatically open up in TRAMP format in the &lt;code&gt;$PWD&lt;/code&gt; of the remote machine I&amp;#8217;m connected to in ansi-term. This speeds up the process of opening files considerably and is pretty much on par with how I worked with vim previously. The stripped version I use is below.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='k'&gt;function &lt;/span&gt;&lt;span class='nb'&gt;set&lt;/span&gt;-eterm-dir &lt;span class='o'&gt;{&lt;/span&gt;
-    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTu&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$LOGNAME&amp;quot;&lt;/span&gt;
-    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTc&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$(pwd)&amp;quot;&lt;/span&gt;
-    &lt;span class='nb'&gt;echo&lt;/span&gt; -e &lt;span class='s2'&gt;&amp;quot;\033AnSiTh&amp;quot;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$(hostname -f)&amp;quot;&lt;/span&gt;
-    &lt;span class='nb'&gt;history&lt;/span&gt; -a
-&lt;span class='o'&gt;}&lt;/span&gt;
 
-&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;[&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;$TERM&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;eterm-color&amp;quot;&lt;/span&gt; &lt;span class='o'&gt;]&lt;/span&gt;; &lt;span class='k'&gt;then&lt;/span&gt;
-&lt;span class='k'&gt;    &lt;/span&gt;&lt;span class='nv'&gt;PROMPT_COMMAND&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='nb'&gt;set&lt;/span&gt;-eterm-dir
-&lt;span class='k'&gt;fi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 &lt;p&gt;Adding this to the remote machine&amp;#8217;s bashrc will enable TRAMP to follow the working directory in ansi-term.&lt;/p&gt;
 
 &lt;h2 id='other_benefits'&gt;Other benefits&lt;/h2&gt;
@@ -205,39 +208,15 @@ describe anything I've mentioned here.
       <link>http://rsontech.net//2011/08/03/lowercase-user-defined-commands.html</link>
       <description>
         &lt;p&gt;I&amp;#8217;ve never liked the fact that vim doesn&amp;#8217;t allow users to define commands that start with a lowercase letter. Every time I create one I end up having to also make a &lt;code&gt;cnoreabbrev&lt;/code&gt; that lets me use my lowercase version. This has the ugly side effect of having text transform as you type. It also will make the cursor jump around if you&amp;#8217;re doing more than changing the case of things. For example:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;cnoreabbrev ack ack&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;\&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;esubstitute&lt;span class='p'&gt;(&lt;/span&gt;getcmdline&lt;span class='p'&gt;(),&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;^ack\&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Ack!&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;This allows me to type &amp;#8220;:ack &amp;#8221; and have it automatically change to &amp;#8220;:Ack! &amp;#8221; as soon as I press &lt;code&gt;&amp;lt;space&amp;gt;&lt;/code&gt;. The text changes automatically and my cursor jumps to the right two spaces instead of just one. Obviously this is a small inconvenience but it is an annoying one for me.&lt;/p&gt;
 
 &lt;p&gt;I have come up with a bit of a hacky workaround for this that allows more transparency and I thought I&amp;#8217;d share in case someone out there is as stubborn as me. The following function will run a substitution on the current command line:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='k'&gt;function&lt;/span&gt;&lt;span class='p'&gt;!&lt;/span&gt; CommandLineSubstitute&lt;span class='p'&gt;()&lt;/span&gt;
-    &lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt; &lt;span class='p'&gt;=&lt;/span&gt; getcmdline&lt;span class='p'&gt;()&lt;/span&gt;
-    &lt;span class='k'&gt;if&lt;/span&gt; exists&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;g:command_line_substitutes&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-        &lt;span class='k'&gt;for&lt;/span&gt; [&lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;v&lt;/span&gt;] &lt;span class='k'&gt;in&lt;/span&gt; &lt;span class='k'&gt;g&lt;/span&gt;:command_line_substitutes
-            &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='k'&gt;match&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;cl&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;==&lt;/span&gt; &lt;span class='m'&gt;0&lt;/span&gt;
-                &lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt; &lt;span class='p'&gt;=&lt;/span&gt; substitute&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='k'&gt;cl&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;k&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;v&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-                &lt;span class='k'&gt;break&lt;/span&gt;
-            &lt;span class='k'&gt;endif&lt;/span&gt;
-        &lt;span class='k'&gt;endfor&lt;/span&gt;
-    &lt;span class='k'&gt;endif&lt;/span&gt;
-    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='k'&gt;cl&lt;/span&gt;
-&lt;span class='k'&gt;endfunction&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;This function reads search/replace pairs from a global variable you set in your &lt;code&gt;.vimrc&lt;/code&gt;. That global variable looks something like this:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='c'&gt;&amp;quot; note that line continuation is only possible without &amp;#39;C&amp;#39; in &amp;#39;cpoptions&amp;#39;&lt;/span&gt;
-&lt;span class='k'&gt;let&lt;/span&gt; &lt;span class='k'&gt;g&lt;/span&gt;:command_line_substitutes &lt;span class='p'&gt;=&lt;/span&gt; [
-    \ [&lt;span class='s1'&gt;&amp;#39;^ack &amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;Ack! &amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
-    \ [&lt;span class='s1'&gt;&amp;#39;^ee \(.\+\)&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;e **/\1*&amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
-    \ [&lt;span class='s1'&gt;&amp;#39;^h &amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;vertical help &amp;#39;&lt;/span&gt;]&lt;span class='p'&gt;,&lt;/span&gt;
-\]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;The last thing we need to do is a single map to call this function whenever we press &lt;code&gt;&amp;lt;enter&amp;gt;&lt;/code&gt; on the command line:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;cnoremap &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;\&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;eCommandLineSubstitute&lt;span class='p'&gt;()&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&amp;lt;&lt;/span&gt;enter&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;While this configuration is a bit ugly, it saves me the inconvenience of having a bunch of abbreviations lying around and makes the substitution transparent to me.&lt;/p&gt;
 
 &lt;p&gt;I&amp;#8217;ve only been using this for a few hours but I haven&amp;#8217;t hit any issues thus far. If you try this out and have problems or if you know of a way to simplify it please let me know in the comments.&lt;/p&gt;
@@ -252,10 +231,7 @@ describe anything I've mentioned here.
       <link>http://rsontech.net//2011/08/01/poor-mans-fuzzy-finder.html</link>
       <description>
         &lt;p&gt;I recently realized I have been using a very simple replacement for the &lt;a href='https://wincent.com/products/command-t'&gt;Command-T&lt;/a&gt;/&lt;a href='https://bitbucket.org/ns9tks/vim-fuzzyfinder/'&gt;Fuzzy Finder&lt;/a&gt; type plugins for quite some time, however I had never made it convenient for myself to do so. Today I pushed a small change to my &lt;code&gt;.vimrc&lt;/code&gt; that I think will make things a little easier for me.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;ff&lt;/span&gt; :&lt;span class='k'&gt;e&lt;/span&gt; **/*&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;fp&lt;/span&gt; :&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;&lt;span class='k'&gt;p&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
 &lt;p&gt;The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using &lt;code&gt;&amp;lt;leader&amp;gt;ff&lt;/code&gt;. If there are multiple files found that match the glob, vim will throw &lt;code&gt;E77&lt;/code&gt;. If that happens I can use &lt;code&gt;&amp;lt;leader&amp;gt;fp&lt;/code&gt; to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.&lt;/p&gt;
 
 &lt;p&gt;Obviously this solution is nowhere near as complete as a plugin dedicated to this task, however it&amp;#8217;s as complete as I need it to be.&lt;/p&gt;
@@ -286,38 +262,6 @@ describe anything I've mentioned here.
       <author>randy@rsontech.net (Randy Morris)</author>
       <pubDate>Thu, 28 Jul 2011 00:00:00 -0400</pubDate>
       <guid>http://rsontech.net//2011/07/28/new-keyboard.html</guid>
-    </item>
-    
-    <item>
-      <title>Shell Tip: Last Argument</title>
-      <link>http://rsontech.net//2011/07/10/shell-tip-last-argument.html</link>
-      <description>
-        &lt;p&gt;I&amp;#8217;m posting this because I&amp;#8217;m tired of forgetting and having to ask this over and over again in IRC. Hopefully it will also help someone else speed up their work flow.&lt;/p&gt;
-
-&lt;p&gt;Many people are familiar with the special &lt;code&gt;$_&lt;/code&gt; parameter that is set to the last argument of the previous command. It makes things like the following a little quicker:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; foo
-$ mv foo bar
-$ cat $_
-foo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;I have always stumbled, however, in this case:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; bar
-$ cat $_
-cat: foo: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;The solution is to use the &lt;code&gt;!$&lt;/code&gt; history expansion rather than the &lt;code&gt;$_&lt;/code&gt; parameter.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;$ echo &amp;quot;foo&amp;quot; &amp;gt; bar
-$ cat !$
-cat bar
-bar
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-      </description>
-      <author>randy@rsontech.net (Randy Morris)</author>
-      <pubDate>Sun, 10 Jul 2011 00:00:00 -0400</pubDate>
-      <guid>http://rsontech.net//2011/07/10/shell-tip-last-argument.html</guid>
     </item>
     
   </channel>

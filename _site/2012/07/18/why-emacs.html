@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Why Emacs? -  rsontech.net</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">rsontech.net</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">blog</a></li>
+          <li><a href="/archive">archive</a></li>
+          <li><a href="/tags">tags</a></li>
+          <li><a href="/about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+  <article>
+    <header>
+      <h1><a href="">Why Emacs?</a></h1>
+    </header>
+    <p>After a couple of months of using emacs as my primary editor I&#8217;ve finally settled down. I am as comfortable now with emacs as I was with vim when I made the switch. With that in mind, I feel like I need to explain why I&#8217;m sticking with it. Hopefully I&#8217;ll be able to convey this in a way that a vim power user might appreciate.</p>
+
+<p>I understand now that comparing vim and emacs is ridiculous. Vim is an editor. Emacs is a host for running elisp applications.</p>
+
+<p>When I was a vim user I thought it was nonsense that so many emacs users claimed that they hardly ever left emacs. Now it&#8217;s perfectly clear to me why they&#8217;d make such a claim. When you start using applications within emacs (such as an irc client, news reader, or calendar) you suddenly have a single, unified set of keybinds across all of your tools. Switching between chat windows and switching between text files use the exact same mechanism. Even switching between applications works the same way. Chances are you will probably be editing some text in those applications. Since you&#8217;re already inside emacs you get a familiar set of editing bindings &#8211;including your personal configuration&#8211; for free, in every application. This is something I&#8217;ve fought for years to achieve.</p>
+
+<p>Another reason I consider emacs to be more of an environment is that it was designed from the ground up to be extended. Emacs provides hooks (similar to autocmd events in vimscript) for almost anything you can think of. These allow you to run arbitrary elisp when specific events happen. On top of that, elisp allows you to modify literally any function to add functionality without having to rewrite the entire function. This is called &#8220;advising&#8221; the function. The power that this gives you is really hard to convey because there isn&#8217;t any concept of this in vim.</p>
+
+<p>I&#8217;m not an advocate of pushing people into making the switch to emacs. That being said, <a href='https://twitter.com/magnars'>Magnar Sveen</a> summed up my thoughts pretty well in one of his talks on <a href='http://emacsrocks.com'>Emacs Rocks</a>:</p>
+
+<blockquote>
+<p>God damn it, you&#8217;re a programmer. Start using an editor you can damn well program.</p>
+</blockquote>
+    <footer>
+      <p>
+        Posted on <time date="2012-07-18 00:00:00 -0400">July 18, 2012</time>
+        
+        <span>Tagged <a href="/tags/vim.html">vim</a>, <a href="/tags/emacs.html">emacs</a></span>
+        
+      </p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <footer>
+      <p>
+        &copy;2006-2012 rsontech.net &ndash;
+        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+        <a href="http://github.com/rson/rson.github.com/">Source</a>
+      </p>
+    </footer>
+  </body>
+</html>

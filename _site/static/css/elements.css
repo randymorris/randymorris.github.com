@@ -151,3 +151,13 @@ section > footer {text-align: center;}
 #about > img {float: left;
               margin-top: 1em;
               border: 2px solid #ccc;}
+
+blockquote {font-style: italic;
+            font-size: 1.15em;}
+
+blockquote:before {content: "\201c";
+                   font-size: 3.5em;
+                   color: #ccc;
+                   display: block;
+                   float: left;
+                   margin: 5px;}

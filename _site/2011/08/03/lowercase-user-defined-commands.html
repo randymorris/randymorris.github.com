@@ -27,39 +27,15 @@
       <h1><a href="">Lowercase User Defined Commands</a></h1>
     </header>
     <p>I&#8217;ve never liked the fact that vim doesn&#8217;t allow users to define commands that start with a lowercase letter. Every time I create one I end up having to also make a <code>cnoreabbrev</code> that lets me use my lowercase version. This has the ugly side effect of having text transform as you type. It also will make the cursor jump around if you&#8217;re doing more than changing the case of things. For example:</p>
-<div class='highlight'><pre><code class='vim'>cnoreabbrev ack ack<span class='p'>&lt;</span><span class='k'>c</span><span class='p'>-</span>\<span class='p'>&gt;</span>esubstitute<span class='p'>(</span>getcmdline<span class='p'>(),</span> <span class='s1'>&#39;^ack\&gt;&#39;</span><span class='p'>,</span> <span class='s1'>&#39;Ack!&#39;</span><span class='p'>,</span> <span class='s1'>&#39;&#39;</span><span class='p'>)&lt;</span>enter<span class='p'>&gt;</span>
-</code></pre>
-</div>
+
 <p>This allows me to type &#8220;:ack &#8221; and have it automatically change to &#8220;:Ack! &#8221; as soon as I press <code>&lt;space&gt;</code>. The text changes automatically and my cursor jumps to the right two spaces instead of just one. Obviously this is a small inconvenience but it is an annoying one for me.</p>
 
 <p>I have come up with a bit of a hacky workaround for this that allows more transparency and I thought I&#8217;d share in case someone out there is as stubborn as me. The following function will run a substitution on the current command line:</p>
-<div class='highlight'><pre><code class='vim'><span class='k'>function</span><span class='p'>!</span> CommandLineSubstitute<span class='p'>()</span>
-    <span class='k'>let</span> <span class='k'>cl</span> <span class='p'>=</span> getcmdline<span class='p'>()</span>
-    <span class='k'>if</span> exists<span class='p'>(</span><span class='s1'>&#39;g:command_line_substitutes&#39;</span><span class='p'>)</span>
-        <span class='k'>for</span> [<span class='k'>k</span><span class='p'>,</span> <span class='k'>v</span>] <span class='k'>in</span> <span class='k'>g</span>:command_line_substitutes
-            <span class='k'>if</span> <span class='k'>match</span><span class='p'>(</span><span class='k'>cl</span><span class='p'>,</span> <span class='k'>k</span><span class='p'>)</span> <span class='p'>==</span> <span class='m'>0</span>
-                <span class='k'>let</span> <span class='k'>cl</span> <span class='p'>=</span> substitute<span class='p'>(</span><span class='k'>cl</span><span class='p'>,</span> <span class='k'>k</span><span class='p'>,</span> <span class='k'>v</span><span class='p'>,</span> <span class='s2'>&quot;&quot;</span><span class='p'>)</span>
-                <span class='k'>break</span>
-            <span class='k'>endif</span>
-        <span class='k'>endfor</span>
-    <span class='k'>endif</span>
-    <span class='k'>return</span> <span class='k'>cl</span>
-<span class='k'>endfunction</span>
-</code></pre>
-</div>
+
 <p>This function reads search/replace pairs from a global variable you set in your <code>.vimrc</code>. That global variable looks something like this:</p>
-<div class='highlight'><pre><code class='vim'><span class='c'>&quot; note that line continuation is only possible without &#39;C&#39; in &#39;cpoptions&#39;</span>
-<span class='k'>let</span> <span class='k'>g</span>:command_line_substitutes <span class='p'>=</span> [
-    \ [<span class='s1'>&#39;^ack &#39;</span><span class='p'>,</span> <span class='s1'>&#39;Ack! &#39;</span>]<span class='p'>,</span>
-    \ [<span class='s1'>&#39;^ee \(.\+\)&#39;</span><span class='p'>,</span> <span class='s1'>&#39;e **/\1*&#39;</span>]<span class='p'>,</span>
-    \ [<span class='s1'>&#39;^h &#39;</span><span class='p'>,</span> <span class='s1'>&#39;vertical help &#39;</span>]<span class='p'>,</span>
-\]
-</code></pre>
-</div>
+
 <p>The last thing we need to do is a single map to call this function whenever we press <code>&lt;enter&gt;</code> on the command line:</p>
-<div class='highlight'><pre><code class='vim'>cnoremap <span class='p'>&lt;</span>enter<span class='p'>&gt;</span> <span class='p'>&lt;</span><span class='k'>c</span><span class='p'>-</span>\<span class='p'>&gt;</span>eCommandLineSubstitute<span class='p'>()&lt;</span>enter<span class='p'>&gt;&lt;</span>enter<span class='p'>&gt;</span>
-</code></pre>
-</div>
+
 <p>While this configuration is a bit ugly, it saves me the inconvenience of having a bunch of abbreviations lying around and makes the substitution transparent to me.</p>
 
 <p>I&#8217;ve only been using this for a few hours but I haven&#8217;t hit any issues thus far. If you try this out and have problems or if you know of a way to simplify it please let me know in the comments.</p>

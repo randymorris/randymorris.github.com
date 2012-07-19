@@ -25,6 +25,33 @@
   
   <article>
     <header>
+      <h1><a href="/2012/07/18/why-emacs.html">Why Emacs?</a></h1>
+    </header>
+    <p>After a couple of months of using emacs as my primary editor I&#8217;ve finally settled down. I am as comfortable now with emacs as I was with vim when I made the switch. With that in mind, I feel like I need to explain why I&#8217;m sticking with it. Hopefully I&#8217;ll be able to convey this in a way that a vim power user might appreciate.</p>
+
+<p>I understand now that comparing vim and emacs is ridiculous. Vim is an editor. Emacs is a host for running elisp applications.</p>
+
+<p>When I was a vim user I thought it was nonsense that so many emacs users claimed that they hardly ever left emacs. Now it&#8217;s perfectly clear to me why they&#8217;d make such a claim. When you start using applications within emacs (such as an irc client, news reader, or calendar) you suddenly have a single, unified set of keybinds across all of your tools. Switching between chat windows and switching between text files use the exact same mechanism. Even switching between applications works the same way. Chances are you will probably be editing some text in those applications. Since you&#8217;re already inside emacs you get a familiar set of editing bindings &#8211;including your personal configuration&#8211; for free, in every application. This is something I&#8217;ve fought for years to achieve.</p>
+
+<p>Another reason I consider emacs to be more of an environment is that it was designed from the ground up to be extended. Emacs provides hooks (similar to autocmd events in vimscript) for almost anything you can think of. These allow you to run arbitrary elisp when specific events happen. On top of that, elisp allows you to modify literally any function to add functionality without having to rewrite the entire function. This is called &#8220;advising&#8221; the function. The power that this gives you is really hard to convey because there isn&#8217;t any concept of this in vim.</p>
+
+<p>I&#8217;m not an advocate of pushing people into making the switch to emacs. That being said, <a href='https://twitter.com/magnars'>Magnar Sveen</a> summed up my thoughts pretty well in one of his talks on <a href='http://emacsrocks.com'>Emacs Rocks</a>:</p>
+
+<blockquote>
+<p>God damn it, you&#8217;re a programmer. Start using an editor you can damn well program.</p>
+</blockquote>
+    <footer>
+      <p>
+        Published on <time datetime="2012-07-18">July 18, 2012</time>
+        <span><a href="/2012/07/18/why-emacs.html#disqus_thread">Comments</a></span>
+      </p>
+    </footer>
+  </article>
+
+  <div class="separator">&middot; &middot; &middot;</div>
+  
+  <article>
+    <header>
       <h1><a href="/2012/05/22/migrated-to-jekyll.html">Migrated to Jekyll</a></h1>
     </header>
     <p>If you&#8217;re reading this that means the site&#8217;s transition to Jekyll is complete. Over the past couple of days I&#8217;ve been working on migrating my old <a href='http://flask.pocoo.org/'>flask</a>+<a href='http://packages.python.org/Flask-FlatPages/'>flatpages</a> implementation over to <a href='http://jekyllrb.com'>Jekyll</a> and I will now be hosting everything on GitHub. Everything is pretty much the same with a few minor visual changes.</p>
@@ -51,22 +78,13 @@
 <p><em>Ctrl-c skips any pending insert mode abbreviations.</em></p>
 
 <p>In a vim session type the following:</p>
-<div class='highlight'><pre><code class='vim'><span class='p'>:</span>iabbrev teh the
-</code></pre>
-</div>
+
 <p>This is a common misspelling and an oft used abbreviation. Now enter insert mode and type <code>teh&lt;Space&gt;</code>. Notice that the space completed the abbreviation and it now says <code>the</code> instead of <code>teh</code>. Now do the same but instead insert <code>teh&lt;Esc&gt;</code>. The abbreviation still happens. Do the same with <code>teh&lt;Ctrl-c&gt;</code>. The abbreviation is not completed.</p>
 
 <p><em>Ctrl-c does not fire the InsertLeave autocmd event.</em></p>
 
 <p>Dump the following snipped into &#8220;cursorline.vim&#8221; and launch vim with &#8220;vim -u cursorline.vim&#8221;.</p>
-<div class='highlight'><pre><code class='vim'>augroup CursorLine     
-    autocmd<span class='p'>!</span>
-    autocmd <span class='nb'>InsertEnter</span> * <span class='k'>set</span> <span class='nb'>nocursorline</span>
-    autocmd <span class='nb'>InsertLeave</span> * <span class='k'>set</span> <span class='nb'>cursorline</span>
-augroup END
-<span class='k'>set</span> <span class='nb'>cursorline</span>
-</code></pre>
-</div>
+
 <p>This snippet enables &#8216;cursorline&#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with <em>Esc</em> you&#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with <em>Ctrl-c</em> you&#8217;ll see that it is never re-enabled.</p>
 
 <p>These two things probably don&#8217;t seem that important to you, but what about the developers of the plugins you use? If you&#8217;re using a plugin that relies on either of these two features you&#8217;re risking some functionality breaking by using <em>Ctrl-c</em>. If you must use something other than <em>Escape</em>, use <em>Ctrl-[</em> instead as these <i>are</i> equivalent.</p>
@@ -74,63 +92,6 @@ augroup END
       <p>
         Published on <time datetime="2012-05-13">May 13, 2012</time>
         <span><a href="/2012/05/13/ctrl-c-is-not-escape.html#disqus_thread">Comments</a></span>
-      </p>
-    </footer>
-  </article>
-
-  <div class="separator">&middot; &middot; &middot;</div>
-  
-  <article>
-    <header>
-      <h1><a href="/2012/05/09/emacs-update.html">Emacs Update</a></h1>
-    </header>
-    <p>I figured it&#8217;s about time I post an update regarding my emacs journey now that I&#8217;ve had some time to acclimate myself to a new way of thinking. This is not so much a blog post as it is just a couple of lists showing where I am in my comfort level with emacs thus far.</p>
-
-<h2 id='things_i_like'>Things I like:</h2>
-
-<dl>
-<dt>Modes</dt>
-
-<dd>I never thought I would say it but emacs&#8217; modes have finally grown on me. It took a while to get used to but I get it now.</dd>
-
-<dt>package.el</dt>
-
-<dd>Emacs 24 comes with a built-in package manager for adding additional features from multiple sources. This is similar to <a href='https://github.com/gmarik/vundle'>Vundle</a> or <a href='https://github.com/MarcWeber/vim-addon-manager'>vim-addon-manager</a> except it comes bundled with emacs.</dd>
-
-<dt>elisp</dt>
-
-<dd>As much as I may suck at it, I really love elisp. As I learn more and more about lisp I&#8217;m starting to believe that elisp is the only exposure I&#8217;m going to get to lisp programming in the real world. It helps too that vimscript is just <i>awful</i>.</dd>
-
-<dt>The yank ring</dt>
-
-<dd>There is a <a href='http://www.vim.org/scripts/script.php?script_id=1234'>plugin</a> to emulate this in vim but I never really gave it a chance. My only gripe is that it stomps all over my beloved tmux escape key.</dd>
-
-<dt>Narrowing</dt>
-
-<dd>Again, this is available in vim with a <a href='https://github.com/chrisbra/NrrwRgn'>plugin</a>. This is something I never tried at all because I thought it was useless. Now that I&#8217;m fumbling around in emacs it&#8217;s nice to be able to focus only on a small portion of code at a time if I&#8217;m making sweeping changes. I don&#8217;t have to worry about accidentally changing code I didn&#8217;t mean to. I&#8217;m sure there are better uses for this but right now that&#8217;s where it&#8217;s helped me out.</dd>
-</dl>
-
-<h2 id='things_i_dont_like'>Things I don&#8217;t like:</h2>
-
-<dl>
-<dt>Ctrl-U</dt>
-
-<dd>This may just be me being stubborn. I can&#8217;t stand that for many interactive commands I can/have to change their behavior by passing a prefix argument. I&#8217;d much rather just have a different binding for the different behavior.</dd>
-</dl>
-
-<h2 id='what_you_can_help_me_with'>What you can help me with:</h2>
-
-<dl>
-<dt>Semantic blocks of text</dt>
-
-<dd>I touched on this in my previous post but it&#8217;s still a sore point for me. In vim these were called text-objects and they were the number one feature for speeding me up. The <a href='https://github.com/magnars/expand-region.el'>expand-region</a> script has made this a little less of a problem but I&#8217;m still up for hearing better ways of doing things.</dd>
-</dl>
-
-<p>I&#8217;ve left lots of things off but I think these sum up my current status pretty well. I&#8217;m always looking for tips on things I should try, especially on things that aid in navigating around code more quickly. If you have any suggestions please let me know. As always, my current configs can be found on <a href='https://github.com/rson/emacs.d'>GitHub</a>.</p>
-    <footer>
-      <p>
-        Published on <time datetime="2012-05-09">May 09, 2012</time>
-        <span><a href="/2012/05/09/emacs-update.html#disqus_thread">Comments</a></span>
       </p>
     </footer>
   </article>
