@@ -49,23 +49,9 @@
 <p>However, I have found a downside to pathogen for those of us stuck in the stone ages. In order to use it, you must be running vim7. This means that when running vim6 pathogen will fail, and any plugins you have that should be loaded for vim6 will not be loaded, unless you manually load them. This wasn&#8217;t a problem previously as I was already appending to <code>rtp</code> for every plugin and had version tests around each plugin&#8217;s settings. Below are a couple of snippets from my <a href='http://github.com/rson/dotfiles/blob/master/vim/vimrc'>vimrc</a> that show how I have configured pathogen and <a href='http://www.vim.org/scripts/script.php?script_id=273'>TagList</a> to play well together in both vim6 and vim7.</p>
 
 <p>Set up pathogen (update)</p>
-<div class='highlight'><pre><code class='vim'><span class='k'>silent</span><span class='p'>!</span> <span class='k'>call</span> pathogen#runtime_append_all_bundles<span class='p'>()</span>
-<span class='k'>filetype</span> off
-</code></pre>
-</div>
-<p>Configure TagList</p>
-<div class='highlight'><pre><code class='vim'><span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&gt;=</span> <span class='m'>600</span>
-<span class='c'>    &quot; Taglist</span>
-    <span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&lt;</span> <span class='m'>700</span>
-<span class='c'>        &quot; Pathogen doesn&#39;t work with</span>
-<span class='c'>        &quot; vim 6 but Taglist does</span>
-        <span class='k'>set</span> <span class='nb'>rtp</span><span class='p'>+=~</span><span class='sr'>/.vim/</span>plugin<span class='p'>-</span>git/taglist
-    <span class='k'>endif</span>
 
-<span class='c'>    &quot; TagList options</span>
-<span class='k'>endif</span>
-</code></pre>
-</div>
+<p>Configure TagList</p>
+
 <p>If anyone knows of a cleaner way to deal with this sort of setup on both vim6 and vim7 I&#8217;d love to hear it. I personally find this two part solution atrocious.</p>
     <footer>
       <p>

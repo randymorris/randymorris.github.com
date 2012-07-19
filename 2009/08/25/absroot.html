@@ -31,19 +31,9 @@
 <p>The convenience of the abs script has only one drawback that I can see; you specifiy an <code>$ABSROOT</code>, and packages end up in <code>$ABSROOT/$REPO</code>. For example if I set <code>ABSROOT=$HOME/pkgs</code> and run <code>abs extra/pkgtools</code>, I end up with <code>$HOME/pkgs/extra/pkgtools</code>. This is a very minor issue but it&#8217;s very annoying when you&#8217;d like to keep all of your self built packages in one place. I&#8217;ve come up with a workaround and I&#8217;d like to see if anyone can suggest a better way to accomplish this.</p>
 
 <p>First, create an absroot directory that holds simlinks for all repos abs knows about.</p>
-<div class='highlight'><pre><code class='bash'>mkdir ~/.absroot
-<span class='nb'>cd</span> <span class='nv'>$_</span>
 
-<span class='k'>for </span>i in core extra community testing; <span class='k'>do </span>
-<span class='k'>    </span>ln -s ~/pkgs <span class='nv'>$i</span>;
-<span class='k'>done</span>
-</code></pre>
-</div>
 <p>Then, in <em>$HOME/.abs.conf</em>:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>ABSROOT</span><span class='o'>=</span><span class='s2'>&quot;$HOME/.absroot&quot;</span>
-<span class='nv'>SYNCARGS</span><span class='o'>=</span><span class='s1'>&#39;-mrtv --no-motd --delete-after --no-p --no-o --no-g --keep-dirlinks&#39;</span>
-</code></pre>
-</div>
+
 <p>The <code>SYNCARGS</code> are key here. They are default options with the exception of <code>--keep-dirlinks</code>. Without this setting, rsync will wipe out the symlinks you made above and your packages won&#8217;t end up where you expect them.</p>
 
 <p>With these settings, I can now run <code>abs extra/pkgtools</code> and I will have a <code>$HOME/pkgs/pkgtools</code> directory amidst all the AUR packages I&#8217;ve collected.</p>

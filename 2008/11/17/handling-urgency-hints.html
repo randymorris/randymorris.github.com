@@ -31,29 +31,19 @@
 <p>I&#8217;d played with them before when hacking on dwm. In fact, I added this feature to my dwm because of Pidgin in the first place. My challenge now was to get irssi to pass the hint to gnu-screen, to pass the hint to urxvt over an ssh session, to pass it to my window manager. This was suprisingly easy. Three configs are involved: <em>~/.irssi/config</em>, <em>~/.screenrc</em>, and <em>~/.Xdefaults</em>. Additions are shown below.</p>
 
 <ul>
-<li><em>~/.irssi/config</em></li>
+<li>
+<p><em>~/.irssi/config</em></p>
+</li>
+
+<li>
+<p><em>~/.screenrc</em></p>
+</li>
+
+<li>
+<p><em>~/.Xdefaults</em></p>
+</li>
 </ul>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>settings</span> <span class='o'>=</span> <span class='p'>{</span>
-    <span class='s2'>&quot;fe-common/core&quot;</span> <span class='o'>=</span> <span class='p'>{</span>
-        <span class='nx'>beep_msg_level</span> <span class='o'>=</span> <span class='s2'>&quot;NOTICE MSGS HILIGHT&quot;</span><span class='p'>;</span>
-        <span class='nx'>bell_beeps</span> <span class='o'>=</span> <span class='s2'>&quot;no&quot;</span><span class='p'>;</span>
-    <span class='p'>};</span>
-<span class='p'>};</span>
-</code></pre>
-</div>
-<ul>
-<li><em>~/.screenrc</em></li>
-</ul>
-<div class='highlight'><pre><code class='text'>vbell off
-bell_msg &#39;^G&#39;
-</code></pre>
-</div>
-<ul>
-<li><em>~/.Xdefaults</em></li>
-</ul>
-<div class='highlight'><pre><code class='text'>urxvt*urgentOnBell:    true
-</code></pre>
-</div>
+
 <p>With these three settings, I now get a nice <a href='/static/img/screenshots/2008-11-24-211910_1680x1050_scrot.png'>notification</a> when receiving a message in Bitlbee or irssi. This has a nice side effect too. Many cli apps can send a bell when they need your attention. Mutt, for instance, can now notify you about new mail.</p>
     <footer>
       <p>
