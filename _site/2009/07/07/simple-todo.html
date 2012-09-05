@@ -27,10 +27,50 @@
       <h1><a href="">Simple Todo</a></h1>
     </header>
     <p>Jelly in the archlinux irc channel asked for suggestions for a cli todo app, and I offered this to him on a whim. As it turns out, it&#8217;s actually pretty damn useful.</p>
+<div class='highlight'><pre><code class='bash'>todo<span class='o'>()</span>
+<span class='o'>{</span>
+  <span class='k'>if</span> <span class='o'>[</span> -z <span class='nv'>$1</span> <span class='o'>]</span>; <span class='k'>then</span>
+<span class='k'>    </span>cat <span class='nv'>$HOME</span>/.todo
+    <span class='k'>return</span>
+<span class='k'>  fi</span>
 
+<span class='k'>  case</span> <span class='nv'>$1</span> in
+    <span class='s2'>&quot;add&quot;</span><span class='o'>)</span>
+      <span class='nb'>echo</span> <span class='nv'>$2</span> &gt;&gt; <span class='nv'>$HOME</span>/.todo
+    ;;
+    <span class='s2'>&quot;del&quot;</span><span class='o'>)</span>
+      <span class='nv'>todo</span><span class='o'>=</span><span class='k'>$(</span>&lt; <span class='nv'>$HOME</span>/.todo | sed <span class='s1'>&#39;s/&#39;</span><span class='nv'>$2</span><span class='s1'>&#39;//;tx;p;:x;d&#39;</span><span class='k'>)</span>
+      <span class='nb'>echo</span> <span class='nv'>$todo</span> &gt; <span class='nv'>$HOME</span>/.todo
+    ;;
+  <span class='k'>esac</span>
+<span class='o'>}</span>
+</code></pre>
+</div>
 <p>You can also find this in my <a href='https://github.com/rson/dotfiles/blob/master/zshrc'>zshrc</a> on <a href='https://github.com/'>github</a>.</p>
 
 <p>Edit: rich_o on the archlinux bbs <a href='http://bbs.archlinux.org/viewtopic.php?pid=590871#p590871'>posted</a> a modification to this which allows you to delete tasks by number and search for a task. I&#8217;ve began using this mod instead:</p>
+<div class='highlight'><pre><code class='bash'>todo<span class='o'>()</span>
+<span class='o'>{</span>
+  <span class='k'>if</span> <span class='o'>[</span> -z <span class='nv'>$1</span> <span class='o'>]</span>; <span class='k'>then</span>
+<span class='k'>    </span>awk <span class='s1'>&#39;{ i += 1; print i&quot;: &quot;$0 }&#39;</span> <span class='nv'>$HOME</span>/.todo
+    <span class='k'>return</span>
+<span class='k'>  fi</span>
+
+<span class='k'>  case</span> <span class='nv'>$1</span> in
+    <span class='s2'>&quot;add&quot;</span><span class='o'>)</span>
+      <span class='nb'>echo</span> <span class='nv'>$2</span> &gt;&gt; <span class='nv'>$HOME</span>/.todo
+    ;;
+    <span class='s2'>&quot;del&quot;</span><span class='o'>)</span>
+      <span class='nv'>todo</span><span class='o'>=</span><span class='k'>$(</span>&lt; <span class='nv'>$HOME</span>/.todo | sed <span class='s2'>&quot;$2&quot;</span><span class='s1'>&#39;d&#39;</span><span class='k'>)</span>
+      <span class='nb'>echo</span> <span class='nv'>$todo</span> &gt; <span class='nv'>$HOME</span>/.todo
+    ;;
+    <span class='s2'>&quot;search&quot;</span><span class='o'>)</span>
+      grep -ni --color<span class='o'>=</span>never <span class='nv'>$2</span> <span class='nv'>$HOME</span>/.todo | sed -e <span class='s1'>&#39;s/:/: /&#39;</span>
+    ;;
+  <span class='k'>esac</span>
+<span class='o'>}</span>
+</code></pre>
+</div>
     <footer>
       <p>
         Posted on <time date="2009-07-07 00:00:00 -0400">July 07, 2009</time>

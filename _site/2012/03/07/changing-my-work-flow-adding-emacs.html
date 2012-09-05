@@ -49,7 +49,18 @@ describe anything I've mentioned here.
 <p>TRAMP is a really poorly constructed acronym for &#8220;Transparent Remote (file) Access, Multiple Protocol&#8221;. Where the acronym lacks, the execution excels. For you vim users, TRAMP is what netrw really should be. I am able to &#8220;transparently&#8221; edit files on servers without being nagged about passwords or temp files every time I make a change. This is very convenient for me as I do my development almost exclusively on one of our dev servers. I no longer have to choose between opening an ssh session and editing with the remote editor or using sshfs to mount the remote filesystem locally to get a decent editing experience.</p>
 
 <p>The most important part about TRAMP and ansi-term is that it&#8217;s rather easy to make them work together. Using a tip from the <a href='http://www.emacswiki.org/emacs/AnsiTermHints#toc4'>EmacsWiki</a> I added a few lines to my bashrc to allow <code>C-x C-f</code> to automatically open up in TRAMP format in the <code>$PWD</code> of the remote machine I&#8217;m connected to in ansi-term. This speeds up the process of opening files considerably and is pretty much on par with how I worked with vim previously. The stripped version I use is below.</p>
+<div class='highlight'><pre><code class='bash'><span class='k'>function </span><span class='nb'>set</span>-eterm-dir <span class='o'>{</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTu&quot;</span> <span class='s2'>&quot;$LOGNAME&quot;</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTc&quot;</span> <span class='s2'>&quot;$(pwd)&quot;</span>
+    <span class='nb'>echo</span> -e <span class='s2'>&quot;\033AnSiTh&quot;</span> <span class='s2'>&quot;$(hostname -f)&quot;</span>
+    <span class='nb'>history</span> -a
+<span class='o'>}</span>
 
+<span class='k'>if</span> <span class='o'>[</span> <span class='s2'>&quot;$TERM&quot;</span> <span class='o'>=</span> <span class='s2'>&quot;eterm-color&quot;</span> <span class='o'>]</span>; <span class='k'>then</span>
+<span class='k'>    </span><span class='nv'>PROMPT_COMMAND</span><span class='o'>=</span><span class='nb'>set</span>-eterm-dir
+<span class='k'>fi</span>
+</code></pre>
+</div>
 <p>Adding this to the remote machine&#8217;s bashrc will enable TRAMP to follow the working directory in ansi-term.</p>
 
 <h2 id='other_benefits'>Other benefits</h2>

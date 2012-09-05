@@ -29,13 +29,34 @@
     <p>A while back I <a href='/2009/02/12/4/vim-tip-comments'>posted a tip</a> about how to quickly comment out a block of lines in vim. Since then I&#8217;ve gotten even more lazy and found an even quicker way that involves much less effort on my part. I think this originally came from a vim tip that I CBA to find now, so I&#8217;m reposting here to spread the love.</p>
 
 <p>First, add a simple function to do the work:</p>
-
+<div class='highlight'><pre><code class='vim'><span class='c'>&quot; Toggle comments on a visual block</span>
+<span class='k'>function</span><span class='p'>!</span> CommentLines<span class='p'>()</span>
+    <span class='k'>try</span>
+            execute <span class='s2'>&quot;:s@^&quot;</span>.g:StartComment.<span class='s2'>&quot; @\@g&quot;</span>
+            execute <span class='s2'>&quot;:s@ &quot;</span>.g:EndComment.<span class='s2'>&quot;$@@g&quot;</span>
+    <span class='k'>catch</span>
+            execute <span class='s2'>&quot;:s@^@&quot;</span>.g:StartComment.<span class='s2'>&quot; @g&quot;</span>
+            execute <span class='s2'>&quot;:s@$@ &quot;</span>.g:EndComment.<span class='s2'>&quot;@g&quot;</span>
+    <span class='k'>endtry</span>
+<span class='k'>endfunction</span>
+</code></pre>
+</div>
 <p>This function comments starting at the beginning of the line. You can modify this behavior to suit your needs by changing the regular expression.</p>
 
 <p>Next you&#8217;ll need to set the comment characters for the language you&#8217;re working in. My preferred way is to use autocmds to set these based on the current filetype.</p>
-
+<div class='highlight'><pre><code class='vim'><span class='c'>&quot; Set comment characters for common languages</span>
+autocmd <span class='nb'>FileType</span> python<span class='p'>,</span><span class='k'>sh</span><span class='p'>,</span>bash<span class='p'>,</span>zsh<span class='p'>,</span><span class='k'>ruby</span><span class='p'>,</span>perl <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;#&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span>
+autocmd <span class='nb'>FileType</span> html <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;&lt;!--&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;--&gt;&quot;</span>
+autocmd <span class='nb'>FileType</span> php<span class='p'>,</span>cpp<span class='p'>,</span>javascript <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;//&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span>
+autocmd <span class='nb'>FileType</span> <span class='k'>c</span><span class='p'>,</span>css <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;/*&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;*/&quot;</span>
+autocmd <span class='nb'>FileType</span> <span class='k'>vim</span> <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;\&quot;&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span>
+autocmd <span class='nb'>FileType</span> ini <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;;&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span> 
+</code></pre>
+</div>
 <p>That&#8217;s it! Optionally (do this, really it&#8217;s stupid not to), you can add a keymap to quickly call our function.</p>
-
+<div class='highlight'><pre><code class='vim'>vmap <span class='p'>&lt;</span>Leader<span class='p'>&gt;</span><span class='k'>c</span> :<span class='k'>call</span> CommentLines<span class='p'>()&lt;</span>CR<span class='p'>&gt;</span>
+</code></pre>
+</div>
 <p>Now to use this function, just select a visual block and hit your keymap to toggle comments on that block. Voila!</p>
 
 <p>Note: If you need anything more complex than what this tip provides, check out the <a href='http://www.vim.org/scripts/script.php?script_id=1218'>NERD Commenter</a>. Everything I&#8217;ve read about it suggest that it&#8217;s excellent.</p>

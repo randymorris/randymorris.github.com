@@ -78,13 +78,22 @@
 <p><em>Ctrl-c skips any pending insert mode abbreviations.</em></p>
 
 <p>In a vim session type the following:</p>
-
+<div class='highlight'><pre><code class='vim'><span class='p'>:</span><span class='k'>iabbrev</span> teh <span class='k'>the</span>
+</code></pre>
+</div>
 <p>This is a common misspelling and an oft used abbreviation. Now enter insert mode and type <code>teh&lt;Space&gt;</code>. Notice that the space completed the abbreviation and it now says <code>the</code> instead of <code>teh</code>. Now do the same but instead insert <code>teh&lt;Esc&gt;</code>. The abbreviation still happens. Do the same with <code>teh&lt;Ctrl-c&gt;</code>. The abbreviation is not completed.</p>
 
 <p><em>Ctrl-c does not fire the InsertLeave autocmd event.</em></p>
 
 <p>Dump the following snipped into &#8220;cursorline.vim&#8221; and launch vim with &#8220;vim -u cursorline.vim&#8221;.</p>
-
+<div class='highlight'><pre><code class='vim'>augroup CursorLine     
+    autocmd<span class='p'>!</span>
+    autocmd <span class='nb'>InsertEnter</span> * <span class='k'>set</span> <span class='nb'>nocursorline</span>
+    autocmd <span class='nb'>InsertLeave</span> * <span class='k'>set</span> <span class='nb'>cursorline</span>
+augroup END
+<span class='k'>set</span> <span class='nb'>cursorline</span>
+</code></pre>
+</div>
 <p>This snippet enables &#8216;cursorline&#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with <em>Esc</em> you&#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with <em>Ctrl-c</em> you&#8217;ll see that it is never re-enabled.</p>
 
 <p>These two things probably don&#8217;t seem that important to you, but what about the developers of the plugins you use? If you&#8217;re using a plugin that relies on either of these two features you&#8217;re risking some functionality breaking by using <em>Ctrl-c</em>. If you must use something other than <em>Escape</em>, use <em>Ctrl-[</em> instead as these <i>are</i> equivalent.</p>
