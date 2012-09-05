@@ -29,9 +29,16 @@
     <p>Now that I&#8217;ve seen the light and begun using git instead of subversion, I thought I&#8217;d post a follow up to my <a href='/2008/12/22/3/svn-diff-and-vim.html'>previous post</a> about using vimdiff with subversion. That has by far been the most popular post on this site, so hopefully this will reach and help some of my fellow git users out there.</p>
 
 <p>Setting up git to use vimdiff is virtually the same as with subversion. You need a vimdiff wrapper, and you need to tell git to use that wrapper as the diff program. First, the wrapper, <em>gitvimdiff</em> (anywhere in your path):</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>2</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>5</span><span class='k'>}</span>
+</code></pre>
+</div>
 <p>After that, just need to edit your <em>~/.gitconfig</em> file:</p>
-
+<div class='highlight'><pre><code class='ini'><span class='k'>[diff]</span>
+  <span class='na'>external</span> <span class='o'>=</span> <span class='s'>gitvimdiff</span>
+<span class='k'>[pager]</span>
+  <span class='na'>diff</span> <span class='o'>=</span>
+</code></pre>
+</div>
 <p>Big thanks to <a href='http://technotales.wordpress.com/2009/05/17/git-diff-with-vimdiff/'>Jonathan Palardy</a> for the info, I&#8217;ve just reproduced it here to help spread the word.</p>
     <footer>
       <p>
