@@ -54,9 +54,9 @@
 </code></pre>
 </div>
 <p>Configure TagList</p>
-<div class='highlight'><pre><code class='vim'><span class='k'>if</span> v:version <span class='p'>&gt;=</span> <span class='m'>600</span>
+<div class='highlight'><pre><code class='vim'><span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&gt;=</span> <span class='m'>600</span>
 <span class='c'>    &quot; Taglist</span>
-    <span class='k'>if</span> v:version <span class='p'>&lt;</span> <span class='m'>700</span>
+    <span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&lt;</span> <span class='m'>700</span>
 <span class='c'>        &quot; Pathogen doesn&#39;t work with</span>
 <span class='c'>        &quot; vim 6 but Taglist does</span>
         <span class='k'>set</span> <span class='nb'>rtp</span><span class='p'>+=~</span><span class='sr'>/.vim/</span>plugin<span class='p'>-</span>git/taglist
