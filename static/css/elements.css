@@ -1,163 +1,265 @@
-* {font-family: 'Garamond', 'Georgia', serif;
-   color: #3e4349;}
+* {
+    font-family: 'Garamond', 'Georgia', serif;
+    color: #3e4349;
+}
 
 a,
-a:visited {color: #930;}
+a:visited {
+    color: #930;
+}
 
-a:hover {color: #f60;}
+a:hover {
+    color: #f60;
+}
 
-body {margin: 0 auto;
-      width: 50em;}
+body {
+    margin: 0 auto;
+    width: 50em;
+}
 
 em,
-dt {font-style: italic;}
+dt {
+    font-style: italic;
+}
 
-dd {line-height: 1.5em;
-    padding: .5em .5em .5em 2em;}
+dd {
+    line-height: 1.5em;
+    padding: .5em .5em .5em 2em;
+}
 
-dt {padding-top: .5em;}
+dt {
+    padding-top: .5em;
+}
 
-pre > code {color: #3e4349;}
+pre > code {
+    color: #3e4349;
+}
 
 code,
-code > span {font-family: monospace;
-             padding: 0 .25em;
-             color: #7e8389;
-             font-size: 1.05em;}
+code > span {
+    font-family: monospace;
+    padding: 0 .25em;
+    color: #7e8389;
+    font-size: 1.05em;
+}
 
-li img {vertical-align: middle;}
+li img {
+    vertical-align: middle;
+}
 
-li {line-height: 2em;}
+li {
+    line-height: 2em;
+}
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {font-weight: normal;
-    padding: .75em 0;}
+h6 {
+    font-weight: normal;
+    padding: .75em 0;
+}
 
-h1 {font-size: 1.75em;}
-h2 {font-size: 1.25em;}
+h1 {
+    font-size: 1.75em;
+}
+h2 {
+    font-size: 1.25em;
+}
 
-h3 {font-size: 1.1em;
-    padding: .5em 0;}
+h3 {
+    font-size: 1.1em;
+    padding: .5em 0;
+}
 
-h4 {font-size: 1em;}
+h4 {
+    font-size: 1em;
+}
 
-ol {padding-left: 3em;
-    list-style-type: decimal;}
+ol {
+    padding-left: 3em;
+    list-style-type: decimal;
+}
 
-p {padding: 1em 0;
-   line-height: 1.5em;}
+p {
+    padding: 1em 0;
+    line-height: 1.5em;
+}
 
-ul {padding-left: 3em;
-    list-style-type: disc;}
-
-
-
-.highlight {background-color: #f0f3f3;
-            border: 1px solid #f9fcfc;
-            border-top: 1px solid #e0f3f3;
-            border-left: 1px solid #e0f3f3;}
-
-.highlight pre {padding: 5px;
-                border: 1px solid #e0f3f3;
-                border-top: 1px solid #f9fcfc;
-                border-left: 1px solid #f9fcfc;}
-
-.separator {margin: 2em 0;
-            text-align: center;
-            color: #830;}
-
-.update {padding: 1em;
-         background-color: #ffc;}
+ul {
+    padding-left: 3em;
+    list-style-type: disc;
+}
 
 
 
-body > header {margin: 2em 0;
-               position: relative;}
+.highlight {
+    background-color: #f0f3f3;
+    border: 1px solid #f9fcfc;
+    border-top: 1px solid #e0f3f3;
+    border-left: 1px solid #e0f3f3;
+}
 
-body > header > h1 {font-size: 3em;
-                    padding: 0;
-                    font-weight: normal;
-                    letter-spacing: .05em}
+.highlight pre {
+    padding: 5px;
+    border: 1px solid #e0f3f3;
+    border-top: 1px solid #f9fcfc;
+    border-left: 1px solid #f9fcfc;
+}
+
+.separator {
+    margin: 2em 0;
+    text-align: center;
+    color: #830;
+}
+
+.update {
+    padding: 1em;
+    background-color: #ffc;
+}
+
+
+
+body > header {
+    margin: 2em 0;
+    position: relative;
+}
+
+body > header > h1 {
+    font-size: 3em;
+    padding: 0;
+    font-weight: normal;
+    letter-spacing: .05em
+}
 
 body > header a,
-body > header a:visited {color: inherit;}
+body > header a:visited {
+    color: inherit;
+}
 
-body > header > h1 a {text-decoration: none;}
+body > header > h1 a {
+    text-decoration: none;
+}
 
-body > header li.active {border-bottom: 3px solid #c30;}
+body > header li.active {
+    border-bottom: 3px solid #c30;
+}
 
-body > header li:hover {border-bottom: 3px solid #f60;}
+body > header li:hover {
+    border-bottom: 3px solid #f60;
+}
 
-body > footer p {text-align: center;
-                 margin-top: 2em;
-                 font-size: 1em;
-                 color: #777;}
+body > footer p {
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1em;
+    color: #777;
+}
 
 
 
-nav {position: absolute;
-     bottom: 0;
-     right: 0;}
+nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
-nav a {text-decoration: none;}
+nav a {
+    text-decoration: none;
+}
 
-nav ul {list-style-type: none;}
+nav ul {
+    list-style-type: none;
+}
 
-nav ul li {display: inline;
-           margin-right: 1em;
-           padding-bottom: .15em;}
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+    padding-bottom: .15em;
+}
 
 
 
 article > footer p,
 article > footer time,
-article > footer p span {color: #777;
-                         font-style: italic;}
+article > footer p span {
+    color: #777;
+    font-style: italic;
+}
 
-article > footer p > span {float: right;}
+article > footer p > span {
+    float: right;
+}
 
-article > footer p > span > a {font-style: normal;}
+article > footer p > span > a {
+    font-style: normal;
+}
 
-.article-list article {padding: .5em 0 .5em 3em;}
+.article-list article {
+    padding: .5em 0 .5em 3em;
+}
 
-.article-list h3 {display: inline;}
+.article-list h3 {
+    display: inline;
+}
 
-.article-list span {margin-left: .5em;}
+.article-list span {
+    margin-left: .5em;
+}
 
-.article-list span > a {color: #777;
-                        font-style: italic;
-                        text-decoration: none;}
+.article-list span > a {
+    color: #777;
+    font-style: italic;
+    text-decoration: none;
+}
 
-.tag-list div {padding: .5em 0;}
+.tag-list div {
+    padding: .5em 0;
+}
 
-.tag-list h2 {display: inline;}
+.tag-list h2 {
+    display: inline;
+}
 
-.tag-list span {margin-left: .5em;
-                font-style: italic;
-                color: #777;}
+.tag-list span {
+    margin-left: .5em;
+    font-style: italic;
+    color: #777;
+}
 
-section > footer {text-align: center;}
+section > footer {
+    text-align: center;
+}
 
 #about p,
-#about section {padding: .5em 10em .5em 0;}
+#about section {
+    padding: .5em 10em .5em 0;
+}
 
-#about > img {float: right;
-              margin-top: 1em;
-              border: 2px solid #ccc;}
+#about > img {
+    float: right;
+    margin-top: 1em;
+    border: 2px solid #ccc;
+}
 
-blockquote {font-style: italic;
-            font-size: 1.15em;}
+blockquote {
+    font-style: italic;
+    font-size: 1.15em;
+}
 
-blockquote:before {content: "\201c";
-                   font-size: 3.5em;
-                   color: #ccc;
-                   display: block;
-                   float: left;
-                   margin: 5px;}
+blockquote:before {
+    content: "\201c";
+    font-size: 3.5em;
+    color: #ccc;
+    display: block;
+    float: left;
+    margin: 5px;
+}
 
-#about h2 + ul {list-style-type: none;}
-#about h2 + ul > li {display: inline;}
+#about h2 + ul {
+    list-style-type: none;
+}
+#about h2 + ul > li {
+    display: inline;
+}
