@@ -32,11 +32,11 @@
 <div class='highlight'><pre><code class='vim'><span class='c'>&quot; Toggle comments on a visual block</span>
 <span class='k'>function</span><span class='p'>!</span> CommentLines<span class='p'>()</span>
     <span class='k'>try</span>
-            execute <span class='s2'>&quot;:s@^&quot;</span>.g:StartComment.<span class='s2'>&quot; @\@g&quot;</span>
-            execute <span class='s2'>&quot;:s@ &quot;</span>.g:EndComment.<span class='s2'>&quot;$@@g&quot;</span>
+            execute <span class='s2'>&quot;:s@^&quot;</span>.<span class='k'>g</span>:StartComment.<span class='s2'>&quot; @\@g&quot;</span>
+            execute <span class='s2'>&quot;:s@ &quot;</span>.<span class='k'>g</span>:EndComment.<span class='s2'>&quot;$@@g&quot;</span>
     <span class='k'>catch</span>
-            execute <span class='s2'>&quot;:s@^@&quot;</span>.g:StartComment.<span class='s2'>&quot; @g&quot;</span>
-            execute <span class='s2'>&quot;:s@$@ &quot;</span>.g:EndComment.<span class='s2'>&quot;@g&quot;</span>
+            execute <span class='s2'>&quot;:s@^@&quot;</span>.<span class='k'>g</span>:StartComment.<span class='s2'>&quot; @g&quot;</span>
+            execute <span class='s2'>&quot;:s@$@ &quot;</span>.<span class='k'>g</span>:EndComment.<span class='s2'>&quot;@g&quot;</span>
     <span class='k'>endtry</span>
 <span class='k'>endfunction</span>
 </code></pre>

@@ -142,13 +142,10 @@ article > footer p > span > a {font-style: normal;}
 
 section > footer {text-align: center;}
 
-#gravatar {float: left;
-           margin-top: 1em;}
-
 #about p,
-#about section {padding-left: 10em;}
+#about section {padding: .5em 10em .5em 0;}
 
-#about > img {float: left;
+#about > img {float: right;
               margin-top: 1em;
               border: 2px solid #ccc;}
 
@@ -161,3 +158,6 @@ blockquote:before {content: "\201c";
                    display: block;
                    float: left;
                    margin: 5px;}
+
+#about h2 + ul {list-style-type: none;}
+#about h2 + ul > li {display: inline;}

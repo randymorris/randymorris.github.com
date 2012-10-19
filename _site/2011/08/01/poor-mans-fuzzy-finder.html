@@ -27,8 +27,8 @@
       <h1><a href="">Poor Man's Fuzzy Finder</a></h1>
     </header>
     <p>I recently realized I have been using a very simple replacement for the <a href='https://wincent.com/products/command-t'>Command-T</a>/<a href='https://bitbucket.org/ns9tks/vim-fuzzyfinder/'>Fuzzy Finder</a> type plugins for quite some time, however I had never made it convenient for myself to do so. Today I pushed a small change to my <code>.vimrc</code> that I think will make things a little easier for me.</p>
-<div class='highlight'><pre><code class='vim'>nnoremap <span class='p'>&lt;</span>leader<span class='p'>&gt;</span><span class='nb'>ff</span> :<span class='k'>e</span> **/*<span class='p'>&lt;</span><span class='k'>left</span><span class='p'>&gt;</span>
-nnoremap <span class='p'>&lt;</span>leader<span class='p'>&gt;</span><span class='nb'>fp</span> :<span class='p'>&lt;</span><span class='k'>c</span><span class='p'>-</span><span class='k'>p</span><span class='p'>&gt;&lt;</span><span class='k'>left</span><span class='p'>&gt;</span>
+<div class='highlight'><pre><code class='vim'><span class='nb'>nnoremap</span> <span class='p'>&lt;</span>leader<span class='p'>&gt;</span><span class='nb'>ff</span> :<span class='k'>e</span> **/*<span class='p'>&lt;</span><span class='k'>left</span><span class='p'>&gt;</span>
+<span class='nb'>nnoremap</span> <span class='p'>&lt;</span>leader<span class='p'>&gt;</span><span class='nb'>fp</span> :<span class='p'>&lt;</span><span class='k'>c</span><span class='p'>-</span><span class='k'>p</span><span class='p'>&gt;&lt;</span><span class='k'>left</span><span class='p'>&gt;</span>
 </code></pre>
 </div>
 <p>The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using <code>&lt;leader&gt;ff</code>. If there are multiple files found that match the glob, vim will throw <code>E77</code>. If that happens I can use <code>&lt;leader&gt;fp</code> to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.</p>

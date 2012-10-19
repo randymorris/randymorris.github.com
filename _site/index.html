@@ -78,7 +78,7 @@
 <p><em>Ctrl-c skips any pending insert mode abbreviations.</em></p>
 
 <p>In a vim session type the following:</p>
-<div class='highlight'><pre><code class='vim'><span class='p'>:</span><span class='k'>iabbrev</span> teh <span class='k'>the</span>
+<div class='highlight'><pre><code class='vim'><span class='p'>:</span>iabbrev teh the
 </code></pre>
 </div>
 <p>This is a common misspelling and an oft used abbreviation. Now enter insert mode and type <code>teh&lt;Space&gt;</code>. Notice that the space completed the abbreviation and it now says <code>the</code> instead of <code>teh</code>. Now do the same but instead insert <code>teh&lt;Esc&gt;</code>. The abbreviation still happens. Do the same with <code>teh&lt;Ctrl-c&gt;</code>. The abbreviation is not completed.</p>
