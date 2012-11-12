@@ -30,7 +30,7 @@
 
 <p>The convenience of the abs script has only one drawback that I can see; you specifiy an <code>$ABSROOT</code>, and packages end up in <code>$ABSROOT/$REPO</code>. For example if I set <code>ABSROOT=$HOME/pkgs</code> and run <code>abs extra/pkgtools</code>, I end up with <code>$HOME/pkgs/extra/pkgtools</code>. This is a very minor issue but it&#8217;s very annoying when you&#8217;d like to keep all of your self built packages in one place. I&#8217;ve come up with a workaround and I&#8217;d like to see if anyone can suggest a better way to accomplish this.</p>
 
-<p>First, create an absroot directory that holds simlinks for all repos abs knows about.</p>
+<p>First, create an absroot directory that holds symlinks for all repos abs knows about.</p>
 <div class='highlight'><pre><code class='bash'>mkdir ~/.absroot
 <span class='nb'>cd</span> <span class='nv'>$_</span>
 
