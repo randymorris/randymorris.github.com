@@ -86,7 +86,7 @@ convenient.
 
 file: `Emacs.bat` {% highlight bat %}
 @echo off
-plink -load drop -i c:\path\to\EmacsHostKey.ppk "emacsclient -c -a ''"
+plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost "emacsclient -c -a ''"
 {% endhighlight %}
 
 file: `Emacs.vbs` {% highlight vbnet %}

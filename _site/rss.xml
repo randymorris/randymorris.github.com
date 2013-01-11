@@ -56,7 +56,7 @@
 &lt;p&gt;To wrap things up I wrote a couple of scripts to make launching Emacs convenient.&lt;/p&gt;
 
 &lt;p&gt;file: &lt;code&gt;Emacs.bat&lt;/code&gt; &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bat'&gt;&lt;span class='p'&gt;@&lt;/span&gt;&lt;span class='k'&gt;echo&lt;/span&gt; &lt;span class='k'&gt;off&lt;/span&gt;
-plink -load drop -i c:\path\to\EmacsHostKey.ppk &lt;span class='s2'&gt;&amp;quot;emacsclient -c -a &amp;#39;&amp;#39;&amp;quot;&lt;/span&gt;
+plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt;&amp;quot;emacsclient -c -a &amp;#39;&amp;#39;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;/p&gt;
 

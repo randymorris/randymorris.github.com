@@ -71,7 +71,7 @@
 <p>To wrap things up I wrote a couple of scripts to make launching Emacs convenient.</p>
 
 <p>file: <code>Emacs.bat</code> <div class='highlight'><pre><code class='bat'><span class='p'>@</span><span class='k'>echo</span> <span class='k'>off</span>
-plink -load drop -i c:\path\to\EmacsHostKey.ppk <span class='s2'>&quot;emacsclient -c -a &#39;&#39;&quot;</span>
+plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot;emacsclient -c -a &#39;&#39;&quot;</span>
 </code></pre>
 </div></p>
 
