@@ -6,12 +6,10 @@ layout: post
 ---
 
 <p class="update">
-<strong>Disclaimer:</strong>
-
-I'm new to the Emacs community so some of the following terminology
-may be incorrect.  Please correct me if there is a more proper way to
-describe anything I've mentioned here.
-
+   <strong>Disclaimer:</strong>
+   I'm new to the Emacs community so some of the following terminology
+   may be incorrect.  Please correct me if there is a more proper way to
+   describe anything I've mentioned here.
 </p>
 
 Over the past few months I've realized that I am far too easily
