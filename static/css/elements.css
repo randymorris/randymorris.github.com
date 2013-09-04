@@ -1,5 +1,5 @@
 * {
-    font-family: 'Garamond', 'Georgia', serif;
+    font-family: "Open Sans", sans-serif;
     color: #3e4349;
 }
 
@@ -37,7 +37,7 @@ pre > code {
 
 code,
 code > span {
-    font-family: monospace;
+    font-family: "Inconsolata", "Consolas", "Monaco", monospace;
     padding: 0 .25em;
     color: #7e8389;
     font-size: 1.05em;
@@ -57,6 +57,7 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: "Pathway Gothic One", "Garamond", serif;
     font-weight: normal;
     padding: .75em 0;
 }
