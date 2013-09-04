@@ -1,4 +1,4 @@
-exclude: README.md
+exclude: ['README.md']
 pygments: true
 tag_page_layout: tag_page
 tag_page_dir: tags
