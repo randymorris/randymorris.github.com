@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -51,8 +52,7 @@
 <p>Set up pathogen (update)</p>
 <div class='highlight'><pre><code class='vim'><span class='k'>silent</span><span class='p'>!</span> <span class='k'>call</span> pathogen#runtime_append_all_bundles<span class='p'>()</span>
 <span class='k'>filetype</span> off
-</code></pre>
-</div>
+</code></pre></div>
 <p>Configure TagList</p>
 <div class='highlight'><pre><code class='vim'><span class='k'>if</span> <span class='k'>v</span>:<span class='k'>version</span> <span class='p'>&gt;=</span> <span class='m'>600</span>
 <span class='c'>    &quot; Taglist</span>
@@ -64,14 +64,13 @@
 
 <span class='c'>    &quot; TagList options</span>
 <span class='k'>endif</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>If anyone knows of a cleaner way to deal with this sort of setup on both vim6 and vim7 I&#8217;d love to hear it. I personally find this two part solution atrocious.</p>
     <footer>
       <p>
         Posted on <time date="2010-10-12 00:00:00 -0400">October 12, 2010</time>
         
-        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
         
       </p>
     </footer>
