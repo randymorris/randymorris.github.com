@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -40,16 +41,14 @@
 
 <p>file: <code>EmacsHost.bat</code> <div class='highlight'><pre><code class='bat'><span class='p'>@</span><span class='k'>echo</span> <span class='k'>off</span>
 <span class='s2'>&quot;C:\Program Files\Oracle\VirtualBox\VBoxHeadless.exe&quot;</span> -s EmacsHost
-</code></pre>
-</div></p>
+</code></pre></div></p>
 
 <p>This batch file launches the VM named &#8220;EmacsHost&#8221; in headless mode. This means the only access to the machine is through remote services like ssh or vnc. Unfortunately, because it&#8217;s batch, this leaves a command prompt hanging around. To get rid of that I used a bit of VBScript.</p>
 
 <p>file: <code>EmacsHost.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\EmacsHost.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
-</code></pre>
-</div></p>
+</code></pre></div></p>
 
 <p>Running <code>Emacs.vbs</code> runs <code>EmacsHost.bat</code> in a subprocess and kills off the parent shell.</p>
 
@@ -71,14 +70,12 @@
 
 <p>file: <code>Emacs.bat</code> <div class='highlight'><pre><code class='bat'><span class='p'>@</span><span class='k'>echo</span> <span class='k'>off</span>
 plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot;emacsclient -c -a &#39;&#39;&quot;</span>
-</code></pre>
-</div></p>
+</code></pre></div></p>
 
 <p>file: <code>Emacs.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\Emacs.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
-</code></pre>
-</div></p>
+</code></pre></div></p>
 
 <p>With a running X server and a running VM, double clicking on <code>Emacs.vbs</code> in an Explorer window will launch emacsclient on the VM and display it on the Windows machine..</p>
 
@@ -133,7 +130,7 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
       <p>
         Posted on <time date="2013-01-09 00:00:00 -0500">January 09, 2013</time>
         
-        <span>Tagged <a href="/tags/emacs.html">emacs</a>, <a href="/tags/windows.html">windows</a></span>
+        <span>Tagged <a href="/tags/emacs.html" rel="tag">emacs</a>, <a href="/tags/windows.html" rel="tag">windows</a></span>
         
       </p>
     </footer>

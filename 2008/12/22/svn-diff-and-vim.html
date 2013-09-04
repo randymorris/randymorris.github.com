@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -38,16 +39,14 @@
 <li><em>~/bin/svnvimdiff</em></li>
 </ul>
 <div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>6</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>7</span><span class='k'>}</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>After that, you need to do one of two things:</p>
 
 <ul>
 <li>Create an alias that calls your vimdiff wrapper</li>
 </ul>
 <div class='highlight'><pre><code class='bash'><span class='nb'>alias </span><span class='nv'>svndiff</span><span class='o'>=</span><span class='s1'>&#39;svn --diff-cmd=/home/[username]/bin/svnvimdiff diff&#39;</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>OR</p>
 
 <ul>
@@ -55,13 +54,12 @@
 </ul>
 <div class='highlight'><pre><code class='bash'><span class='o'>[</span>helpers<span class='o'>]</span>
 diff-cmd <span class='o'>=</span> /home/<span class='o'>[</span>username<span class='o'>]</span>/bin/svnvimdiff
-</code></pre>
-</div>
+</code></pre></div>
     <footer>
       <p>
         Posted on <time date="2008-12-22 00:00:00 -0500">December 22, 2008</time>
         
-        <span>Tagged <a href="/tags/vim.html">vim</a>, <a href="/tags/svn.html">svn</a></span>
+        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a>, <a href="/tags/svn.html" rel="tag">svn</a></span>
         
       </p>
     </footer>

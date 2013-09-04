@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -39,8 +40,7 @@
             execute <span class='s2'>&quot;:s@$@ &quot;</span>.<span class='k'>g</span>:EndComment.<span class='s2'>&quot;@g&quot;</span>
     <span class='k'>endtry</span>
 <span class='k'>endfunction</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>This function comments starting at the beginning of the line. You can modify this behavior to suit your needs by changing the regular expression.</p>
 
 <p>Next you&#8217;ll need to set the comment characters for the language you&#8217;re working in. My preferred way is to use autocmds to set these based on the current filetype.</p>
@@ -51,12 +51,10 @@ autocmd <span class='nb'>FileType</span> php<span class='p'>,</span>cpp<span cla
 autocmd <span class='nb'>FileType</span> <span class='k'>c</span><span class='p'>,</span>css <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;/*&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;*/&quot;</span>
 autocmd <span class='nb'>FileType</span> <span class='k'>vim</span> <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;\&quot;&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span>
 autocmd <span class='nb'>FileType</span> ini <span class='k'>let</span> StartComment<span class='p'>=</span><span class='s2'>&quot;;&quot;</span> <span class='p'>|</span> <span class='k'>let</span> EndComment<span class='p'>=</span><span class='s2'>&quot;&quot;</span> 
-</code></pre>
-</div>
+</code></pre></div>
 <p>That&#8217;s it! Optionally (do this, really it&#8217;s stupid not to), you can add a keymap to quickly call our function.</p>
 <div class='highlight'><pre><code class='vim'>vmap <span class='p'>&lt;</span>Leader<span class='p'>&gt;</span><span class='k'>c</span> :<span class='k'>call</span> CommentLines<span class='p'>()&lt;</span>CR<span class='p'>&gt;</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>Now to use this function, just select a visual block and hit your keymap to toggle comments on that block. Voila!</p>
 
 <p>Note: If you need anything more complex than what this tip provides, check out the <a href='http://www.vim.org/scripts/script.php?script_id=1218'>NERD Commenter</a>. Everything I&#8217;ve read about it suggest that it&#8217;s excellent.</p>
@@ -64,7 +62,7 @@ autocmd <span class='nb'>FileType</span> ini <span class='k'>let</span> StartCom
       <p>
         Posted on <time date="2009-09-22 00:00:00 -0400">September 22, 2009</time>
         
-        <span>Tagged <a href="/tags/vim.html">vim</a></span>
+        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
         
       </p>
     </footer>

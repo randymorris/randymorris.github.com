@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -37,13 +38,11 @@
 <span class='k'>for </span>i in core extra community testing; <span class='k'>do </span>
 <span class='k'>    </span>ln -s ~/pkgs <span class='nv'>$i</span>;
 <span class='k'>done</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>Then, in <em>$HOME/.abs.conf</em>:</p>
 <div class='highlight'><pre><code class='bash'><span class='nv'>ABSROOT</span><span class='o'>=</span><span class='s2'>&quot;$HOME/.absroot&quot;</span>
 <span class='nv'>SYNCARGS</span><span class='o'>=</span><span class='s1'>&#39;-mrtv --no-motd --delete-after --no-p --no-o --no-g --keep-dirlinks&#39;</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>The <code>SYNCARGS</code> are key here. They are default options with the exception of <code>--keep-dirlinks</code>. Without this setting, rsync will wipe out the symlinks you made above and your packages won&#8217;t end up where you expect them.</p>
 
 <p>With these settings, I can now run <code>abs extra/pkgtools</code> and I will have a <code>$HOME/pkgs/pkgtools</code> directory amidst all the AUR packages I&#8217;ve collected.</p>
@@ -53,7 +52,7 @@
       <p>
         Posted on <time date="2009-08-25 00:00:00 -0400">August 25, 2009</time>
         
-        <span>Tagged <a href="/tags/arch.html">arch</a></span>
+        <span>Tagged <a href="/tags/arch.html" rel="tag">arch</a></span>
         
       </p>
     </footer>

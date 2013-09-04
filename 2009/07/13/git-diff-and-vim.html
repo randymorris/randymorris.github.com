@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -30,21 +31,19 @@
 
 <p>Setting up git to use vimdiff is virtually the same as with subversion. You need a vimdiff wrapper, and you need to tell git to use that wrapper as the diff program. First, the wrapper, <em>gitvimdiff</em> (anywhere in your path):</p>
 <div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>2</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>5</span><span class='k'>}</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>After that, just need to edit your <em>~/.gitconfig</em> file:</p>
 <div class='highlight'><pre><code class='ini'><span class='k'>[diff]</span>
   <span class='na'>external</span> <span class='o'>=</span> <span class='s'>gitvimdiff</span>
 <span class='k'>[pager]</span>
   <span class='na'>diff</span> <span class='o'>=</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>Big thanks to <a href='http://technotales.wordpress.com/2009/05/17/git-diff-with-vimdiff/'>Jonathan Palardy</a> for the info, I&#8217;ve just reproduced it here to help spread the word.</p>
     <footer>
       <p>
         Posted on <time date="2009-07-13 00:00:00 -0400">July 13, 2009</time>
         
-        <span>Tagged <a href="/tags/git.html">git</a>, <a href="/tags/vim.html">vim</a></span>
+        <span>Tagged <a href="/tags/git.html" rel="tag">git</a>, <a href="/tags/vim.html" rel="tag">vim</a></span>
         
       </p>
     </footer>
