@@ -4,8 +4,8 @@ layout: post
 published: false
 ---
 
-<p class="update">
-Please note that this project has been abandoned.  For more information, please
+<p class="alert alert-warning">
+<b>Heads up!</b> This project has been abandoned.  For more information, please
 see <a href="/articles/projects-removed">this post</a>.
 </p>
 

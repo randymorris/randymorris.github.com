@@ -12,13 +12,13 @@ users out there.
 
 Setting up git to use vimdiff is virtually the same as with subversion.
 You need a vimdiff wrapper, and you need to tell git to use that wrapper
-as the diff program.  First, the wrapper, *gitvimdiff* (anywhere in your path):
+as the diff program.  First, the wrapper, `gitvimdiff` (anywhere in your path):
 
 {% highlight bash %}
 exec /usr/bin/vimdiff ${2} ${5}
 {% endhighlight %}
 
-After that, just need to edit your *~/.gitconfig* file:
+After that, just need to edit your `~/.gitconfig` file:
 
 {% highlight ini %}
 [diff]

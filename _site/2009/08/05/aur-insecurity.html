@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AUR Insecurity -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">AUR Insecurity</a></h1>
@@ -45,15 +48,15 @@ build<span class='o'>()</span> <span class='o'>{</span>
   install -D -m755 <span class='k'>${</span><span class='nv'>pkgname</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>pkgdir</span><span class='k'>}</span>/usr/bin/<span class='k'>${</span><span class='nv'>pkgname</span><span class='k'>}</span>
 <span class='o'>}</span>
 </code></pre></div>
-<p>Any experienced user will quickly notice the horrible thing that hapens here. Of course, this is a <strong>very</strong> simple PKGBUILD. Look at <a href='http://aur.archlinux.org/packages/kernel26-vanilla/kernel26-vanilla/PKGBUILD'>this one</a> for example, malicious code could be anywhere in there and a quick glance isn&#8217;t going to catch it. Obviously <code>rm</code> is just one example of something malicious, it&#8217;s just an easy one to demonstrate.</p>
+<p>Any experienced user will quickly notice the horrible thing that hapens here. Of course, this is a <strong>very</strong> simple PKGBUILD. Look at <a href='https://aur.archlinux.org/packages/li/linux-ice/PKGBUILD'>this one</a> for example, malicious code could be anywhere in there and a quick glance isn&#8217;t going to catch it. Obviously <code>rm</code> is just one example of something malicious, it&#8217;s just an easy one to demonstrate.</p>
 
 <p>So how many times have you blindly installed something from the AUR? I know I have a few times. I also know that I&#8217;ll never do it again. Hopefully the next time you <code>wget &amp;&amp; tar &amp;&amp; makepkg</code> you&#8217;ll take a second and think about what you might be getting yourself in to.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2009-08-05 00:00:00 -0400">August 05, 2009</time>
-        
-        <span>Tagged <a href="/tags/arch.html" rel="tag">arch</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/arch.html" rel="tag">arch</a></span>
+		
       </p>
     </footer>
   </article>
@@ -71,12 +74,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

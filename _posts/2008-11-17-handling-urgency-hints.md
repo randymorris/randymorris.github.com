@@ -16,12 +16,10 @@ I'd played with them before when hacking on dwm.  In fact, I added this
 feature to my dwm because of Pidgin in the first place.  My challenge
 now was to get irssi to pass the hint to gnu-screen, to pass the hint to
 urxvt over an ssh session, to pass it to my window manager.  This was
-suprisingly easy.  Three configs are involved: *~/.irssi/config*,
-*~/.screenrc*, and *~/.Xdefaults*.  Additions are shown below.
+suprisingly easy.  Three configs are involved: `~/.irssi/config`,
+`~/.screenrc`, and `~/.Xdefaults`.  Additions are shown below.
 
-* *~/.irssi/config*
-
-{% highlight javascript %}
+file: `~/.irssi/config` {% highlight javascript %}
 settings = {
     "fe-common/core" = {
         beep_msg_level = "NOTICE MSGS HILIGHT";
@@ -30,16 +28,12 @@ settings = {
 };
 {% endhighlight %}
 
-* *~/.screenrc*
-
-{% highlight text %}
+file: `~/.screenrc` {% highlight text %}
 vbell off
 bell_msg '^G'
 {% endhighlight %}
 
-* *~/.Xdefaults*
-
-{% highlight text %}
+file: `~/.Xdefaults` {% highlight text %}
 urxvt*urgentOnBell:    true
 {% endhighlight %}
 

@@ -43,7 +43,7 @@ command prompt hanging around.  To get rid of that I used a bit of
 VBScript.
 
 file: `EmacsHost.vbs` {% highlight vbnet %}
-Set WshShell = WScript.CreateObject("WScript.Shell")
+set WshShell = WScript.CreateObject("WScript.Shell")
 obj = WshShell.Run("c:\path\to\EmacsHost.bat", 0)
 set WshShell = Nothing
 {% endhighlight %}
@@ -90,7 +90,7 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost "emacsclient -c -a ''"
 {% endhighlight %}
 
 file: `Emacs.vbs` {% highlight vbnet %}
-Set WshShell = WScript.CreateObject("WScript.Shell")
+set WshShell = WScript.CreateObject("WScript.Shell")
 obj = WshShell.Run("c:\path\to\Emacs.bat", 0)
 set WshShell = Nothing
 {% endhighlight %}

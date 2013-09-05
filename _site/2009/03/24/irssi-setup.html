@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Irssi Setup -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">Irssi Setup</a></h1>
@@ -37,7 +40,7 @@
 
 <ul>
 <li>
-<p><em>screen_away.pl</em> - I could not go without this one &#8211; especially because I use bitlbee for non-irc chat. screen_away allows me to go away automatically whenever I detach from my screen session. It does some other nifty stuff too, but this is all I&#8217;ve used it for.</p>
+<p><code>screen_away.pl</code> - I could not go without this one &#8211; especially because I use bitlbee for non-irc chat. screen_away allows me to go away automatically whenever I detach from my screen session. It does some other nifty stuff too, but this is all I&#8217;ve used it for.</p>
 </li>
 
 <li>
@@ -45,23 +48,23 @@
 </li>
 
 <li>
-<p><em>adv_windowlist.pl</em> - Another absolutely necessary one if you are going to use bitlbee. Provides a verbose window listing rather than the default window activity status.</p>
+<p><code>adv_windowlist.pl</code> - Another absolutely necessary one if you are going to use bitlbee. Provides a verbose window listing rather than the default window activity status.</p>
 </li>
 
 <li>
-<p><em>bitlbee_*.pl</em> - All the bitlbee scripts from <a href='http://scripts.irssi.org/'>irssi.org</a>. They each provide a few things that make bitlbee a little more usable.</p>
+<p><code>bitlbee_*.pl</code> - All the bitlbee scripts from <a href='http://scripts.irssi.org/'>irssi.org</a>. They each provide a few things that make bitlbee a little more usable.</p>
 </li>
 </ul>
 
 <p>Without urgency hints, the irssi/bitlbee combo would be useless to me. Luckily I&#8217;ve taken care of this as outlined <a href='/2008/11/17/1/handling-urgency-hints.html'>here</a>.</p>
 
 <p>I can say that this configuration is by far the most usable setup I&#8217;ve ever used for day to day chat. If you have any comments or suggestions, feel free to <a href='/about/'>contact</a> me.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2009-03-24 00:00:00 -0400">March 24, 2009</time>
-        
-        <span>Tagged <a href="/tags/irssi.html" rel="tag">irssi</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/irssi.html" rel="tag">irssi</a></span>
+		
       </p>
     </footer>
   </article>
@@ -79,12 +82,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

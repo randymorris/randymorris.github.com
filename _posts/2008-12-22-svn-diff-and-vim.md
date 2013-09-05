@@ -29,25 +29,17 @@ wrapper around vimdiff.  This is because of the way svn calls the diff
 utility, as far as I know there is no way around it.  My vimdiff wrapper
 is below.
 
-* *~/bin/svnvimdiff*
-
-{% highlight bash %}
+file: `~/bin/svnvimdiff` {% highlight bash %}
 exec /usr/bin/vimdiff ${6} ${7}
 {% endhighlight %}
 
 After that, you need to do one of two things:
 
-* Create an alias that calls your vimdiff wrapper
+ 1. Create an alias that calls your vimdiff wrapper: {% highlight bash %}
+alias svndiff="svn --diff-cmd=$HOME/bin/svnvimdiff diff"
+{% endhighlight %} OR
 
-{% highlight bash %}
-alias svndiff='svn --diff-cmd=/home/[username]/bin/svnvimdiff diff'
-{% endhighlight %}
-
-OR
-
-* Edit *~/.subversion/config* to have the following lines
-
-{% highlight bash %}
+ 2. Edit `~/.subversion/config` to have the following lines: {% highlight bash %}
 [helpers]
 diff-cmd = /home/[username]/bin/svnvimdiff
 {% endhighlight %}

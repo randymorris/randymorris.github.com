@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title> rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li class="active"><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li class="active"><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   
   <article>
     <header>
@@ -46,7 +49,7 @@
 
 <p>This batch file launches the VM named &#8220;EmacsHost&#8221; in headless mode. This means the only access to the machine is through remote services like ssh or vnc. Unfortunately, because it&#8217;s batch, this leaves a command prompt hanging around. To get rid of that I used a bit of VBScript.</p>
 
-<p>file: <code>EmacsHost.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
+<p>file: <code>EmacsHost.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\EmacsHost.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
 </code></pre></div></p>
@@ -73,7 +76,7 @@
 plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot;emacsclient -c -a &#39;&#39;&quot;</span>
 </code></pre></div></p>
 
-<p>file: <code>Emacs.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
+<p>file: <code>Emacs.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\Emacs.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
 </code></pre></div></p>
@@ -127,10 +130,10 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 </ul>
 
 <p>If you have any questions or suggestions on how I could improve either this setup or the guide itself speak up.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Published on <time datetime="2013-01-09">January 09, 2013</time>
-        <span><a href="/2013/01/09/effective-emacs-in-windows-7.html#disqus_thread">Comments</a></span>
+		<span class="pull-right"><a href="/2013/01/09/effective-emacs-in-windows-7.html#disqus_thread">Comments</a></span>
       </p>
     </footer>
   </article>
@@ -154,10 +157,10 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 <blockquote>
 <p>God damn it, you&#8217;re a programmer. Start using an editor you can damn well program.</p>
 </blockquote>
-    <footer>
+    <footer class="text-muted">
       <p>
         Published on <time datetime="2012-07-18">July 18, 2012</time>
-        <span><a href="/2012/07/18/why-emacs.html#disqus_thread">Comments</a></span>
+		<span class="pull-right"><a href="/2012/07/18/why-emacs.html#disqus_thread">Comments</a></span>
       </p>
     </footer>
   </article>
@@ -173,10 +176,10 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 <p>Comment threads will be broken until I get the time to remap them with Disqus but eventually I&#8217;ll have all four comments back to their respective articles.</p>
 
 <p>As always, please let me know if you notice any residual issues.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Published on <time datetime="2012-05-22">May 22, 2012</time>
-        <span><a href="/2012/05/22/migrated-to-jekyll.html#disqus_thread">Comments</a></span>
+		<span class="pull-right"><a href="/2012/05/22/migrated-to-jekyll.html#disqus_thread">Comments</a></span>
       </p>
     </footer>
   </article>
@@ -201,12 +204,13 @@ var disqus_shortname = 'rsontechnet';
 }());
 </script>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

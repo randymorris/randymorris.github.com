@@ -30,7 +30,7 @@
 
 &lt;p&gt;This batch file launches the VM named &amp;#8220;EmacsHost&amp;#8221; in headless mode. This means the only access to the machine is through remote services like ssh or vnc. Unfortunately, because it&amp;#8217;s batch, this leaves a command prompt hanging around. To get rid of that I used a bit of VBScript.&lt;/p&gt;
 
-&lt;p&gt;file: &lt;code&gt;EmacsHost.vbs&lt;/code&gt; &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vbnet'&gt;&lt;span class='k'&gt;Set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WScript&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;CreateObject&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;WScript.Shell&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;p&gt;file: &lt;code&gt;EmacsHost.vbs&lt;/code&gt; &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vbnet'&gt;&lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WScript&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;CreateObject&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;WScript.Shell&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 &lt;span class='n'&gt;obj&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Run&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;c:\path\to\EmacsHost.bat&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;Nothing&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
@@ -57,7 +57,7 @@
 plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt;&amp;quot;emacsclient -c -a &amp;#39;&amp;#39;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
 
-&lt;p&gt;file: &lt;code&gt;Emacs.vbs&lt;/code&gt; &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vbnet'&gt;&lt;span class='k'&gt;Set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WScript&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;CreateObject&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;WScript.Shell&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;p&gt;file: &lt;code&gt;Emacs.vbs&lt;/code&gt; &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vbnet'&gt;&lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WScript&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;CreateObject&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;WScript.Shell&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 &lt;span class='n'&gt;obj&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;Run&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;c:\path\to\Emacs.bat&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
 &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='n'&gt;WshShell&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;Nothing&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
@@ -159,17 +159,13 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt
       <title>Ctrl-C is not Escape</title>
       <link>http://rsontech.net//2012/05/13/ctrl-c-is-not-escape.html</link>
       <description>
-        &lt;p&gt;I&amp;#8217;d like to think I&amp;#8217;m not one to be pedantic about things, but there&amp;#8217;s one common misconception that has been making the rounds that annoys me to no end. &lt;em&gt;Ctrl-c&lt;/em&gt; is not equivalent to &lt;em&gt;Escape&lt;/em&gt;. There are two key differences that can be demonstrated by the following two snippets.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Ctrl-c skips any pending insert mode abbreviations.&lt;/em&gt;&lt;/p&gt;
-
+        &lt;p&gt;I&amp;#8217;d like to think I&amp;#8217;m not one to be pedantic about things, but there&amp;#8217;s one common misconception that has been making the rounds that annoys me to no end. &lt;code&gt;Ctrl-c&lt;/code&gt; is not equivalent to &lt;code&gt;Escape&lt;/code&gt;. There are two key differences that can be demonstrated by the following two snippets.&lt;/p&gt;
+&lt;p class='text-danger'&gt;&lt;strong&gt;Ctrl-c skips any pending insert mode abbreviations.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In a vim session type the following:&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='p'&gt;:&lt;/span&gt;iabbrev teh the
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is a common misspelling and an oft used abbreviation. Now enter insert mode and type &lt;code&gt;teh&amp;lt;Space&amp;gt;&lt;/code&gt;. Notice that the space completed the abbreviation and it now says &lt;code&gt;the&lt;/code&gt; instead of &lt;code&gt;teh&lt;/code&gt;. Now do the same but instead insert &lt;code&gt;teh&amp;lt;Esc&amp;gt;&lt;/code&gt;. The abbreviation still happens. Do the same with &lt;code&gt;teh&amp;lt;Ctrl-c&amp;gt;&lt;/code&gt;. The abbreviation is not completed.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Ctrl-c does not fire the InsertLeave autocmd event.&lt;/em&gt;&lt;/p&gt;
-
+&lt;p class='text-danger'&gt;&lt;strong&gt;Ctrl-c does not fire the InsertLeave autocmd event.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Dump the following snipped into &amp;#8220;cursorline.vim&amp;#8221; and launch vim with &amp;#8220;vim -u cursorline.vim&amp;#8221;.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;augroup CursorLine     
     autocmd&lt;span class='p'&gt;!&lt;/span&gt;
@@ -178,9 +174,9 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt
 augroup END
 &lt;span class='k'&gt;set&lt;/span&gt; &lt;span class='nb'&gt;cursorline&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This snippet enables &amp;#8216;cursorline&amp;#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with &lt;em&gt;Esc&lt;/em&gt; you&amp;#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with &lt;em&gt;Ctrl-c&lt;/em&gt; you&amp;#8217;ll see that it is never re-enabled.&lt;/p&gt;
+&lt;p&gt;This snippet enables &amp;#8216;cursorline&amp;#8217; while in normal mode and disables it in insert mode. If you go into insert mode and exit with &lt;code&gt;Esc&lt;/code&gt; you&amp;#8217;ll notice that the cursorline is re-enabled, however, if you enter insert mode and exit with &lt;code&gt;Ctrl-c&lt;/code&gt; you&amp;#8217;ll see that it is never re-enabled.&lt;/p&gt;
 
-&lt;p&gt;These two things probably don&amp;#8217;t seem that important to you, but what about the developers of the plugins you use? If you&amp;#8217;re using a plugin that relies on either of these two features you&amp;#8217;re risking some functionality breaking by using &lt;em&gt;Ctrl-c&lt;/em&gt;. If you must use something other than &lt;em&gt;Escape&lt;/em&gt;, use &lt;em&gt;Ctrl-[&lt;/em&gt; instead as these &lt;i&gt;are&lt;/i&gt; equivalent.&lt;/p&gt;
+&lt;p&gt;These two things probably don&amp;#8217;t seem that important to you, but what about the developers of the plugins you use? If you&amp;#8217;re using a plugin that relies on either of these two features you&amp;#8217;re risking some functionality breaking by using &lt;code&gt;Ctrl-c&lt;/code&gt;. If you must use something other than &lt;code&gt;Escape&lt;/code&gt;, use &lt;code&gt;Ctrl-[&lt;/code&gt; instead as these &lt;i&gt;are&lt;/i&gt; equivalent.&lt;/p&gt;
       </description>
       <author>randy@rsontech.net (Randy Morris)</author>
       <pubDate>Sun, 13 May 2012 00:00:00 -0400</pubDate>
@@ -244,8 +240,8 @@ augroup END
       <title>Changing My Work Flow: Adding Emacs</title>
       <link>http://rsontech.net//2012/03/07/changing-my-work-flow-adding-emacs.html</link>
       <description>
-        &lt;p class='update'&gt;
-   &lt;strong&gt;Disclaimer:&lt;/strong&gt;
+        &lt;p class='alert alert-warning'&gt;
+   &lt;b&gt;Disclaimer:&lt;/b&gt;
    I'm new to the Emacs community so some of the following terminology
    may be incorrect.  Please correct me if there is a more proper way to
    describe anything I've mentioned here.
@@ -316,7 +312,7 @@ augroup END
 
 &lt;p&gt;For the uninitiated, fuzzy-finding plugins allow you to open a file by only typing enough pieces of the path to uniquely identify a file. Sometimes this is as little as one or two characters. I wasn&amp;#8217;t really sold on this behavior until I tried using them at work where we have many files with similar names. A plugin like this makes dealing with such situations much easier to deal with than tab-completion alone.&lt;/p&gt;
 
-&lt;p&gt;CtrlP is written entirely in vimscript. This is a big plus for me because many of the machines at work aren&amp;#8217;t built with +python or +ruby which &lt;a href='https://github.com/jamis/fuzzyfinder_textmate/'&gt;some&lt;/a&gt; &lt;a href='https://github.com/sjbach/lusty/'&gt;of&lt;/a&gt; &lt;a href='http://wincent.com/products/command-t/'&gt;the&lt;/a&gt; other fuzzy-finding plugins require. Although it&amp;#8217;s written in vimscript it caches directory and filenames for larger directories and can be configured to always use a cache. This means it&amp;#8217;s quite slow on first launch in larger directories but is very fast on subsequent calls.&lt;/p&gt;
+&lt;p&gt;CtrlP is written entirely in vimscript. This is a big plus for me because many of the machines at work aren&amp;#8217;t built with &lt;code&gt;+python&lt;/code&gt; or &lt;code&gt;+ruby&lt;/code&gt; which &lt;a href='https://github.com/jamis/fuzzyfinder_textmate/'&gt;some&lt;/a&gt; &lt;a href='https://github.com/sjbach/lusty/'&gt;of&lt;/a&gt; &lt;a href='http://wincent.com/products/command-t/'&gt;the&lt;/a&gt; other fuzzy-finding plugins require. Although it&amp;#8217;s written in vimscript it caches directory and filenames for larger directories and can be configured to always use a cache. This means it&amp;#8217;s quite slow on first launch in larger directories but is very fast on subsequent calls.&lt;/p&gt;
 
 &lt;p&gt;Another big plus is the configurability CtrlP offers. There are (currently) 22 options provided to configure everything from mappings to how caching should work. You can even delegate the file indexing out to a faster external mechanism if you so choose.&lt;/p&gt;
 

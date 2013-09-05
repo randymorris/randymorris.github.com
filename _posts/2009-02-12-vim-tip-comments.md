@@ -4,7 +4,8 @@ tags: vim
 layout: post
 ---
 
-<p class="update"> I've posted a follow up to this tip that details a
+<p class="alert alert-warning">
+<b>Heads up!</b> I've posted a follow up to this tip that details a
 quicker way to comment in vim by using a simple function.  Check it
 out <a href="/2009/09/22/comments-revisited.html">here</a>.
 </p>

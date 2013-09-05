@@ -29,14 +29,16 @@ time and I have a relatively small number of tags, what the hell.
   {% for item in (1..num_tags) %}
     {% capture next_tag %}{{ get_tags_string | split:' ' | sort | join:' ' | truncatewords:item | remove:"..." | split:' ' | last }}{% endcapture %}
     {% for tag in site.tags %}
+      <ul>
       {% assign tag_name = tag[0] %}
       {% capture posts %}{{ tag[1] | size }}{% endcapture %}
       {% if tag_name == next_tag %}
-        <div>
-          <h2><a href="/tags/{{ tag_name }}.html">{{ tag_name }}</a></h2>
-          <span>{{ posts }} post{% if posts != "1" %}s{% endif %}</span>
-        </div>
+        <li>
+          <a href="/tags/{{ tag_name }}.html">{{ tag_name }}</a>
+          <span class="text-muted">{{ posts }} post{% if posts != "1" %}s{% endif %}</span>
+		</li>
         {% endif %}
+      </ul>
     {% endfor %}
   {% endfor %}
 </section>

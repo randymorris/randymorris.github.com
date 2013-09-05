@@ -4,7 +4,7 @@ tags: shell
 layout: post
 ---
 
-Jelly in the archlinux irc channel asked for suggestions for a cli todo
+[Jelly][0] in the archlinux irc channel asked for suggestions for a cli todo
 app, and I offered this to him on a whim.  As it turns out, it's
 actually pretty damn useful.
 
@@ -57,6 +57,7 @@ todo()
 }
 {% endhighlight %}
 
+[0]: http://vdwaa.nl/
 [1]: https://github.com/rson/dotfiles/blob/master/zshrc
 [2]: https://github.com/
 [3]: http://bbs.archlinux.org/viewtopic.php?pid=590871#p590871

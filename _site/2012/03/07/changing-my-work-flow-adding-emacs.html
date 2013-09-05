@@ -2,33 +2,36 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Changing My Work Flow: Adding Emacs -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">Changing My Work Flow: Adding Emacs</a></h1>
     </header>
-    <p class='update'>
-   <strong>Disclaimer:</strong>
+    <p class='alert alert-warning'>
+   <b>Disclaimer:</b>
    I'm new to the Emacs community so some of the following terminology
    may be incorrect.  Please correct me if there is a more proper way to
    describe anything I've mentioned here.
@@ -70,12 +73,12 @@
 <p>Adding Emacs to my work flow has been great for my development tasks but I&#8217;m not ready to move on completely. I fully intend to continue using vim when I&#8217;m logged on to a test or production machine, and really any time I&#8217;m not doing development. I have been using this work flow for the past couple of weeks and it seems pretty natural to me now other than the occasional <code>C-x s</code> or <code>C-x f</code> while in vim.</p>
 
 <p>If you have any questions or suggestions feel free to ping me in the comments or in the usual places. Feel free to watch my <a href='https://github.com/rson/emacs.d'>.emacs.d</a> grow as I continue to go through this process.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2012-03-07 00:00:00 -0500">March 07, 2012</time>
-        
-        <span>Tagged <a href="/tags/emacs.html" rel="tag">emacs</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/emacs.html" rel="tag">emacs</a></span>
+		
       </p>
     </footer>
   </article>
@@ -93,12 +96,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

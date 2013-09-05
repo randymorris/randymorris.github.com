@@ -20,12 +20,12 @@ many files with similar names.  A plugin like this makes dealing with
 such situations much easier to deal with than tab-completion alone.
 
 CtrlP is written entirely in vimscript.  This is a big plus for me
-because many of the machines at work aren't built with +python or +ruby
-which [some][2] [of][3] [the][4] other fuzzy-finding plugins require.
-Although it's written in vimscript it caches directory and filenames for
-larger directories and can be configured to always use a cache. This
-means it's quite slow on first launch in larger directories but is very
-fast on subsequent calls.
+because many of the machines at work aren't built with `+python` or
+`+ruby` which [some][2] [of][3] [the][4] other fuzzy-finding plugins
+require.  Although it's written in vimscript it caches directory and
+filenames for larger directories and can be configured to always use a
+cache. This means it's quite slow on first launch in larger
+directories but is very fast on subsequent calls.
 
 [2]: https://github.com/jamis/fuzzyfinder_textmate/
 [3]: https://github.com/sjbach/lusty/

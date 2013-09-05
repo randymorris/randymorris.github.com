@@ -42,4 +42,4 @@ have a few times.  I also know that I'll never do it again.  Hopefully the next
 time you `wget && tar && makepkg` you'll
 take a second and think about what you might be getting yourself in to.
 
-[1]: http://aur.archlinux.org/packages/kernel26-vanilla/kernel26-vanilla/PKGBUILD
+[1]: https://aur.archlinux.org/packages/li/linux-ice/PKGBUILD

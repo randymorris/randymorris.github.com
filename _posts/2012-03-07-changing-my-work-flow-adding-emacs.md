@@ -5,8 +5,8 @@ tags: emacs
 layout: post
 ---
 
-<p class="update">
-   <strong>Disclaimer:</strong>
+<p class="alert alert-warning">
+   <b>Disclaimer:</b>
    I'm new to the Emacs community so some of the following terminology
    may be incorrect.  Please correct me if there is a more proper way to
    describe anything I've mentioned here.

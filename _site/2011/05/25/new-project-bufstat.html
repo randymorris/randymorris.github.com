@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>New Project: bufstat -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">New Project: bufstat</a></h1>
@@ -34,12 +37,12 @@
 <p>So far I&#8217;ve had a few users give me some positive feedback but I could always use feedback of any kind. If you&#8217;d like to try it out it&#8217;s hosted on <a href='http://github.com/'>github</a> as <a href='http://github.com/rson/vim-bufstat/'>vim-bufstat</a>. Install it like you would any other plugin.</p>
 
 <p>The documentation should be accurate and up to date but if there are any questions please let me know. You&#8217;ll probably want to read at least the intro and usage sections of the doc so you&#8217;ll know what to expect.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2011-05-25 00:00:00 -0400">May 25, 2011</time>
-        
-        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
+		
       </p>
     </footer>
   </article>
@@ -57,12 +60,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

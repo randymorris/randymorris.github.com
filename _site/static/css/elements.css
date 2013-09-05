@@ -1,6 +1,5 @@
 * {
     font-family: "Open Sans", sans-serif;
-    color: #3e4349;
 }
 
 a,
@@ -12,43 +11,9 @@ a:hover {
     color: #f60;
 }
 
-body {
-    margin: 0 auto;
-    width: 50em;
-}
-
-em,
-dt {
-    font-style: italic;
-}
-
-dd {
-    line-height: 1.5em;
-    padding: .5em .5em .5em 2em;
-}
-
-dt {
-    padding-top: .5em;
-}
-
-pre > code {
-    color: #3e4349;
-}
-
 code,
 code > span {
     font-family: "Inconsolata", "Consolas", "Monaco", monospace;
-    padding: 0 .25em;
-    color: #7e8389;
-    font-size: 1.05em;
-}
-
-li img {
-    vertical-align: middle;
-}
-
-li {
-    line-height: 2em;
 }
 
 h1,
@@ -57,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Pathway Gothic One", "Garamond", serif;
+    font-family: "Pathway Gothic One", "Garamond", serif;
     font-weight: normal;
     padding: .75em 0;
 }
@@ -65,6 +30,7 @@ h6 {
 h1 {
     font-size: 1.75em;
 }
+
 h2 {
     font-size: 1.25em;
 }
@@ -78,189 +44,90 @@ h4 {
     font-size: 1em;
 }
 
-ol {
-    padding-left: 3em;
-    list-style-type: decimal;
-}
-
-p {
-    padding: 1em 0;
-    line-height: 1.5em;
-}
-
-ul {
-    padding-left: 3em;
-    list-style-type: disc;
-}
-
-
-
-.highlight {
-    background-color: #f0f3f3;
-    border: 1px solid #f9fcfc;
-    border-top: 1px solid #e0f3f3;
-    border-left: 1px solid #e0f3f3;
-}
-
-.highlight pre {
-    padding: 5px;
-    border: 1px solid #e0f3f3;
-    border-top: 1px solid #f9fcfc;
-    border-left: 1px solid #f9fcfc;
-}
-
 .separator {
     margin: 2em 0;
     text-align: center;
     color: #830;
 }
 
-.update {
-    padding: 1em;
-    background-color: #ffc;
+body > .container > header {
+    margin: 2.5em 0;
 }
 
-
-
-body > header {
-    margin: 2em 0;
-    position: relative;
-}
-
-body > header > h1 {
+.brand {
     font-size: 3em;
     padding: 0;
     font-weight: normal;
-    letter-spacing: .05em
+    letter-spacing: .05em;
+	line-height: 25px;
 }
 
-body > header a,
-body > header a:visited {
+.brand > a,
+.brand > a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-pills > li > a {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+	padding: 10px;
+	padding-bottom: 0px;
+	line-height: 25px;
+	color: inherit;
+}
+
+.nav-pills > li.active > a {
+    background-color: inherit;
     color: inherit;
+	border-bottom: 3px solid #c30;
 }
 
-body > header > h1 a {
-    text-decoration: none;
+.nav-pills > li.active > a:hover {
+	color: inherit;
+	background-color: inherit;
 }
 
-body > header li.active {
-    border-bottom: 3px solid #c30;
-}
-
-body > header li:hover {
+.nav-pills > li > a:hover {
+	background-color: inherit;
     border-bottom: 3px solid #f60;
 }
 
-body > footer p {
+dt {
+    font-family: "Pathway Gothic One", "Garamond", serif;
+	font-weight: normal;
+	font-size: 1.15em;
+}
+
+dd {
+	padding-left: 3em;
+	margin: .5em 0 1em;
+}
+
+.article-list dt {
+	font-size: 1.5em;
+}
+
+.article-list .tags {
+	margin-left: 10px;
+}
+
+.about > img {
+	margin-left: 2em;
+}
+
+.text-muted,
+.text-muted.tags > a {
+	color: #777;
+	font-style: italic;
+}
+
+footer {
     text-align: center;
-    margin-top: 2em;
-    font-size: 1em;
-    color: #777;
+	margin: 2em 0;
 }
 
-
-
-nav {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-nav a {
-    text-decoration: none;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 1em;
-    padding-bottom: .15em;
-}
-
-
-
-article > footer p,
-article > footer time,
-article > footer p span {
-    color: #777;
-    font-style: italic;
-}
-
-article > footer p > span {
-    float: right;
-}
-
-article > footer p > span > a {
-    font-style: normal;
-}
-
-.article-list article {
-    padding: .5em 0 .5em 3em;
-}
-
-.article-list h3 {
-    display: inline;
-}
-
-.article-list span {
-    margin-left: .5em;
-}
-
-.article-list span > a {
-    color: #777;
-    font-style: italic;
-    text-decoration: none;
-}
-
-.tag-list div {
-    padding: .5em 0;
-}
-
-.tag-list h2 {
-    display: inline;
-}
-
-.tag-list span {
-    margin-left: .5em;
-    font-style: italic;
-    color: #777;
-}
-
-section > footer {
-    text-align: center;
-}
-
-#about p,
-#about section {
-    padding: .5em 10em .5em 0;
-}
-
-#about > img {
-    float: right;
-    margin-top: 1em;
-    border: 2px solid #ccc;
-}
-
-blockquote {
-    font-style: italic;
-    font-size: 1.15em;
-}
-
-blockquote:before {
-    content: "\201c";
-    font-size: 3.5em;
-    color: #ccc;
-    display: block;
-    float: left;
-    margin: 5px;
-}
-
-#about h2 + ul {
-    list-style-type: none;
-}
-#about h2 + ul > li {
-    display: inline;
+article > footer {
+	text-align: left;
 }

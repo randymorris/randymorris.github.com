@@ -70,9 +70,11 @@ anyway.  A native vim solution is the only acceptable solution in my
 opinion.  Until I can muster up the guts to dig into the vim source, I
 guess I'll just complain to myself.
 
-UPDATE:  The author of conque sent an excellent comparison of the
+<div class="alert alert-info">
+<b>Update:</b> The author of conque sent an excellent comparison of the
 available shell options to the vim_use mailing list.  You can find it
-[here](http://groups.google.com/group/vim_use/msg/22c97ebfd6a978eb).  I
-highly suggest subscribing to both vim_use and vim_dev to find out tips
-and tricks you wouldn't otherwise know (if you can handle that volume of
-email).
+<a href="http://groups.google.com/group/vim_use/msg/22c97ebfd6a978eb">here</a>.
+I highly suggest subscribing to both vim_use and vim_dev to find out
+tips and tricks you wouldn't otherwise know (if you can handle that
+volume of email).
+</div>

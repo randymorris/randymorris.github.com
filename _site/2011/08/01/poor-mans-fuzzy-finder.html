@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Poor Man's Fuzzy Finder -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">Poor Man's Fuzzy Finder</a></h1>
@@ -34,12 +37,12 @@
 <p>The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using <code>&lt;leader&gt;ff</code>. If there are multiple files found that match the glob, vim will throw <code>E77</code>. If that happens I can use <code>&lt;leader&gt;fp</code> to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.</p>
 
 <p>Obviously this solution is nowhere near as complete as a plugin dedicated to this task, however it&#8217;s as complete as I need it to be.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2011-08-01 00:00:00 -0400">August 01, 2011</time>
-        
-        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
+		
       </p>
     </footer>
   </article>
@@ -57,12 +60,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

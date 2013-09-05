@@ -18,18 +18,18 @@ up if anyone wants it.
 
 Scripts:
 
-* *screen_away.pl* - I could not go without this one -- especially
+* `screen_away.pl` - I could not go without this one -- especially
 because I use bitlbee for non-irc chat.  screen_away allows me to go
 away automatically whenever I detach from my screen session.  It does
 some other nifty stuff too, but this is all I've used it for.
 
 * *nm.pl* - Provides right aligned nicks and random nick colors.
 
-* *adv_windowlist.pl* - Another absolutely necessary one if you are
+* `adv_windowlist.pl` - Another absolutely necessary one if you are
 going to use bitlbee.  Provides a verbose window listing rather than the
 default window activity status.
 
-* *bitlbee_\*.pl* - All the bitlbee scripts from [irssi.org][sio].  They
+* `bitlbee_*.pl` - All the bitlbee scripts from [irssi.org][sio].  They
 each provide a few things that make bitlbee a little more usable.
 
 Without urgency hints, the irssi/bitlbee combo would be useless to me.

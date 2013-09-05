@@ -2,33 +2,37 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% if page.title %}{{ page.title }} - {% endif %} rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li{% if page.active_tab == "blog" %} class="active"{% endif %}><a href="/">blog</a></li>
-          <li{% if page.active_tab == "archive" %} class="active"{% endif %}><a href="/archive">archive</a></li>
-          <li{% if page.active_tab == "tags" %} class="active" {% endif %}><a href="/tags">tags</a></li>
-          <li{% if page.active_tab == "about" %} class="active" {% endif %}><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    {{ content }}
-    <footer>
-      <p>
-        &copy;2006-{{ site.time | date:"%Y" }} rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li{% if page.active_tab == "blog" %} class="active"{% endif %}><a href="/">blog</a></li>
+			<li{% if page.active_tab == "archive" %} class="active"{% endif %}><a href="/archive">archive</a></li>
+			<li{% if page.active_tab == "tags" %} class="active" {% endif %}><a href="/tags">tags</a></li>
+			<li{% if page.active_tab == "about" %} class="active" {% endif %}><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      {{ content }}
+      <footer class="text-muted">
+		<p>
+          &copy;2006-{{ site.time | date:"%Y" }} rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

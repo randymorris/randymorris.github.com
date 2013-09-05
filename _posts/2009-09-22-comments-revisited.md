@@ -17,11 +17,11 @@ First, add a simple function to do the work:
 " Toggle comments on a visual block
 function! CommentLines()
     try
-            execute ":s@^".g:StartComment." @\@g"
-            execute ":s@ ".g:EndComment."$@@g"
+        execute ":s@^".g:StartComment." @\@g"
+        execute ":s@ ".g:EndComment."$@@g"
     catch
-            execute ":s@^@".g:StartComment." @g"
-            execute ":s@$@ ".g:EndComment."@g"
+        execute ":s@^@".g:StartComment." @g"
+        execute ":s@$@ ".g:EndComment."@g"
     endtry
 endfunction
 {% endhighlight %}
@@ -53,9 +53,11 @@ vmap <Leader>c :call CommentLines()<CR>
 Now to use this function, just select a visual block and hit your keymap to
 toggle comments on that block.  Voila!
 
-Note: If you need anything more complex than what this tip provides, check out
-the [NERD Commenter][2].  Everything I've read about it suggest that it's
+<div class="alert alert-info">
+<b>Note:</b> If you need anything more complex than what this tip provides,
+check out the <a href="http://www.vim.org/scripts/script.php?script_id=1218">
+NERD Commenter</a>.  Everything I've read about it suggest that it's
 excellent.
+</div>
 
 [1]: /2009/02/12/4/vim-tip-comments
-[2]: http://www.vim.org/scripts/script.php?script_id=1218
