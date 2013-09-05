@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Effective Emacs in Windows 7 -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">Effective Emacs in Windows 7</a></h1>
@@ -45,7 +48,7 @@
 
 <p>This batch file launches the VM named &#8220;EmacsHost&#8221; in headless mode. This means the only access to the machine is through remote services like ssh or vnc. Unfortunately, because it&#8217;s batch, this leaves a command prompt hanging around. To get rid of that I used a bit of VBScript.</p>
 
-<p>file: <code>EmacsHost.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
+<p>file: <code>EmacsHost.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\EmacsHost.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
 </code></pre></div></p>
@@ -72,7 +75,7 @@
 plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot;emacsclient -c -a &#39;&#39;&quot;</span>
 </code></pre></div></p>
 
-<p>file: <code>Emacs.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>Set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
+<p>file: <code>Emacs.vbs</code> <div class='highlight'><pre><code class='vbnet'><span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='n'>WScript</span><span class='p'>.</span><span class='n'>CreateObject</span><span class='p'>(</span><span class='s'>&quot;WScript.Shell&quot;</span><span class='p'>)</span>
 <span class='n'>obj</span> <span class='o'>=</span> <span class='n'>WshShell</span><span class='p'>.</span><span class='n'>Run</span><span class='p'>(</span><span class='s'>&quot;c:\path\to\Emacs.bat&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>)</span>
 <span class='k'>set</span> <span class='n'>WshShell</span> <span class='o'>=</span> <span class='k'>Nothing</span>
 </code></pre></div></p>
@@ -126,12 +129,12 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 </ul>
 
 <p>If you have any questions or suggestions on how I could improve either this setup or the guide itself speak up.</p>
-    <footer>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2013-01-09 00:00:00 -0500">January 09, 2013</time>
-        
-        <span>Tagged <a href="/tags/emacs.html" rel="tag">emacs</a>, <a href="/tags/windows.html" rel="tag">windows</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/emacs.html" rel="tag">emacs</a>, <a href="/tags/windows.html" rel="tag">windows</a></span>
+		
       </p>
     </footer>
   </article>
@@ -149,12 +152,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>

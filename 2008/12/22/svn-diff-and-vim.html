@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SVN Diff and Vim -  rsontech.net</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css" />
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
 	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">rsontech.net</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/">blog</a></li>
-          <li><a href="/archive">archive</a></li>
-          <li><a href="/tags">tags</a></li>
-          <li><a href="/about">about</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
+	<div class="container">
+      <header>
+		<span class="brand"><a href="/">rsontech.net</a></span>
+		<nav class="pull-right">
+          <ul class="nav nav-pills">
+			<li><a href="/">blog</a></li>
+			<li><a href="/archive">archive</a></li>
+			<li><a href="/tags">tags</a></li>
+			<li><a href="/about">about</a></li>
+          </ul>
+		</nav>
+      </header>
+      <section>
   <article>
     <header>
       <h1><a href="">SVN Diff and Vim</a></h1>
@@ -35,32 +38,29 @@
 
 <p>Anyway, on to the point. To set up svn to use vimdiff as it&#8217;s default output you&#8217;ve got to do a few things. First, you need to create a wrapper around vimdiff. This is because of the way svn calls the diff utility, as far as I know there is no way around it. My vimdiff wrapper is below.</p>
 
-<ul>
-<li><em>~/bin/svnvimdiff</em></li>
-</ul>
-<div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>6</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>7</span><span class='k'>}</span>
-</code></pre></div>
+<p>file: <code>~/bin/svnvimdiff</code> <div class='highlight'><pre><code class='bash'><span class='nb'>exec</span> /usr/bin/vimdiff <span class='k'>${</span><span class='nv'>6</span><span class='k'>}</span> <span class='k'>${</span><span class='nv'>7</span><span class='k'>}</span>
+</code></pre></div></p>
+
 <p>After that, you need to do one of two things:</p>
 
-<ul>
-<li>Create an alias that calls your vimdiff wrapper</li>
-</ul>
-<div class='highlight'><pre><code class='bash'><span class='nb'>alias </span><span class='nv'>svndiff</span><span class='o'>=</span><span class='s1'>&#39;svn --diff-cmd=/home/[username]/bin/svnvimdiff diff&#39;</span>
-</code></pre></div>
-<p>OR</p>
+<ol>
+<li>
+<p>Create an alias that calls your vimdiff wrapper: <div class='highlight'><pre><code class='bash'><span class='nb'>alias </span><span class='nv'>svndiff</span><span class='o'>=</span><span class='s2'>&quot;svn --diff-cmd=$HOME/bin/svnvimdiff diff&quot;</span>
+</code></pre></div> OR</p>
+</li>
 
-<ul>
-<li>Edit <em>~/.subversion/config</em> to have the following lines</li>
-</ul>
-<div class='highlight'><pre><code class='bash'><span class='o'>[</span>helpers<span class='o'>]</span>
+<li>
+<p>Edit <code>~/.subversion/config</code> to have the following lines: <div class='highlight'><pre><code class='bash'><span class='o'>[</span>helpers<span class='o'>]</span>
 diff-cmd <span class='o'>=</span> /home/<span class='o'>[</span>username<span class='o'>]</span>/bin/svnvimdiff
-</code></pre></div>
-    <footer>
+</code></pre></div></p>
+</li>
+</ol>
+    <footer class="text-muted">
       <p>
         Posted on <time date="2008-12-22 00:00:00 -0500">December 22, 2008</time>
-        
-        <span>Tagged <a href="/tags/vim.html" rel="tag">vim</a>, <a href="/tags/svn.html" rel="tag">svn</a></span>
-        
+		
+		<span class="pull-right">Tagged <a href="/tags/vim.html" rel="tag">vim</a>, <a href="/tags/svn.html" rel="tag">svn</a></span>
+		
       </p>
     </footer>
   </article>
@@ -78,12 +78,13 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <footer>
-      <p>
-        &copy;2006-2013 rsontech.net &ndash;
-        Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-        <a href="http://github.com/rson/rson.github.com/">Source</a>
-      </p>
-    </footer>
+      <footer class="text-muted">
+		<p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+		</p>
+      </footer>
+	</div>
   </body>
 </html>
