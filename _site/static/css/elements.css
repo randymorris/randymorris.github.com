@@ -128,6 +128,16 @@ h4 {
 	}
 }
 
+@media (max-width: 320px) {
+	.page-header > span {
+		font-size: 3em;
+	}
+
+	.page-header li {
+		margin-right: 10px;
+	}
+}
+
 dt {
     font-family: "Pathway Gothic One", "Garamond", serif;
 	font-weight: normal;
