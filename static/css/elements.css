@@ -76,11 +76,13 @@ h4 {
     margin: 20px 0;
 }
 
-.page-header > span {
+.page-header > h1 {
 	font-size: 4em;
     letter-spacing: .05em;
 	display: inline-block;
 	width: 50%;
+	padding: 0;
+	margin: 0;
 }
 
 .page-header > nav {
@@ -99,20 +101,28 @@ h4 {
 	margin-left: 5px;
 }
 
-.page-header > nav li.active > a {
-	border-bottom: 3px solid #c30;
+.page-header li > a::before {
+	content: "\25b8\00a0";
+	visibility: hidden;
 }
 
-.page-header > nav li:hover > a{
-    border-bottom: 3px solid #f60;
+.page-header li:hover > a::before,
+.page-header li.active:hover > a::before {
+	visibility: visible;
+	color: #f60;
 }
 
-.page-header > nav li > a {
+.page-header li.active > a::before {
+	visibility: visible;
+	color: #c30;
+}
+
+.page-header li > a {
 	padding: 5px 10px 3px;
 }
 
 @media (max-width: 768px) {
-	.page-header > span,
+	.page-header > h1,
 	.page-header > nav {
 		display: block;
 		width: auto;
@@ -124,17 +134,31 @@ h4 {
 	}
 	
 	.page-header li {
-		margin-right: 25px;
+		margin-left: 0;
+		margin-right: 7px;
+	}
+
+	.page-header li > a {
+		padding-left: 0;
 	}
 }
 
 @media (max-width: 400px) {
-	.page-header > span {
-		font-size: 3em;
+	.page-header > h1 {
+		font-size: 3.5em;
+	}
+
+	section > h1,
+	article.full > header > h1 {
+		font-size: 2em;
+	}
+
+	article.snippet > header > h1 {
+		font-size: 1.5em;
 	}
 
 	.page-header li {
-		margin-right: 10px;
+		margin-right: 0;
 	}
 }
 
@@ -181,7 +205,7 @@ article {
 	margin-left: 10px;
 }
 
-.about > img {
+.me > img {
 	margin-left: 2em;
 }
 
@@ -193,4 +217,18 @@ article {
 footer {
     text-align: center;
 	margin: 2em 0;
+}
+
+.dot {
+	color: #c30;
+	font-size: .25em;
+}
+
+.more, .more:visited {
+    font-family: "Pathway Gothic One", "Garamond", serif;
+	color: inherit;
+}
+
+.more + span {
+	color: #c30;
 }
