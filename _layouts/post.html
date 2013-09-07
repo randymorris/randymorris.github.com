@@ -3,23 +3,26 @@ layout: default
 ---
 
 <section>
-  <article>
+  <article class="full">
     <header>
-      <h1><a href="{{ post.url }}">{{ page.title }}</a></h1>
+      <h1>{{ page.title }}</h1>
+      <ul class="list-unstyled list-inline meta">
+        <li>
+		  <a href="{{ page.url }}" title="Permalink">
+			<time date="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+		  </a>
+		</li>
+		{% if page.tags %}
+		<li>Tagged: {{ page | tags }}</li>
+		{% endif %}
+	  </ul>
     </header>
     {{ content }}
-    <footer class="text-muted">
-      <p>
-        Posted on <time date="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
-		{% if page.tags %}
-		<span class="pull-right">Tagged {{ page | tags }}</span>
-		{% endif %}
-      </p>
     </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div id="disqus-thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {

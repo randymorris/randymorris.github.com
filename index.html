@@ -1,24 +1,24 @@
 ---
 layout: default
 active_tab: "blog"
-post_limit: 3
+post_limit: 5
 ---
 <section>
+  <h1>Recent Articles</h1>
   {% for post in site.posts limit:page.post_limit %}
-  <article>
+  <article class="snippet">
     <header>
       <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      <ul class="list-unstyled list-inline meta">
+        <li><time date="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time></li>
+		{% if post.tags %}
+		<li>Tagged: {{ post | tags }}</li>
+		{% endif %}
+	  </ul>
     </header>
-    {{ post.content }}
-    <footer class="text-muted">
-      <p>
-        Published on <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date: "%B %d, %Y" }}</time>
-		<span class="pull-right"><a href="{{ post.url}}#disqus_thread">Comments</a></span>
-      </p>
-    </footer>
+    {{ post.content | strip_html | truncatewords:100 }}
+	<a href="{{ post.url }}">more</a>
   </article>
-
-  <div class="separator">&middot; &middot; &middot;</div>
   {% endfor %}
 
   <footer>

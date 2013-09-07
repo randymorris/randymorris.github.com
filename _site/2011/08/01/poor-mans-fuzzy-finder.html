@@ -2,33 +2,43 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Poor Man's Fuzzy Finder -  rsontech.net</title>
 
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
-	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-	<div class="container">
-      <header>
-		<span class="brand"><a href="/">rsontech.net</a></span>
-		<nav class="pull-right">
-          <ul class="nav nav-pills">
-			<li><a href="/">blog</a></li>
-			<li><a href="/archive">archive</a></li>
-			<li><a href="/tags">tags</a></li>
-			<li><a href="/about">about</a></li>
+    <div class="container">
+      <header class="page-header">
+        <span><a href="/">rsontech.net</a></span><!--
+     --><nav>
+          <ul>
+            <li><a href="/">blog</a></li><!--
+         --><li><a href="/archive">archive</a></li><!--
+         --><li><a href="/tags">tags</a></li><!--
+         --><li><a href="/about">about</a></li>
           </ul>
-		</nav>
+        </nav>
       </header>
       <section>
-  <article>
+  <article class="full">
     <header>
-      <h1><a href="">Poor Man's Fuzzy Finder</a></h1>
+      <h1>Poor Man's Fuzzy Finder</h1>
+      <ul class="list-unstyled list-inline meta">
+        <li>
+		  <a href="/2011/08/01/poor-mans-fuzzy-finder.html" title="Permalink">
+			<time date="2011-08-01 00:00:00 -0400">August 01, 2011</time>
+		  </a>
+		</li>
+		
+		<li>Tagged: <a href="/tags/vim.html" rel="tag">vim</a></li>
+		
+	  </ul>
     </header>
     <p>I recently realized I have been using a very simple replacement for the <a href='https://wincent.com/products/command-t'>Command-T</a>/<a href='https://bitbucket.org/ns9tks/vim-fuzzyfinder/'>Fuzzy Finder</a> type plugins for quite some time, however I had never made it convenient for myself to do so. Today I pushed a small change to my <code>.vimrc</code> that I think will make things a little easier for me.</p>
 <div class='highlight'><pre><code class='vim'><span class='nb'>nnoremap</span> <span class='p'>&lt;</span>leader<span class='p'>&gt;</span><span class='nb'>ff</span> :<span class='k'>e</span> **/*<span class='p'>&lt;</span><span class='k'>left</span><span class='p'>&gt;</span>
@@ -37,18 +47,11 @@
 <p>The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using <code>&lt;leader&gt;ff</code>. If there are multiple files found that match the glob, vim will throw <code>E77</code>. If that happens I can use <code>&lt;leader&gt;fp</code> to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.</p>
 
 <p>Obviously this solution is nowhere near as complete as a plugin dedicated to this task, however it&#8217;s as complete as I need it to be.</p>
-    <footer class="text-muted">
-      <p>
-        Posted on <time date="2011-08-01 00:00:00 -0400">August 01, 2011</time>
-		
-		<span class="pull-right">Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
-		
-      </p>
     </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div id="disqus-thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {
@@ -61,12 +64,12 @@ var disqus_shortname = 'rsontechnet';
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
       <footer class="text-muted">
-		<p>
+        <p>
           &copy;2006-2013 rsontech.net &ndash;
           Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
           <a href="http://github.com/rson/rson.github.com/">Source</a>
-		</p>
+        </p>
       </footer>
-	</div>
+    </div>
   </body>
 </html>

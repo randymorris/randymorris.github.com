@@ -2,33 +2,43 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Vim Tip: Navigation -  rsontech.net</title>
 
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
-	<link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-	<div class="container">
-      <header>
-		<span class="brand"><a href="/">rsontech.net</a></span>
-		<nav class="pull-right">
-          <ul class="nav nav-pills">
-			<li><a href="/">blog</a></li>
-			<li><a href="/archive">archive</a></li>
-			<li><a href="/tags">tags</a></li>
-			<li><a href="/about">about</a></li>
+    <div class="container">
+      <header class="page-header">
+        <span><a href="/">rsontech.net</a></span><!--
+     --><nav>
+          <ul>
+            <li><a href="/">blog</a></li><!--
+         --><li><a href="/archive">archive</a></li><!--
+         --><li><a href="/tags">tags</a></li><!--
+         --><li><a href="/about">about</a></li>
           </ul>
-		</nav>
+        </nav>
       </header>
       <section>
-  <article>
+  <article class="full">
     <header>
-      <h1><a href="">Vim Tip: Navigation</a></h1>
+      <h1>Vim Tip: Navigation</h1>
+      <ul class="list-unstyled list-inline meta">
+        <li>
+		  <a href="/2009/11/16/vim-tip-navigation.html" title="Permalink">
+			<time date="2009-11-16 00:00:00 -0500">November 16, 2009</time>
+		  </a>
+		</li>
+		
+		<li>Tagged: <a href="/tags/vim.html" rel="tag">vim</a></li>
+		
+	  </ul>
     </header>
     <p>Have you ever used vim to edit a large file and found yourself setting marks in a few areas to quickly jump between them? I have, and I find it highly annoying to have to remember those marks. Luckily, vim has a few tricks up it&#8217;s sleeve that make jumping around a little faster.</p>
 
@@ -41,18 +51,11 @@
 <p>The biggest difference I&#8217;ve noticed here is that the jumplist stores jumps across files whereas the changelist does not. Both of these features may be influenced by viminfo settings, but the default behavior is quite comfortable.</p>
 
 <p>Have any other tips about jumping between sections of a file? If so, <a href='/about'>let me know</a>.</p>
-    <footer class="text-muted">
-      <p>
-        Posted on <time date="2009-11-16 00:00:00 -0500">November 16, 2009</time>
-		
-		<span class="pull-right">Tagged <a href="/tags/vim.html" rel="tag">vim</a></span>
-		
-      </p>
     </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div id="disqus-thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {
@@ -65,12 +68,12 @@ var disqus_shortname = 'rsontechnet';
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
       <footer class="text-muted">
-		<p>
+        <p>
           &copy;2006-2013 rsontech.net &ndash;
           Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
           <a href="http://github.com/rson/rson.github.com/">Source</a>
-		</p>
+        </p>
       </footer>
-	</div>
+    </div>
   </body>
 </html>

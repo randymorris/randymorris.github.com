@@ -29,7 +29,7 @@ time and I have a relatively small number of tags, what the hell.
   {% for item in (1..num_tags) %}
     {% capture next_tag %}{{ get_tags_string | split:' ' | sort | join:' ' | truncatewords:item | remove:"..." | split:' ' | last }}{% endcapture %}
     {% for tag in site.tags %}
-      <ul>
+      <ul class="list-unstyled">
       {% assign tag_name = tag[0] %}
       {% capture posts %}{{ tag[1] | size }}{% endcapture %}
       {% if tag_name == next_tag %}
