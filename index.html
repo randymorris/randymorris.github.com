@@ -1,6 +1,6 @@
 ---
 layout: default
-active_tab: "blog"
+active_tab: "home"
 post_limit: 5
 ---
 <section>
@@ -17,13 +17,13 @@ post_limit: 5
 	  </ul>
     </header>
     {{ post.content | strip_html | truncatewords:100 }}
-	<a href="{{ post.url }}">more</a>
+	<a href="{{ post.url }}" class="more">more</a> <span>&#x25b8;</span>
   </article>
   {% endfor %}
 
   <footer>
     {% if site.posts.size > page.post_limit %}
-    <a href="/archive">More posts</a>
+    <a href="/articles">More posts</a>
     {% endif %}
   </footer>
 
