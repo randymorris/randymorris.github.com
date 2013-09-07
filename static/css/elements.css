@@ -98,27 +98,28 @@ h4 {
 
 .page-header > nav li {
 	display: inline-block;
-	margin-left: 5px;
+	margin-right: 30px;
 }
 
-.page-header li > a::before {
-	content: "\25b8\00a0";
+.page-header li > span {
+	display: block;
 	visibility: hidden;
+	text-align: center;
 }
 
-.page-header li:hover > a::before,
-.page-header li.active:hover > a::before {
+.page-header li:hover > span,
+.page-header li.active:hover > span {
 	visibility: visible;
 	color: #f60;
 }
 
-.page-header li.active > a::before {
+.page-header li.active > span {
 	visibility: visible;
 	color: #c30;
 }
 
 .page-header li > a {
-	padding: 5px 10px 3px;
+	text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -132,14 +133,9 @@ h4 {
 		margin: 20px 0 30px;
 		text-align: left;
 	}
-	
-	.page-header li {
-		margin-left: 0;
-		margin-right: 7px;
-	}
 
-	.page-header li > a {
-		padding-left: 0;
+	.page-header > nav li {
+		margin-right: 40px;
 	}
 }
 
@@ -157,8 +153,8 @@ h4 {
 		font-size: 1.5em;
 	}
 
-	.page-header li {
-		margin-right: 0;
+	.page-header > nav li {
+		margin-right: 30px;
 	}
 }
 
