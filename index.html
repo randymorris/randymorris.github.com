@@ -17,7 +17,7 @@ post_limit: 5
 	  </ul>
     </header>
     {{ post.content | strip_html | truncatewords:100 }}
-	<a href="{{ post.url }}" class="more">more</a> <span>&#x25b6;</span>
+	<a href="{{ post.url }}" class="more">more</a>&nbsp;<span>&#x25b6;</span>
   </article>
   {% endfor %}
 
