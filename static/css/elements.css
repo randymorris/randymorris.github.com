@@ -120,6 +120,7 @@ h4 {
 
 .page-header li > a {
 	text-align: center;
+	padding: 15px 0;
 }
 
 @media (max-width: 768px) {
