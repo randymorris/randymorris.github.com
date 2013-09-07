@@ -128,7 +128,7 @@ h4 {
 	}
 }
 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
 	.page-header > span {
 		font-size: 3em;
 	}
