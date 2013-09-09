@@ -14,11 +14,11 @@
       <description>
         &lt;p&gt;There are many posts around the web about how to run Emacs in Windows. While many of these suggest building and running a native version of Emacs, many others suggest running the version available through &lt;a href='http://www.cygwin.com/'&gt;Cygwin&lt;/a&gt;. I tried both approaches many times but always ran into problems with the packages that I use most often. On top of that I was plagued with slowness that just isn&amp;#8217;t there on other platforms. The good news is I&amp;#8217;ve found a happy medium that works quite well for me and this post documents that monster I&amp;#8217;ve created.&lt;/p&gt;
 
-&lt;h2 id='what_i_wanted'&gt;What I wanted&lt;/h2&gt;
+&lt;h1 id='what_i_wanted'&gt;What I wanted&lt;/h1&gt;
 
 &lt;p&gt;My goals for this setup were to make Emacs run on a &amp;#8220;remote&amp;#8221; machine and display on my local Windows install. I also wanted this to be as seamless as possible so that it felt as if I was running a native application. To do this I needed quite a bit of supporting software.&lt;/p&gt;
 
-&lt;h2 id='an_emacs_host'&gt;An Emacs host&lt;/h2&gt;
+&lt;h1 id='an_emacs_host'&gt;An Emacs host&lt;/h1&gt;
 
 &lt;p&gt;I used a Linux host, specifically a VirtualBox VM running a minimal Ubuntu server install. Your host is going to need to have an opensshd and X11 installed, with X11 forwarding enabled in &lt;code&gt;sshd_config&lt;/code&gt;. Anyone reading this guide is probably already very familiar with these steps so I&amp;#8217;ll leave out the details.&lt;/p&gt;
 
@@ -39,17 +39,17 @@
 
 &lt;p&gt;I finished off the VM setup by having &lt;code&gt;EmacsHost.vbs&lt;/code&gt; run on boot so it is always running whenever I attempt to run Emacs. The VM is tiny so it starts up immediately and I don&amp;#8217;t worry about powering it off as there isn&amp;#8217;t much to lose on the machine itself.&lt;/p&gt;
 
-&lt;h2 id='putty_and_friends'&gt;PuTTY and friends&lt;/h2&gt;
+&lt;h1 id='putty_and_friends'&gt;PuTTY and friends&lt;/h1&gt;
 
 &lt;p&gt;The &lt;a href='http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html'&gt;PuTTY&lt;/a&gt; project is a set of Windows applications that allow you to connect to remote machines via a number of protocols. You can download the two specific applications you&amp;#8217;ll need directly but I strongly suggest downloading the installer for simplicity&amp;#8217;s sake. From this project I used &lt;code&gt;PuTTYgen&lt;/code&gt; to set up the ssh certificates and &lt;code&gt;plink&lt;/code&gt; to make the connection to launch Emacs.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately PuTTY&amp;#8217;s certificates are incompatible with openssh and there is some work that needs to be done to make a private/public key pair that will work between the machines. There are many resources on setting up these certificates so I won&amp;#8217;t go into details here. Later I reference the private key on Windows as &amp;#8220;EmacsHostKey.ppk&amp;#8221;.&lt;/p&gt;
 
-&lt;h2 id='an_x11_server'&gt;An X11 server&lt;/h2&gt;
+&lt;h1 id='an_x11_server'&gt;An X11 server&lt;/h1&gt;
 
 &lt;p&gt;In order to have Emacs display on your Windows machine you will need to be running an X11 server. I chose &lt;a href='http://x.cygwin.com/'&gt;Cygwin/X&lt;/a&gt; since I had Cygwin installed for other reasons already. I also chose to launch the X server on startup at the same time as my VM, for the same reasons.&lt;/p&gt;
 
-&lt;h2 id='putting_it_all_together'&gt;Putting it all together&lt;/h2&gt;
+&lt;h1 id='putting_it_all_together'&gt;Putting it all together&lt;/h1&gt;
 
 &lt;p&gt;To wrap things up I wrote a couple of scripts to make launching Emacs convenient.&lt;/p&gt;
 
@@ -64,7 +64,7 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt
 
 &lt;p&gt;With a running X server and a running VM, double clicking on &lt;code&gt;Emacs.vbs&lt;/code&gt; in an Explorer window will launch emacsclient on the VM and display it on the Windows machine..&lt;/p&gt;
 
-&lt;h2 id='whats_left'&gt;What&amp;#8217;s left?&lt;/h2&gt;
+&lt;h1 id='whats_left'&gt;What&amp;#8217;s left?&lt;/h1&gt;
 
 &lt;p&gt;One slight annoyance is that pinning Emacs to the taskbar doesn&amp;#8217;t work as expected. With Cygwin/X, pinning it actually pins an Xwin instance to the taskbar and clicking this doesn&amp;#8217;t launch Emacs. To fix this I found an odd workaround somewhere on the &lt;a href='http://emacswiki.org/'&gt;Emacs Wiki&lt;/a&gt;:&lt;/p&gt;
 
@@ -86,11 +86,11 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost &lt;span class='s2'&gt
 
 &lt;p&gt;After a reboot (or restart of explorer.exe) the pinned Emacs icon functions just as any other pinned application.&lt;/p&gt;
 
-&lt;h2 id='the_result'&gt;The result&lt;/h2&gt;
+&lt;h1 id='the_result'&gt;The result&lt;/h1&gt;
 
 &lt;p&gt;After following these steps I&amp;#8217;m left with is an Emacs that behaves as though it is a native Windows application without the slowness or incompatibilities I ran into with a native Emacs build.&lt;/p&gt;
 
-&lt;h2 id='notes'&gt;Notes&lt;/h2&gt;
+&lt;h1 id='notes'&gt;Notes&lt;/h1&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -250,13 +250,13 @@ augroup END
 
 &lt;p&gt;Because the driving force behind this change was focus, I have tried to stay away from the typical &amp;#8220;Emacs can and should do everything&amp;#8221; point of view. There are really only two main features that I&amp;#8217;ve been using that go above and beyond a text editor: &lt;em&gt;ansi-term&lt;/em&gt; and &lt;em&gt;TRAMP&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h2 id='ansiterm'&gt;ansi-term&lt;/h2&gt;
+&lt;h1 id='ansiterm'&gt;ansi-term&lt;/h1&gt;
 
 &lt;p&gt;As the name suggests, ansi-term is a terminal emulator that can be run inside Emacs. It works almost like any other buffer so moving between normal buffers and the terminal is virtually seamless. This is something I wanted in vim for ages, I even &lt;a href='/2010/05/07/help-shell-window.html'&gt;ranted about it&lt;/a&gt; here once before.&lt;/p&gt;
 
 &lt;p&gt;While it&amp;#8217;s possible to open multiple instances of ansi-term, I have limited myself to only having one running at a time. This has helped me concentrate on one task because I am no longer hopping between different terminals with different ssh sessions running. One terminal, one task. Having a terminal in the editor also allows me to do all my scm tasks without leaving Emacs as well, without having to use some fancy git/svn/whatever mode. I just use the normal command line interface I&amp;#8217;m used to.&lt;/p&gt;
 
-&lt;h2 id='tramp'&gt;TRAMP&lt;/h2&gt;
+&lt;h1 id='tramp'&gt;TRAMP&lt;/h1&gt;
 
 &lt;p&gt;TRAMP is a really poorly constructed acronym for &amp;#8220;Transparent Remote (file) Access, Multiple Protocol&amp;#8221;. Where the acronym lacks, the execution excels. For you vim users, TRAMP is what netrw really should be. I am able to &amp;#8220;transparently&amp;#8221; edit files on servers without being nagged about passwords or temp files every time I make a change. This is very convenient for me as I do my development almost exclusively on one of our dev servers. I no longer have to choose between opening an ssh session and editing with the remote editor or using sshfs to mount the remote filesystem locally to get a decent editing experience.&lt;/p&gt;
 
@@ -274,11 +274,11 @@ augroup END
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Adding this to the remote machine&amp;#8217;s bashrc will enable TRAMP to follow the working directory in ansi-term.&lt;/p&gt;
 
-&lt;h2 id='other_benefits'&gt;Other benefits&lt;/h2&gt;
+&lt;h1 id='other_benefits'&gt;Other benefits&lt;/h1&gt;
 
 &lt;p&gt;There are a couple of features that I would like to dive in to eventually but haven&amp;#8217;t looked too much at yet. Having a true programming language at my disposal (&lt;a href='http://en.wikipedia.org/wiki/Emacs_Lisp'&gt;elisp&lt;/a&gt;) when customizing my editor is &lt;strong&gt;very&lt;/strong&gt; appealing after spending years of dealing with vimscript. I also would like to look in to Org-mode as it may be another tool to help keep me on track at work.&lt;/p&gt;
 
-&lt;h2 id='moving_forward'&gt;Moving forward&lt;/h2&gt;
+&lt;h1 id='moving_forward'&gt;Moving forward&lt;/h1&gt;
 
 &lt;p&gt;Adding Emacs to my work flow has been great for my development tasks but I&amp;#8217;m not ready to move on completely. I fully intend to continue using vim when I&amp;#8217;m logged on to a test or production machine, and really any time I&amp;#8217;m not doing development. I have been using this work flow for the past couple of weeks and it seems pretty natural to me now other than the occasional &lt;code&gt;C-x s&lt;/code&gt; or &lt;code&gt;C-x f&lt;/code&gt; while in vim.&lt;/p&gt;
 

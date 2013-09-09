@@ -1,0 +1,122 @@
+* {
+  font-family: "Open Sans", "Dejavu Sans", "Bitstream Vera Sans", Helvetica, sans-serif; }
+
+a {
+  color: #993300; }
+  a:hover {
+    color: #ff6600; }
+
+.rt-heading {
+  font-family: "Pathway Gothic One", "Garamond", serif; }
+
+.rt-title-page,
+.rt-article-header > .rt-title-page {
+  font-size: 40px; }
+  @media screen and (max-width: 320px) {
+    .rt-title-page,
+    .rt-article-header > .rt-title-page {
+      font-size: 26px; } }
+
+.rt-title-section {
+  font-size: 26px; }
+  @media screen and (max-width: 320px) {
+    .rt-title-section {
+      margin-top: 10px;
+      font-size: 20px; } }
+
+.rt-title-article-section {
+  font-size: 20px; }
+  @media screen and (max-width: 320px) {
+    .rt-title-article-section {
+      font-size: 16px; } }
+
+.rt-meta {
+  font-size: 12px; }
+  .rt-meta > li {
+    padding-left: 0;
+    padding-right: 5px; }
+  .rt-meta > li + li {
+    border-left: 1px solid #eee;
+    padding-left: 5px; }
+
+.rt-brand {
+  width: 50%;
+  font-size: 60px;
+  display: inline-block;
+  letter-spacing: .05em; }
+  .rt-brand > a, .rt-brand a:hover {
+    color: inherit;
+    text-decoration: none; }
+  @media screen and (max-width: 480px) {
+    .rt-brand {
+      width: 100%;
+      display: block; } }
+
+.rt-brand-flair {
+  font-size: 15px;
+  color: #993300; }
+
+.rt-nav {
+  width: 50%;
+  display: inline-block;
+  text-align: right; }
+  @media screen and (max-width: 480px) {
+    .rt-nav {
+      width: 100%;
+      display: block;
+      text-align: left; } }
+
+.rt-nav-link > a, .rt-nav-link a:hover {
+  padding: 5px 5px 15px 5px;
+  color: inherit;
+  text-decoration: none; }
+.rt-nav-link > .rt-page-indicator {
+  display: block;
+  text-align: center;
+  visibility: hidden;
+  color: #993300; }
+.rt-nav-link.active > .rt-page-indicator {
+  visibility: visible; }
+.rt-nav-link:hover > .rt-page-indicator {
+  color: #ff6600;
+  visibility: visible; }
+@media screen and (max-width: 480px) {
+  .rt-nav-link {
+    margin-right: 30px; }
+    .rt-nav-link:last-child {
+      margin-right: 0; }
+    .rt-nav-link > a, .rt-nav-link a:hover, .rt-nav-link .rt-page-indicator {
+      padding-left: 0;
+      padding-right: 0; } }
+
+.rt-page-footer {
+  text-align: center;
+  padding: 2em 0; }
+
+.rt-link-more {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold; }
+  .rt-link-more:hover {
+    text-decoration: none;
+    color: inherit; }
+  .rt-link-more > i {
+    color: #993300; }
+
+.rt-article-list-article-link {
+  margin-left: 30px;
+  line-height: 1.75em; }
+
+.rt-article-list-tag-links > a {
+  color: #777777; }
+
+.rt-article h1, .rt-article h2, .rt-article h3, .rt-article h4, .rt-article h5, .rt-article h6 {
+  font-family: "Pathway Gothic One", "Garamond", serif; }
+.rt-article h1 {
+  font-size: 20px; }
+  @media screen and (max-width: 320px) {
+    .rt-article h1 {
+      font-size: 16px; } }
+
+.rt-comments {
+  margin-top: 60px; }

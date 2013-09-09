@@ -29,7 +29,7 @@ to stay away from the typical "Emacs can and should do everything"
 point of view.  There are really only two main features that I've been
 using that go above and beyond a text editor: *ansi-term* and *TRAMP*.
 
-## ansi-term ##
+# ansi-term
 
 As the name suggests, ansi-term is a terminal emulator that can be run
 inside Emacs.  It works almost like any other buffer so moving between
@@ -46,7 +46,7 @@ do all my scm tasks without leaving Emacs as well, without having to
 use some fancy git/svn/whatever mode.  I just use the normal command
 line interface I'm used to.
 
-## TRAMP ##
+# TRAMP
 
 TRAMP is a really poorly constructed acronym for "Transparent Remote
 (file) Access, Multiple Protocol".  Where the acronym lacks, the
@@ -83,7 +83,7 @@ fi
 Adding this to the remote machine's bashrc will enable TRAMP to follow
 the working directory in ansi-term.
 
-## Other benefits ##
+# Other benefits
 
 There are a couple of features that I would like to dive in to
 eventually but haven't looked too much at yet.  Having a true
@@ -92,7 +92,7 @@ editor is **very** appealing after spending years of dealing with
 vimscript.  I also would like to look in to Org-mode as it may be
 another tool to help keep me on track at work.
 
-## Moving forward ##
+# Moving forward
 
 Adding Emacs to my work flow has been great for my development tasks
 but I'm not ready to move on completely.  I fully intend to continue

@@ -24,8 +24,8 @@ time and I have a relatively small number of tags, what the hell.
   {{ get_tags_string | number_of_words }}
 {% endcapture %}
 
-<section class="tag-list">
-  <h1>{{ page.title }}</h1>
+<section>
+  <h1 class="rt-heading rt-title-page">{{ page.title }}</h1>
   {% for item in (1..num_tags) %}
     {% capture next_tag %}{{ get_tags_string | split:' ' | sort | join:' ' | truncatewords:item | remove:"..." | split:' ' | last }}{% endcapture %}
     {% for tag in site.tags %}

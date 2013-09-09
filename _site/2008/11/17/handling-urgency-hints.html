@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,51 +6,56 @@
 
     <title>Handling Urgency Hints -  rsontech.net</title>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/rt-5c4b052ad1387e16d2eefc3efad4b219.css">
   </head>
 
   <body>
     <div class="container">
-      <header class="page-header">
-        <h1><a href="/">rsontech<span class="dot">&#x25b2;</span>net</a></h1><!--
-     --><nav>
-          <ul>
-            <li>
-			  <span>&#x25bc;</span>
-			  <a href="/">home</a>
-			</li><!--
-         --><li class="active">
-			  <span>&#x25bc;</span>
-			  <a href="/articles">articles</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/tags">tags</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/me">me</a>
-			</li>
+      <header>
+        <h1 class="rt-brand">
+          <a href="/" class="rt-heading">
+			rsontech<span class="rt-brand-flair">&#x25b4;</span>net
+		  </a>
+        </h1><!--
+     --><nav class="rt-nav">
+          <ul class="list-inline">
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/">home</a>
+            </li>
+            <li class="rt-nav-link active">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/articles">articles</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/tags">tags</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/me">me</a>
+            </li>
           </ul>
         </nav>
       </header>
+
       <section>
-  <article class="full">
-    <header>
-      <h1>Handling Urgency Hints</h1>
-      <ul class="list-unstyled list-inline meta">
+  <article class="rt-article">
+    <header class="rt-article-header">
+      <h1 class="rt-heading rt-title-page">Handling Urgency Hints</h1>
+      <ul class="list-unstyled list-inline rt-meta">
         <li>
 		  <a href="/2008/11/17/handling-urgency-hints.html" title="Permalink">
 			<time date="2008-11-17 00:00:00 -0500">November 17, 2008</time>
 		  </a>
-		</li>
+		</li><!--
 		
-		<li>Tagged: <a href="/tags/gnu-screen.html" rel="tag">gnu-screen</a>, <a href="/tags/irssi.html" rel="tag">irssi</a></li>
+		--><li>Tagged: <a href="/tags/gnu-screen.html" rel="tag">gnu-screen</a>, <a href="/tags/irssi.html" rel="tag">irssi</a></li><!--
 		
-	  </ul>
+	  --></ul>
     </header>
     <p>Recently I found myself getting tired of <a href='http://pidgin.im'>Pidgin</a>&#8217;s multi-window interface and began searching for alternatives. Because I&#8217;m already on IRC all the time anyway, I decided to take a shot at <a href='http://www.bitlbee.org'>Bitlbee</a>. Bitlbee takes all the useful features of Pidgin and sticks them in a familiar IRC-ish interface. The only annoying part was that the message notification Pidgin gave me was gone &#8211; no more color changing tags/taskbar. Enter urgency hints.</p>
 
@@ -72,11 +77,10 @@ bell_msg &#39;^G&#39;
 </code></pre></div></p>
 
 <p>With these three settings, I now get a nice <a href='/static/img/screenshots/2008-11-24-211910_1680x1050_scrot.png'>notification</a> when receiving a message in Bitlbee or irssi. This has a nice side effect too. Many cli apps can send a bell when they need your attention. Mutt, for instance, can now notify you about new mail.</p>
-    </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div class="rt-comments" id="disqus_thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {
@@ -88,11 +92,12 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      <footer class="text-muted">
+
+      <footer class="rt-page-footer">
         <p>
-          &copy;2006-2013 rsontech.net &ndash;
-          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-          <a href="http://github.com/rson/rson.github.com/">Source</a>
+          &copy;2013 rsontech.net &ndash;
+          <a href="http://jekyllrb.com/">Jekyll</a>,
+          <a href="http://github.com/rson/rson.github.com/">source</a>
         </p>
       </footer>
     </div>

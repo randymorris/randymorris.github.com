@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,51 +6,56 @@
 
     <title>SVN Diff and Vim -  rsontech.net</title>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/rt-5c4b052ad1387e16d2eefc3efad4b219.css">
   </head>
 
   <body>
     <div class="container">
-      <header class="page-header">
-        <h1><a href="/">rsontech<span class="dot">&#x25b2;</span>net</a></h1><!--
-     --><nav>
-          <ul>
-            <li>
-			  <span>&#x25bc;</span>
-			  <a href="/">home</a>
-			</li><!--
-         --><li class="active">
-			  <span>&#x25bc;</span>
-			  <a href="/articles">articles</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/tags">tags</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/me">me</a>
-			</li>
+      <header>
+        <h1 class="rt-brand">
+          <a href="/" class="rt-heading">
+			rsontech<span class="rt-brand-flair">&#x25b4;</span>net
+		  </a>
+        </h1><!--
+     --><nav class="rt-nav">
+          <ul class="list-inline">
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/">home</a>
+            </li>
+            <li class="rt-nav-link active">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/articles">articles</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/tags">tags</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/me">me</a>
+            </li>
           </ul>
         </nav>
       </header>
+
       <section>
-  <article class="full">
-    <header>
-      <h1>SVN Diff and Vim</h1>
-      <ul class="list-unstyled list-inline meta">
+  <article class="rt-article">
+    <header class="rt-article-header">
+      <h1 class="rt-heading rt-title-page">SVN Diff and Vim</h1>
+      <ul class="list-unstyled list-inline rt-meta">
         <li>
 		  <a href="/2008/12/22/svn-diff-and-vim.html" title="Permalink">
 			<time date="2008-12-22 00:00:00 -0500">December 22, 2008</time>
 		  </a>
-		</li>
+		</li><!--
 		
-		<li>Tagged: <a href="/tags/vim.html" rel="tag">vim</a>, <a href="/tags/svn.html" rel="tag">svn</a></li>
+		--><li>Tagged: <a href="/tags/vim.html" rel="tag">vim</a>, <a href="/tags/svn.html" rel="tag">svn</a></li><!--
 		
-	  </ul>
+	  --></ul>
     </header>
     <p>Now that I&#8217;m starting to really get used to using svn for all my config files and web dev work, I&#8217;ve noticed I use the command <code>svn diff</code> a lot. By default this outputs a unified diff to stdout if any differences are found. While this is good information to have, it&#8217;s a really sucky way to display it &#8211; especially when we have tools like <code>sdiff</code> and <code>vimdiff</code> at our exposure.</p>
 
@@ -77,11 +82,10 @@ diff-cmd <span class='o'>=</span> /home/<span class='o'>[</span>username<span cl
 </code></pre></div></p>
 </li>
 </ol>
-    </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div class="rt-comments" id="disqus_thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {
@@ -93,11 +97,12 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      <footer class="text-muted">
+
+      <footer class="rt-page-footer">
         <p>
-          &copy;2006-2013 rsontech.net &ndash;
-          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-          <a href="http://github.com/rson/rson.github.com/">Source</a>
+          &copy;2013 rsontech.net &ndash;
+          <a href="http://jekyllrb.com/">Jekyll</a>,
+          <a href="http://github.com/rson/rson.github.com/">source</a>
         </p>
       </footer>
     </div>

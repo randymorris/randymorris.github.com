@@ -12,14 +12,14 @@ most often.  On top of that I was plagued with slowness that just isn't there on
 other platforms.  The good news is I've found a happy medium that works quite
 well for me and this post documents that monster I've created.
 
-## What I wanted
+# What I wanted
 
 My goals for this setup were to make Emacs run on a "remote" machine
 and display on my local Windows install.  I also wanted this to be as
 seamless as possible so that it felt as if I was running a native
 application.  To do this I needed quite a bit of supporting software.
 
-## An Emacs host
+# An Emacs host
 
 I used a Linux host, specifically a VirtualBox VM running a minimal Ubuntu
 server install.  Your host is going to need to have an opensshd and X11
@@ -56,7 +56,7 @@ it is always running whenever I attempt to run Emacs.  The VM is tiny
 so it starts up immediately and I don't worry about powering it off as
 there isn't much to lose on the machine itself.
 
-## PuTTY and friends
+# PuTTY and friends
 
 The [PuTTY][] project is a set of Windows applications that allow you
 to connect to remote machines via a number of protocols.  You can
@@ -71,7 +71,7 @@ pair that will work between the machines.  There are many resources on
 setting up these certificates so I won't go into details here.  Later
 I reference the private key on Windows as "EmacsHostKey.ppk".
 
-## An X11 server
+# An X11 server
 
 In order to have Emacs display on your Windows machine you will need
 to be running an X11 server.  I chose [Cygwin/X][] since I had
@@ -79,7 +79,7 @@ Cygwin installed for other reasons already.  I also chose to launch
 the X server on startup at the same time as my VM, for the same
 reasons.
 
-## Putting it all together
+# Putting it all together
 
 To wrap things up I wrote a couple of scripts to make launching Emacs
 convenient.
@@ -99,7 +99,7 @@ With a running X server and a running VM, double clicking on
 `Emacs.vbs` in an Explorer window will launch emacsclient on the VM
 and display it on the Windows machine..
 
-## What's left?
+# What's left?
 
 One slight annoyance is that pinning Emacs to the taskbar doesn't work
 as expected.  With Cygwin/X, pinning it actually pins an Xwin instance
@@ -117,13 +117,13 @@ found an odd workaround somewhere on the [Emacs Wiki][]:
 After a reboot (or restart of explorer.exe) the pinned Emacs icon
 functions just as any other pinned application.
 
-## The result
+# The result
 
 After following these steps I'm left with is an Emacs that behaves as
 though it is a native Windows application without the slowness or
 incompatibilities I ran into with a native Emacs build.
 
-## Notes
+# Notes
 
 * I haven't done anything new here.  This is the result of smashing
   ideas together that I found through months of searching for

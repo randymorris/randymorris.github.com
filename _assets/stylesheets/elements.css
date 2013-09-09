@@ -1,0 +1,113 @@
+* {
+	font-family:"Open Sans","Dejavu Sans","Bitstream Vera Sans",Helvetica,sans-serif
+}
+
+a {
+	color:#930
+}
+
+a:hover {
+	color:#f60
+}
+
+.rt-heading {
+	font-family:"Pathway Gothic One","Garamond",serif
+}
+
+.rt-title-page {
+	font-size:40px
+}
+
+.rt-title-section {
+	font-size:26px
+}
+
+.rt-title-article-section {
+	font-size:20px
+}
+
+.rt-meta {
+	font-size:12px
+}
+
+.rt-meta>li {
+	padding-left:0;padding-right:5px
+}
+
+.rt-meta>li+li {
+	border-left:1px solid #eee;padding-left:5px
+}
+
+.rt-nav {
+	width:50%;display:inline-block;text-align:right
+}
+
+.rt-brand {
+	width:50%;font-size:60px;display:inline-block;letter-spacing:.05em
+}
+
+.rt-brand>a {
+	color:inherit;text-decoration:none
+}
+
+.rt-brand>a:hover {
+	text-decoration:none;color:inherit
+}
+
+.rt-brand-flair {
+	font-size:.25em;color:#c30
+}
+
+.rt-nav-link>a {
+	padding:15px 5px;color:inherit;text-decoration:none
+}
+
+.rt-nav-link>a:hover {
+	text-decoration:none;color:inherit
+}
+
+.rt-nav-link>.rt-page-indicator {
+	display:block;text-align:center;visibility:hidden;color:#c30
+}
+
+.rt-nav-link.active>.rt-page-indicator {
+	visibility:visible
+}
+
+.rt-nav-link:hover>.rt-page-indicator {
+	color:#f60;visibility:visible
+}
+
+.rt-page-footer {
+	text-align:center;padding:2em 0
+}
+
+.rt-link-more {
+	color:inherit;text-decoration:none;font-weight:bold
+}
+
+.rt-link-more:hover {
+	text-decoration:none;color:inherit
+}
+
+.rt-link-more>i {
+	color:#c30
+}
+
+.rt-article-list-article-link {
+	margin-left:30px;line-height:1.75em
+}
+
+.rt-article-list-tag-links>a {
+	color:#777
+}
+
+article h1,article h2,article h3,article h4,article h5,article h6 {
+	font-family:"Pathway Gothic One","Garamond",serif
+}
+
+article h1 {
+	font-size:20px
+}
+
+

@@ -4,20 +4,24 @@ active_tab: "home"
 post_limit: 5
 ---
 <section>
-  <h1>Recent Articles</h1>
+  <h1 class="rt-heading rt-title-page">Recent Articles</h1>
   {% for post in site.posts limit:page.post_limit %}
   <article class="snippet">
     <header>
-      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <ul class="list-unstyled list-inline meta">
-        <li><time date="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time></li>
-		{% if post.tags %}
-		<li>Tagged: {{ post | tags }}</li>
-		{% endif %}
-	  </ul>
+      <h1><a class="rt-heading rt-title-section" href="{{ post.url }}">{{ post.title }}</a></h1>
+      <ul class="list-unstyled list-inline rt-meta">
+        <li><time date="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time></li><!--
+        {% if post.tags %}
+        --><li>Tagged: {{ post | tags }}</li><!--
+        {% endif %}
+      --></ul>
     </header>
-    {{ post.content | strip_html | truncatewords:100 }}
-	<a href="{{ post.url }}" class="more">more</a>&nbsp;<span>&#x25b6;</span>
+    <p>
+      {{ post.content | strip_html | truncatewords:100 }}
+      <a href="{{ post.url }}" class="rt-link-more">
+        more&nbsp;<i class="icon-caret-right"></i>
+      </a>
+    </p>
   </article>
   {% endfor %}
 
@@ -28,12 +32,3 @@ post_limit: 5
   </footer>
 
 </section>
-<script type="text/javascript">
-var disqus_shortname = 'rsontechnet';
-(function () {
-  var s = document.createElement('script'); s.async = true;
-  s.type = 'text/javascript';
-  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>

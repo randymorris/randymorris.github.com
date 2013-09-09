@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,59 +6,64 @@
 
     <title>Effective Emacs in Windows 7 -  rsontech.net</title>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/rt-5c4b052ad1387e16d2eefc3efad4b219.css">
   </head>
 
   <body>
     <div class="container">
-      <header class="page-header">
-        <h1><a href="/">rsontech<span class="dot">&#x25b2;</span>net</a></h1><!--
-     --><nav>
-          <ul>
-            <li>
-			  <span>&#x25bc;</span>
-			  <a href="/">home</a>
-			</li><!--
-         --><li class="active">
-			  <span>&#x25bc;</span>
-			  <a href="/articles">articles</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/tags">tags</a>
-			</li><!--
-         --><li>
-			  <span>&#x25bc;</span>
-			  <a href="/me">me</a>
-			</li>
+      <header>
+        <h1 class="rt-brand">
+          <a href="/" class="rt-heading">
+			rsontech<span class="rt-brand-flair">&#x25b4;</span>net
+		  </a>
+        </h1><!--
+     --><nav class="rt-nav">
+          <ul class="list-inline">
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/">home</a>
+            </li>
+            <li class="rt-nav-link active">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/articles">articles</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/tags">tags</a>
+            </li>
+            <li class="rt-nav-link ">
+              <i class="rt-page-indicator icon-play icon-rotate-90"></i>
+              <a href="/me">me</a>
+            </li>
           </ul>
         </nav>
       </header>
+
       <section>
-  <article class="full">
-    <header>
-      <h1>Effective Emacs in Windows 7</h1>
-      <ul class="list-unstyled list-inline meta">
+  <article class="rt-article">
+    <header class="rt-article-header">
+      <h1 class="rt-heading rt-title-page">Effective Emacs in Windows 7</h1>
+      <ul class="list-unstyled list-inline rt-meta">
         <li>
 		  <a href="/2013/01/09/effective-emacs-in-windows-7.html" title="Permalink">
 			<time date="2013-01-09 00:00:00 -0500">January 09, 2013</time>
 		  </a>
-		</li>
+		</li><!--
 		
-		<li>Tagged: <a href="/tags/emacs.html" rel="tag">emacs</a>, <a href="/tags/windows.html" rel="tag">windows</a></li>
+		--><li>Tagged: <a href="/tags/emacs.html" rel="tag">emacs</a>, <a href="/tags/windows.html" rel="tag">windows</a></li><!--
 		
-	  </ul>
+	  --></ul>
     </header>
     <p>There are many posts around the web about how to run Emacs in Windows. While many of these suggest building and running a native version of Emacs, many others suggest running the version available through <a href='http://www.cygwin.com/'>Cygwin</a>. I tried both approaches many times but always ran into problems with the packages that I use most often. On top of that I was plagued with slowness that just isn&#8217;t there on other platforms. The good news is I&#8217;ve found a happy medium that works quite well for me and this post documents that monster I&#8217;ve created.</p>
 
-<h2 id='what_i_wanted'>What I wanted</h2>
+<h1 id='what_i_wanted'>What I wanted</h1>
 
 <p>My goals for this setup were to make Emacs run on a &#8220;remote&#8221; machine and display on my local Windows install. I also wanted this to be as seamless as possible so that it felt as if I was running a native application. To do this I needed quite a bit of supporting software.</p>
 
-<h2 id='an_emacs_host'>An Emacs host</h2>
+<h1 id='an_emacs_host'>An Emacs host</h1>
 
 <p>I used a Linux host, specifically a VirtualBox VM running a minimal Ubuntu server install. Your host is going to need to have an opensshd and X11 installed, with X11 forwarding enabled in <code>sshd_config</code>. Anyone reading this guide is probably already very familiar with these steps so I&#8217;ll leave out the details.</p>
 
@@ -79,17 +84,17 @@
 
 <p>I finished off the VM setup by having <code>EmacsHost.vbs</code> run on boot so it is always running whenever I attempt to run Emacs. The VM is tiny so it starts up immediately and I don&#8217;t worry about powering it off as there isn&#8217;t much to lose on the machine itself.</p>
 
-<h2 id='putty_and_friends'>PuTTY and friends</h2>
+<h1 id='putty_and_friends'>PuTTY and friends</h1>
 
 <p>The <a href='http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html'>PuTTY</a> project is a set of Windows applications that allow you to connect to remote machines via a number of protocols. You can download the two specific applications you&#8217;ll need directly but I strongly suggest downloading the installer for simplicity&#8217;s sake. From this project I used <code>PuTTYgen</code> to set up the ssh certificates and <code>plink</code> to make the connection to launch Emacs.</p>
 
 <p>Unfortunately PuTTY&#8217;s certificates are incompatible with openssh and there is some work that needs to be done to make a private/public key pair that will work between the machines. There are many resources on setting up these certificates so I won&#8217;t go into details here. Later I reference the private key on Windows as &#8220;EmacsHostKey.ppk&#8221;.</p>
 
-<h2 id='an_x11_server'>An X11 server</h2>
+<h1 id='an_x11_server'>An X11 server</h1>
 
 <p>In order to have Emacs display on your Windows machine you will need to be running an X11 server. I chose <a href='http://x.cygwin.com/'>Cygwin/X</a> since I had Cygwin installed for other reasons already. I also chose to launch the X server on startup at the same time as my VM, for the same reasons.</p>
 
-<h2 id='putting_it_all_together'>Putting it all together</h2>
+<h1 id='putting_it_all_together'>Putting it all together</h1>
 
 <p>To wrap things up I wrote a couple of scripts to make launching Emacs convenient.</p>
 
@@ -104,7 +109,7 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 
 <p>With a running X server and a running VM, double clicking on <code>Emacs.vbs</code> in an Explorer window will launch emacsclient on the VM and display it on the Windows machine..</p>
 
-<h2 id='whats_left'>What&#8217;s left?</h2>
+<h1 id='whats_left'>What&#8217;s left?</h1>
 
 <p>One slight annoyance is that pinning Emacs to the taskbar doesn&#8217;t work as expected. With Cygwin/X, pinning it actually pins an Xwin instance to the taskbar and clicking this doesn&#8217;t launch Emacs. To fix this I found an odd workaround somewhere on the <a href='http://emacswiki.org/'>Emacs Wiki</a>:</p>
 
@@ -126,11 +131,11 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 
 <p>After a reboot (or restart of explorer.exe) the pinned Emacs icon functions just as any other pinned application.</p>
 
-<h2 id='the_result'>The result</h2>
+<h1 id='the_result'>The result</h1>
 
 <p>After following these steps I&#8217;m left with is an Emacs that behaves as though it is a native Windows application without the slowness or incompatibilities I ran into with a native Emacs build.</p>
 
-<h2 id='notes'>Notes</h2>
+<h1 id='notes'>Notes</h1>
 
 <ul>
 <li>
@@ -151,11 +156,10 @@ plink -l user -X -i c:\path\to\EmacsHostKey.ppk localhost <span class='s2'>&quot
 </ul>
 
 <p>If you have any questions or suggestions on how I could improve either this setup or the guide itself speak up.</p>
-    </footer>
   </article>
 </section>
 
-<div id="disqus_thread"></div>
+<div class="rt-comments" id="disqus_thread"></div>
 <script type="text/javascript">
 var disqus_shortname = 'rsontechnet';
 (function() {
@@ -167,11 +171,12 @@ var disqus_shortname = 'rsontechnet';
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      <footer class="text-muted">
+
+      <footer class="rt-page-footer">
         <p>
-          &copy;2006-2013 rsontech.net &ndash;
-          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
-          <a href="http://github.com/rson/rson.github.com/">Source</a>
+          &copy;2013 rsontech.net &ndash;
+          <a href="http://jekyllrb.com/">Jekyll</a>,
+          <a href="http://github.com/rson/rson.github.com/">source</a>
         </p>
       </footer>
     </div>
