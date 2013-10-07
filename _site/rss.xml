@@ -6,7 +6,30 @@
     <description>All articles on rsontech.net</description>
     <atom:link href="http://rsontech.net/feeds/rss/" rel="self"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Jan 2013 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2013 00:00:00 -0400</lastBuildDate>
+    
+    <item>
+      <title>I Made a Thing</title>
+      <link>http://rsontech.net//2013/10/07/i-made-a-thing.html</link>
+      <description>
+        &lt;p&gt;I wanted to dig into some new (to me) front end web technologies and tools so I made &lt;a href='http://spoolio.bitbucket.org/'&gt;a thing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Have you ever happened across a new library or an interesting blog post and wanted to know what other people think? I seem to do this all the time and finding discussions about a random website isn&amp;#8217;t always as quick as I&amp;#8217;d like. I wanted something that would search both &lt;a href='http://news.ycombinator.org/'&gt;Hacker News&lt;/a&gt; and &lt;a href='http://reddit.com/'&gt;Reddit&lt;/a&gt; for me and give me links to the latest discussions about whatever it is I&amp;#8217;m reading. Now I have it.&lt;/p&gt;
+
+&lt;h2 id='introducting_spoolio'&gt;Introducting Spoolio&lt;/h2&gt;
+
+&lt;p&gt;The whole thing is ridiculously simple. Paste in a url, it returns links to discussions. It does everything in JavaScript and stores the results in localstorage so there is no server portion. This means there is no login, no users, not much of anything really. Unfortunatley using only JavaScript also means that the title shown is just a title from one of the submissions rather than the actual title (damn you security).&lt;/p&gt;
+
+&lt;p&gt;I tried out &lt;a href='http://yeoman.io/'&gt;Yeoman&lt;/a&gt;, &lt;a href='http://gruntjs.com/'&gt;Grunt&lt;/a&gt;, and &lt;a href='http://bower.io/'&gt;Bower&lt;/a&gt; for the first time. Right now I think it&amp;#8217;s a little much for me but if I took a little more time I think I could get more used to it. Don&amp;#8217;t look at the source if you&amp;#8217;re familiar with these tools. I got really lazy and didn&amp;#8217;t finish making things work properly so there are artifacts everywhere.&lt;/p&gt;
+
+&lt;p&gt;One thing I would be interested in is any feedback on the tiny bit of &lt;a href='http://angularjs.org/'&gt;Angular&lt;/a&gt; code. This is my first foray into the wonderful world of JavaScript frameworks as well and at this point it feels a little awkward. I like it, I just feel like I&amp;#8217;m doing something incredibly wrong.&lt;/p&gt;
+
+&lt;p&gt;Either way, &lt;a href='http://spoolio.bitbucket.org/'&gt;give it a try&lt;/a&gt;. I don&amp;#8217;t really expect anyone to use it but it&amp;#8217;s there if it helps anyone.&lt;/p&gt;
+      </description>
+      <author>randy@rsontech.net (Randy Morris)</author>
+      <pubDate>Mon, 07 Oct 2013 00:00:00 -0400</pubDate>
+      <guid>http://rsontech.net//2013/10/07/i-made-a-thing.html</guid>
+    </item>
     
     <item>
       <title>Effective Emacs in Windows 7</title>
@@ -364,23 +387,6 @@ augroup END
       <author>randy@rsontech.net (Randy Morris)</author>
       <pubDate>Wed, 03 Aug 2011 00:00:00 -0400</pubDate>
       <guid>http://rsontech.net//2011/08/03/lowercase-user-defined-commands.html</guid>
-    </item>
-    
-    <item>
-      <title>Poor Man's Fuzzy Finder</title>
-      <link>http://rsontech.net//2011/08/01/poor-mans-fuzzy-finder.html</link>
-      <description>
-        &lt;p&gt;I recently realized I have been using a very simple replacement for the &lt;a href='https://wincent.com/products/command-t'&gt;Command-T&lt;/a&gt;/&lt;a href='https://bitbucket.org/ns9tks/vim-fuzzyfinder/'&gt;Fuzzy Finder&lt;/a&gt; type plugins for quite some time, however I had never made it convenient for myself to do so. Today I pushed a small change to my &lt;code&gt;.vimrc&lt;/code&gt; that I think will make things a little easier for me.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='vim'&gt;&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;ff&lt;/span&gt; :&lt;span class='k'&gt;e&lt;/span&gt; **/*&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;span class='nb'&gt;nnoremap&lt;/span&gt; &lt;span class='p'&gt;&amp;lt;&lt;/span&gt;leader&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;&lt;span class='nb'&gt;fp&lt;/span&gt; :&lt;span class='p'&gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;c&lt;/span&gt;&lt;span class='p'&gt;-&lt;/span&gt;&lt;span class='k'&gt;p&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class='k'&gt;left&lt;/span&gt;&lt;span class='p'&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The first map allows me to quickly search for a file (by partial name) anywhere under the current directory using &lt;code&gt;&amp;lt;leader&amp;gt;ff&lt;/code&gt;. If there are multiple files found that match the glob, vim will throw &lt;code&gt;E77&lt;/code&gt;. If that happens I can use &lt;code&gt;&amp;lt;leader&amp;gt;fp&lt;/code&gt; to load the previous fuzzy-find on the command line with my cursor where it needs to be for me to make the search more specific.&lt;/p&gt;
-
-&lt;p&gt;Obviously this solution is nowhere near as complete as a plugin dedicated to this task, however it&amp;#8217;s as complete as I need it to be.&lt;/p&gt;
-      </description>
-      <author>randy@rsontech.net (Randy Morris)</author>
-      <pubDate>Mon, 01 Aug 2011 00:00:00 -0400</pubDate>
-      <guid>http://rsontech.net//2011/08/01/poor-mans-fuzzy-finder.html</guid>
     </item>
     
   </channel>

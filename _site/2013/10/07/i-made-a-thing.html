@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I Made a Thing -  rsontech.net</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/elements.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/syntax.css">
+    <link href="http://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans:300" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <h1><a href="/">rsontech<span class="dot">.</span>net</a></h1><!--
+     --><nav>
+          <ul>
+            <li>
+			  <a href="/">home</a>
+			</li><!--
+         --><li class="active">
+			  <a href="/articles">articles</a>
+			</li><!--
+         --><li>
+			  <a href="/tags">tags</a>
+			</li><!--
+         --><li>
+			  <a href="/me">me</a>
+			</li>
+          </ul>
+        </nav>
+      </header>
+      <section>
+  <article class="full">
+    <header>
+      <h1>I Made a Thing</h1>
+      <ul class="list-unstyled list-inline meta">
+        <li>
+		  <a href="/2013/10/07/i-made-a-thing.html" title="Permalink">
+			<time date="2013-10-07 00:00:00 -0400">October 07, 2013</time>
+		  </a>
+		</li>
+		
+		<li>Tagged: <a href="/tags/ideas.html" rel="tag">ideas</a></li>
+		
+	  </ul>
+    </header>
+    <p>I wanted to dig into some new (to me) front end web technologies and tools so I made <a href='http://spoolio.bitbucket.org/'>a thing</a>.</p>
+
+<p>Have you ever happened across a new library or an interesting blog post and wanted to know what other people think? I seem to do this all the time and finding discussions about a random website isn&#8217;t always as quick as I&#8217;d like. I wanted something that would search both <a href='http://news.ycombinator.org/'>Hacker News</a> and <a href='http://reddit.com/'>Reddit</a> for me and give me links to the latest discussions about whatever it is I&#8217;m reading. Now I have it.</p>
+
+<h2 id='introducting_spoolio'>Introducting Spoolio</h2>
+
+<p>The whole thing is ridiculously simple. Paste in a url, it returns links to discussions. It does everything in JavaScript and stores the results in localstorage so there is no server portion. This means there is no login, no users, not much of anything really. Unfortunatley using only JavaScript also means that the title shown is just a title from one of the submissions rather than the actual title (damn you security).</p>
+
+<p>I tried out <a href='http://yeoman.io/'>Yeoman</a>, <a href='http://gruntjs.com/'>Grunt</a>, and <a href='http://bower.io/'>Bower</a> for the first time. Right now I think it&#8217;s a little much for me but if I took a little more time I think I could get more used to it. Don&#8217;t look at the source if you&#8217;re familiar with these tools. I got really lazy and didn&#8217;t finish making things work properly so there are artifacts everywhere.</p>
+
+<p>One thing I would be interested in is any feedback on the tiny bit of <a href='http://angularjs.org/'>Angular</a> code. This is my first foray into the wonderful world of JavaScript frameworks as well and at this point it feels a little awkward. I like it, I just feel like I&#8217;m doing something incredibly wrong.</p>
+
+<p>Either way, <a href='http://spoolio.bitbucket.org/'>give it a try</a>. I don&#8217;t really expect anyone to use it but it&#8217;s there if it helps anyone.</p>
+    </footer>
+  </article>
+</section>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'rsontechnet';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer class="text-muted">
+        <p>
+          &copy;2006-2013 rsontech.net &ndash;
+          Powered by <a href="http://jekyllrb.com/">Jekyll</a> &ndash;
+          <a href="http://github.com/rson/rson.github.com/">Source</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
