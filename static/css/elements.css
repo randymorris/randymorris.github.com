@@ -101,21 +101,13 @@ h4 {
 	margin-right: 30px;
 }
 
-.page-header li > span {
-	display: block;
-	visibility: hidden;
-	text-align: center;
+.page-header li:hover,
+.page-header li.active:hover {
+    border-bottom: 2px solid #f60;
 }
 
-.page-header li:hover > span,
-.page-header li.active:hover > span {
-	visibility: visible;
-	color: #f60;
-}
-
-.page-header li.active > span {
-	visibility: visible;
-	color: #c30;
+.page-header li.active {
+    border-bottom: 2px solid #c30;
 }
 
 .page-header li > a {
@@ -218,12 +210,10 @@ footer {
 
 .dot {
 	color: #c30;
-	font-size: .2em;
 }
 
-.more, .more:visited {
+.more {
     font-family: "Pathway Gothic One", "Garamond", serif;
-	color: inherit;
 }
 
 .more + span {
