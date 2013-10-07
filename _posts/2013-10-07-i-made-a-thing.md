@@ -41,7 +41,7 @@ Either way, [give it a try][0].  I don't really expect anyone to use
 it but it's there if it helps anyone.
 
 [0]: http://spoolio.bitbucket.org/
-[1]: http://news.ycombinator.org/
+[1]: http://news.ycombinator.com/
 [2]: http://reddit.com/
 [3]: http://yeoman.io/
 [4]: http://gruntjs.com/
